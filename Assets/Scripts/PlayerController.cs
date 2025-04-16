@@ -158,14 +158,15 @@ public class PlayerController : MonoBehaviour
         _camForward = _cameraTransform.forward;
         _camRight = _cameraTransform.right;
     }
-
+    
     private void LookAround()
     {
         _yRotation += _lookDirection.x * _lookSensitivity;
         _xRotation -= _lookDirection.y * _lookSensitivity;
         // So that the camera can't backflip
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
-        _cameraTransform.localRotation = Quaternion.Euler(_xRotation,_yRotation,0);
+        transform.rotation = Quaternion.Euler(0, _yRotation, 0);
+        _cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
     }
     
     private void MovePlayer()
