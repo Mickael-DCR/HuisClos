@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.ComponentModel;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,20 +11,21 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header ("Input")]
+    [Header ("Input")] 
     private InputSystem_Actions _inputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _jumpAction, _interactAction;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]
-    [SerializeField] private float _speed, _jumpForce;
-    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private float _speed;
     [SerializeField] private LayerMask _groundLayer;
     private Rigidbody _playerRB;
-    private bool _isGrounded;
-    
-    [Header("Crouch Settings")]
-    [SerializeField] private float _crouchHeight = 1f, _standingHeight = 2f, _crouchCamOffset = -0.5f, _crouchDuration = 0.15f;
+
+    [Header("Crouch Settings")] 
+    [SerializeField] private float _crouchHeight = 1f;
+    [SerializeField] private float _standingHeight = 2f;
+    [SerializeField] private float _crouchCamOffset = -0.5f;
+    [SerializeField] private float _crouchDuration = 0.15f;
     private Coroutine _crouchRoutine;
     private CapsuleCollider _capsuleCollider;
     private bool _isCrouching;
@@ -35,9 +37,6 @@ public class PlayerController : MonoBehaviour
     private float _xRotation, _yRotation, _lookAngle;
     private Vector3 _camForward, _camRight;
     
-    
-    
-
     private void Awake()
     {
         _inputSystemActions = new InputSystem_Actions();
@@ -50,10 +49,10 @@ public class PlayerController : MonoBehaviour
     {
         _movementAction = _inputSystemActions.Player.Move;
         _movementAction.Enable();
+        
         _lookAction = _inputSystemActions.Player.Look;
         _lookAction.Enable();
-        _inputSystemActions.Player.Jump.performed +=  JustJumpAlready;
-        _inputSystemActions.Player.Jump.Enable();
+        
         _crouchAction = _inputSystemActions.Player.Crouch;
         _crouchAction.Enable();
         _crouchAction.performed += StartCrouch;
@@ -64,7 +63,6 @@ public class PlayerController : MonoBehaviour
     {
         _movementAction.Disable();
         _lookAction.Disable();
-        _inputSystemActions.Player.Jump.Disable();
         _crouchAction.Disable();
     }
 
@@ -85,11 +83,7 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
     }
     
-    private void JustJumpAlready(InputAction.CallbackContext context) // OnJump() already used
-    {
-        if(_isGrounded)
-            _playerRB.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-    }
+    
     private void StartCrouch(InputAction.CallbackContext context)
     {
         if (_isCrouching) return;
@@ -144,20 +138,23 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        // Final snap (avoid drift)
+        // Final snap (avoids drift)
         _capsuleCollider.height = toHeight;
         transform.position = toPos;
         _cameraTransform.localPosition = camTo;
     }
+
+    
     
     private void InputResfresher()
     {
-        _isGrounded = Physics.Raycast(_groundCheck.position, Vector3.down, 0.1f, _groundLayer);
         _moveDirection = _movementAction.ReadValue<Vector2>();
         _lookDirection = _lookAction.ReadValue<Vector2>();
         _camForward = _cameraTransform.forward;
         _camRight = _cameraTransform.right;
     }
+    
+    
     
     private void LookAround()
     {
