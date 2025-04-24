@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject _inventoryWindow;
     private InputAction _toggleInventoryAction;
     private InputSystem_Actions _inputSystemActions;
+    public List<Collectible> items;
     private void Awake()
     {
         _inputSystemActions= new InputSystem_Actions();
@@ -31,4 +33,8 @@ public class InventoryManager : MonoBehaviour
     }
     
     
+    public void AddItem(Item item)
+    {
+       // items.Add());
+    }
 }

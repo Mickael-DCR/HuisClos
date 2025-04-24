@@ -3,8 +3,5 @@ using UnityEngine;
 
 public class Collectible : Prop
 {
-    public override void Interact()
-    {
-        
-    }
+    public Item item;
 }

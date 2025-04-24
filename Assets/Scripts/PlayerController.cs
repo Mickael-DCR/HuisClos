@@ -5,6 +5,7 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header ("Input")] 
     private InputSystem_Actions _inputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]
@@ -37,6 +38,12 @@ public class PlayerController : MonoBehaviour
     private float _xRotation, _yRotation, _lookAngle;
     private Vector3 _camForward, _camRight;
     
+    
+    [Header ("Interaction Settings")]
+    [SerializeField] private float _interactionRange = 3f;
+    [SerializeField] private LayerMask _pickupLayer;
+    [SerializeField] private InventoryManager _inventory;
+    
     private void Awake()
     {
         _inputSystemActions = new InputSystem_Actions();
@@ -57,6 +64,10 @@ public class PlayerController : MonoBehaviour
         _crouchAction.Enable();
         _crouchAction.performed += StartCrouch;
         _crouchAction.canceled += StopCrouch;
+        
+        _interactAction = _inputSystemActions.Player.Interact;
+        _interactAction.Enable();
+        _interactAction.performed += Interact;
     }
 
     private void OnDisable()
@@ -64,6 +75,7 @@ public class PlayerController : MonoBehaviour
         _movementAction.Disable();
         _lookAction.Disable();
         _crouchAction.Disable();
+        _interactAction.Disable();
     }
 
     private void Start()
@@ -76,6 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         InputResfresher();
         LookAround();
+        Debug.DrawRay(_cameraTransform.position, _cameraTransform.forward * _interactionRange, Color.red);
     }
 
     private void FixedUpdate()
@@ -105,8 +118,8 @@ public class PlayerController : MonoBehaviour
         if (!_isCrouching) return;
 
         Vector3 origin = transform.position + Vector3.up * _crouchHeight;
-        if (Physics.Raycast(origin, Vector3.up, _standingHeight - _crouchHeight, _groundLayer)) return;
-
+        if (Physics.Raycast(origin, Vector3.up, _standingHeight - _crouchHeight)) return;
+        
         _isCrouching = false;
 
         if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
@@ -180,5 +193,21 @@ public class PlayerController : MonoBehaviour
     move.y = _playerRB.linearVelocity.y; 
     _playerRB.linearVelocity = move;
     }
+
+    private void Interact(InputAction.CallbackContext context)
+    {
+        Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _pickupLayer))
+        {
+            var pickup = hit.collider.GetComponent<Collectible>();
+            if (pickup != null)
+            {
+                _inventory.AddItem(pickup.item);
+                Debug.Log("Interact");
+                Destroy(hit.collider.gameObject);
+            }
+        }
+    }
+      
     
 }
