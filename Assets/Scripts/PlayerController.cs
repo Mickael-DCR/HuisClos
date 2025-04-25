@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Player Movement")]
     [SerializeField] private float _speed;
-    [SerializeField] private LayerMask _groundLayer;
+    
     private Rigidbody _playerRB;
 
     [Header("Crouch Settings")] 
@@ -27,9 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _standingHeight = 2f;
     [SerializeField] private float _crouchCamOffset = -0.5f;
     [SerializeField] private float _crouchDuration = 0.15f;
+    [SerializeField] private float _crouchSpeed = 0.15f;
+    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private Transform _groundCheck;
     private Coroutine _crouchRoutine;
     private CapsuleCollider _capsuleCollider;
-    private bool _isCrouching;
+    private bool _isCrouching, _isGrounded;
     private Vector3 _originalCameraLocalPosition;
     
     [Header ("Camera Movement")]
@@ -88,7 +91,13 @@ public class PlayerController : MonoBehaviour
     {
         InputResfresher();
         LookAround();
+        AutoStandUp();
+        
+        // Debugs
         Debug.DrawRay(_cameraTransform.position, _cameraTransform.forward * _interactionRange, Color.red);
+        Debug.DrawRay(transform.position, _cameraTransform.up * _crouchHeight, Color.green);
+        
+        
     }
 
     private void FixedUpdate()
@@ -99,7 +108,7 @@ public class PlayerController : MonoBehaviour
     
     private void StartCrouch(InputAction.CallbackContext context)
     {
-        if (_isCrouching) return;
+        if (_isCrouching || !_isGrounded) return;
         _isCrouching = true;
 
         if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
@@ -112,13 +121,12 @@ public class PlayerController : MonoBehaviour
             _originalCameraLocalPosition + new Vector3(0, _crouchCamOffset, 0)
         ));
     }
-
+    
     private void StopCrouch(InputAction.CallbackContext context)
     {
         if (!_isCrouching) return;
-
-        Vector3 origin = transform.position + Vector3.up * _crouchHeight;
-        if (Physics.Raycast(origin, Vector3.up, _standingHeight - _crouchHeight)) return;
+        // roof check
+        if (Physics.Raycast(transform.position, Vector3.up, _standingHeight - _crouchHeight)) return;
         
         _isCrouching = false;
 
@@ -132,7 +140,24 @@ public class PlayerController : MonoBehaviour
             _originalCameraLocalPosition
         ));
     }
-    
+
+    private void AutoStandUp()
+    {
+        if(_isCrouching && !_crouchAction.IsInProgress() && !Physics.Raycast(transform.position, Vector3.up, _standingHeight - _crouchHeight))
+        {
+            _isCrouching = false;
+
+            if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
+            _crouchRoutine = StartCoroutine(CrouchLerpRoutine(
+                _capsuleCollider.height,
+                _standingHeight,
+                transform.position,
+                transform.position + Vector3.up * ((_standingHeight - _crouchHeight) / 2f),
+                _cameraTransform.localPosition,
+                _originalCameraLocalPosition
+            ));
+        }
+    }
     private IEnumerator CrouchLerpRoutine(
         float fromHeight, float toHeight,
         Vector3 fromPos, Vector3 toPos,
@@ -165,8 +190,8 @@ public class PlayerController : MonoBehaviour
         _lookDirection = _lookAction.ReadValue<Vector2>();
         _camForward = _cameraTransform.forward;
         _camRight = _cameraTransform.right;
+        _isGrounded=Physics.Raycast(_groundCheck.position, -_groundCheck.up, 0.1f);
     }
-    
     
     
     private void LookAround()
@@ -188,7 +213,7 @@ public class PlayerController : MonoBehaviour
     _camForward.Normalize();
     _camRight.Normalize();
     Vector3 move = (_camForward * _moveDirection.y + _camRight * _moveDirection.x);
-    move *= _speed;
+    move *= !_isCrouching ? _speed : _crouchSpeed;
     //Allows Jumping
     move.y = _playerRB.linearVelocity.y; 
     _playerRB.linearVelocity = move;
@@ -197,12 +222,15 @@ public class PlayerController : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
         Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
+        
+        //For Collectible Objects
         if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _pickupLayer))
         {
             var pickup = hit.collider.GetComponent<Collectible>();
             if (pickup != null)
             {
                 _inventory.AddItem(pickup.item);
+                //Debug
                 Debug.Log("Interact");
                 Destroy(hit.collider.gameObject);
             }
