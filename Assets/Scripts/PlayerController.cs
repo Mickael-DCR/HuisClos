@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
         _openInventoryAction.performed += OpenInventoryWindow;
         
         _closeInventoryAction = _inputSystemActions.UI.CloseInventory;
-        _closeInventoryAction.Enable();
         _closeInventoryAction.performed += CloseInventoryWindow;
     }
 
