@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Player Movement")]
     [SerializeField] private float _speed;
-    
     private Rigidbody _playerRB;
 
     [Header("Crouch Settings")] 
@@ -41,6 +40,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _interactionRange = 3f;
     [SerializeField] private LayerMask _pickupLayer;
     
+    [Header ("Interaction Settings")]
+    [SerializeField] private GameObject _crosshair;
     
     
     private void Awake()
@@ -73,7 +74,6 @@ public class PlayerController : MonoBehaviour
         _openInventoryAction.performed += OpenInventoryWindow;
         
         _closeInventoryAction = _inputSystemActions.UI.CloseInventory;
-        _closeInventoryAction.Enable();
         _closeInventoryAction.performed += CloseInventoryWindow;
     }
 
@@ -247,6 +247,7 @@ public class PlayerController : MonoBehaviour
     private void CloseInventoryWindow(InputAction.CallbackContext context)
     {
         InventoryManager.Instance.InventoryWindow.SetActive(false);
+        _crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         // Input changes
@@ -257,6 +258,7 @@ public class PlayerController : MonoBehaviour
     private void OpenInventoryWindow(InputAction.CallbackContext context)
     {
         InventoryManager.Instance.InventoryWindow.SetActive(true); // Opens Inventory
+        _crosshair.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         // Input changes
