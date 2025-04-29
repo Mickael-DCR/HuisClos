@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
         _lookDirection = _lookAction.ReadValue<Vector2>();
         _camForward = _cameraTransform.forward;
         _camRight = _cameraTransform.right;
-        _isGrounded=Physics.Raycast(_groundCheck.position, -_groundCheck.up, 0.1f);
+        //_isGrounded=Physics.Raycast(_groundCheck.position, -_groundCheck.up, 0.1f);
     }
     
     
