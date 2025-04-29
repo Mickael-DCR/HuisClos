@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class Prop : MonoBehaviour
 {
-    [SerializeField] protected GameObject _propPrefab;
-    [SerializeField] protected string _propName;
-    
-
-    private void OnHover()
+    protected void OnHoverEnter()
     {
         
     }
 
-    public virtual void Interact()
+    protected void OnHoverExit()
     {
         
+    }
+
+    public virtual bool Interact()
+    {
+        return false;
     }
 }

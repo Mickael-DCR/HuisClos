@@ -1,40 +1,40 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _inventoryWindow;
-    private InputAction _toggleInventoryAction;
-    private InputSystem_Actions _inputSystemActions;
-    public List<Collectible> items;
+    public static InventoryManager Instance;
+    public GameObject InventoryWindow;
+    [SerializeField] private InventorySlot[] inventorySlots;
     private void Awake()
     {
-        _inputSystemActions= new InputSystem_Actions();
-    }
-
-    private void OnEnable()
-    {
-        _toggleInventoryAction = _inputSystemActions.Player.ToggleInventory;
-        _toggleInventoryAction.Enable();
-        _toggleInventoryAction.performed += ToggleInventory;
-    }
-
-    private void OnDisable()
-    {
-        _toggleInventoryAction.Disable();
-    }
-
-    private void ToggleInventory(InputAction.CallbackContext context)
-    {
-        if (_inventoryWindow.activeInHierarchy) _inventoryWindow.SetActive(false);
-        else _inventoryWindow.SetActive(true);
+        if(Instance == null)Instance = this;
     }
     
-    
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
-       // items.Add());
+        //Looks for an empty slot
+        foreach (var slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot == null)
+            {
+                SpawnNewItem(item, slot);
+                return true; // item added
+            }
+        }
+
+        return false; // no space in inventory
+    }
+
+    
+    
+    void SpawnNewItem(Item item, InventorySlot slot)
+    {
+        GameObject newItemGObject = Instantiate(item.ItemPrefabUI, slot.transform); 
+        InventoryItem inventoryItem = newItemGObject.GetComponent<InventoryItem>();
+        inventoryItem.InitialiseItem(item);
     }
 }

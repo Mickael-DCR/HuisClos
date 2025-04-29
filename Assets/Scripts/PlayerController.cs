@@ -1,11 +1,6 @@
-using System;
 using System.Collections;
-using System.ComponentModel;
-using System.Numerics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -14,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header ("Input")] 
     private InputSystem_Actions _inputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]
@@ -45,7 +40,8 @@ public class PlayerController : MonoBehaviour
     [Header ("Interaction Settings")]
     [SerializeField] private float _interactionRange = 3f;
     [SerializeField] private LayerMask _pickupLayer;
-    [SerializeField] private InventoryManager _inventory;
+    
+    
     
     private void Awake()
     {
@@ -71,6 +67,14 @@ public class PlayerController : MonoBehaviour
         _interactAction = _inputSystemActions.Player.Interact;
         _interactAction.Enable();
         _interactAction.performed += Interact;
+        
+        _openInventoryAction = _inputSystemActions.Player.OpenInventory;
+        _openInventoryAction.Enable();
+        _openInventoryAction.performed += OpenInventoryWindow;
+        
+        _closeInventoryAction = _inputSystemActions.UI.CloseInventory;
+        _closeInventoryAction.Enable();
+        _closeInventoryAction.performed += CloseInventoryWindow;
     }
 
     private void OnDisable()
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour
         _lookAction.Disable();
         _crouchAction.Disable();
         _interactAction.Disable();
+        _openInventoryAction.Disable();
     }
 
     private void Start()
@@ -229,13 +234,33 @@ public class PlayerController : MonoBehaviour
             var pickup = hit.collider.GetComponent<Collectible>();
             if (pickup != null)
             {
-                _inventory.AddItem(pickup.item);
-                //Debug
-                Debug.Log("Interact");
-                Destroy(hit.collider.gameObject);
+                if (pickup.Interact())
+                {
+                    //Debug
+                    Debug.Log("Interact");
+                    Destroy(hit.collider.gameObject);
+                }
             }
         }
     }
-      
-    
+
+    private void CloseInventoryWindow(InputAction.CallbackContext context)
+    {
+        InventoryManager.Instance.InventoryWindow.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        // Input changes
+        _inputSystemActions.UI.Disable();
+        _inputSystemActions.Player.Enable();
+    }
+
+    private void OpenInventoryWindow(InputAction.CallbackContext context)
+    {
+        InventoryManager.Instance.InventoryWindow.SetActive(true); // Opens Inventory
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        // Input changes
+        _inputSystemActions.Player.Disable();
+        _inputSystemActions.UI.Enable();
+    }
 }
