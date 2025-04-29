@@ -1,11 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
-    public Item Item;
+    private Item Item;
+    [SerializeField] private Image _icon;
 
-    public InventoryItem(Item item, int quantity)
+    public void InitialiseItem(Item item)
     {
         Item = item;
+        _icon.sprite = item.Icon;
+    }
+
+    void Start()
+    {
+        InitialiseItem(Item);
     }
 }
