@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     
     private void StartCrouch(InputAction.CallbackContext context)
     {
-        if (_isCrouching || !_isGrounded)
+        if (_isCrouching && !_isGrounded)
         {
             // roof check
             if (Physics.Raycast(transform.position, _cameraTransform.up * _crouchHeight, _standingHeight - _crouchHeight)) return;
