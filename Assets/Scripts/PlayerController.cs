@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,7 +15,6 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Player Movement")]
     [SerializeField] private float _speed;
-    
     private Rigidbody _playerRB;
 
     [Header("Crouch Settings")] 
@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _interactionRange = 3f;
     [SerializeField] private LayerMask _pickupLayer;
     
+    [Header ("Interaction Settings")]
+    [SerializeField] private GameObject _crosshair;
     
     
     private void Awake()
@@ -62,7 +64,6 @@ public class PlayerController : MonoBehaviour
         _crouchAction = _inputSystemActions.Player.Crouch;
         _crouchAction.Enable();
         _crouchAction.performed += StartCrouch;
-        _crouchAction.canceled += StopCrouch;
         
         _interactAction = _inputSystemActions.Player.Interact;
         _interactAction.Enable();
@@ -95,14 +96,13 @@ public class PlayerController : MonoBehaviour
     {
         InputResfresher();
         LookAround();
-        AutoStandUp();
         
         // Debugs
         Debug.DrawRay(_cameraTransform.position, _cameraTransform.forward * _interactionRange, Color.red);
-        Debug.DrawRay(transform.position, _cameraTransform.up * _crouchHeight, Color.green);
-        
+        Debug.DrawRay(transform.position, Vector3.up * _crouchHeight, Color.green);
         
     }
+    
 
     private void FixedUpdate()
     {
@@ -112,43 +112,11 @@ public class PlayerController : MonoBehaviour
     
     private void StartCrouch(InputAction.CallbackContext context)
     {
-        if (_isCrouching || !_isGrounded) return;
-        _isCrouching = true;
-
-        if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
-        _crouchRoutine = StartCoroutine(CrouchLerpRoutine(
-            _capsuleCollider.height,
-            _crouchHeight,
-            transform.position,
-            transform.position - Vector3.up * ((_standingHeight - _crouchHeight) / 2f),
-            _cameraTransform.localPosition,
-            _originalCameraLocalPosition + new Vector3(0, _crouchCamOffset, 0)
-        ));
-    }
-    
-    private void StopCrouch(InputAction.CallbackContext context)
-    {
-        if (!_isCrouching) return;
-        // roof check
-        if (Physics.Raycast(transform.position, Vector3.up, _standingHeight - _crouchHeight)) return;
-        
-        _isCrouching = false;
-
-        if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
-        _crouchRoutine = StartCoroutine(CrouchLerpRoutine(
-            _capsuleCollider.height,
-            _standingHeight,
-            transform.position,
-            transform.position + Vector3.up * ((_standingHeight - _crouchHeight) / 2f),
-            _cameraTransform.localPosition,
-            _originalCameraLocalPosition
-        ));
-    }
-
-    private void AutoStandUp()
-    {
-        if(_isCrouching && !_crouchAction.IsInProgress() && !Physics.Raycast(transform.position, Vector3.up, _standingHeight - _crouchHeight))
+        if (_isCrouching || !_isGrounded)
         {
+            // roof check
+            if (Physics.Raycast(transform.position, _cameraTransform.up * _crouchHeight, _standingHeight - _crouchHeight)) return;
+        
             _isCrouching = false;
 
             if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
@@ -161,7 +129,22 @@ public class PlayerController : MonoBehaviour
                 _originalCameraLocalPosition
             ));
         }
+        else
+        {
+            _isCrouching = true;
+
+            if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);
+            _crouchRoutine = StartCoroutine(CrouchLerpRoutine(
+                _capsuleCollider.height,
+                _crouchHeight,
+                transform.position,
+                transform.position - Vector3.up * ((_standingHeight - _crouchHeight) / 2f),
+                _cameraTransform.localPosition,
+                _originalCameraLocalPosition + new Vector3(0, _crouchCamOffset, 0)
+            ));
+        }
     }
+    
     private IEnumerator CrouchLerpRoutine(
         float fromHeight, float toHeight,
         Vector3 fromPos, Vector3 toPos,
@@ -185,8 +168,6 @@ public class PlayerController : MonoBehaviour
         transform.position = toPos;
         _cameraTransform.localPosition = camTo;
     }
-
-    
     
     private void InputResfresher()
     {
@@ -246,8 +227,8 @@ public class PlayerController : MonoBehaviour
     private void CloseInventoryWindow(InputAction.CallbackContext context)
     {
         InventoryManager.Instance.InventoryWindow.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        _crosshair.SetActive(true);
+        UIManager.Instance.ToggleCursor();
         // Input changes
         _inputSystemActions.UI.Disable();
         _inputSystemActions.Player.Enable();
@@ -256,10 +237,12 @@ public class PlayerController : MonoBehaviour
     private void OpenInventoryWindow(InputAction.CallbackContext context)
     {
         InventoryManager.Instance.InventoryWindow.SetActive(true); // Opens Inventory
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        _crosshair.SetActive(false);
+        UIManager.Instance.ToggleCursor();
         // Input changes
         _inputSystemActions.Player.Disable();
         _inputSystemActions.UI.Enable();
     }
+
+    
 }
