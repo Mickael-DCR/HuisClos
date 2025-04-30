@@ -24,10 +24,17 @@ public class PauseMenu : MonoBehaviour
         _inputAction.UI.Disable();
     }
 
-    void TogglePause()
+    public void TogglePause()
     {
+        //Debug.Log("ça marche");
         isPaused = !isPaused;
         PauseWindow.SetActive(isPaused);
         Time.timeScale = isPaused ? 0.0f : 1.0f;
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Exit Game");
+        Application.Quit();
     }
 }
