@@ -5571,6 +5571,10 @@ PrefabInstance:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3044479573496509420, guid: 95650d4fafdff954f8d2c39a0c2b7ff7, type: 3}
+      propertyPath: _crosshair
+      value: 
+      objectReference: {fileID: 1679743707}
+    - target: {fileID: 3044479573496509420, guid: 95650d4fafdff954f8d2c39a0c2b7ff7, type: 3}
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 310597210}
