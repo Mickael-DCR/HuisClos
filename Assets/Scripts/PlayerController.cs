@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (!_isGrounded) return;
             _isCrouching = true;
 
             if (_crouchRoutine != null) StopCoroutine(_crouchRoutine);

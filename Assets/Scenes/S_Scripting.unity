@@ -4147,6 +4147,10 @@ PrefabInstance:
       propertyPath: _crouchCamOffset
       value: -0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 3044479573496509420, guid: 95650d4fafdff954f8d2c39a0c2b7ff7, type: 3}
+      propertyPath: _interactionRange
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4763569761344317158, guid: 95650d4fafdff954f8d2c39a0c2b7ff7, type: 3}
       propertyPath: m_Radius
       value: 0.48

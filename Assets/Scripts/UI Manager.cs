@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -6,9 +7,9 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if(Instance == null)Instance = this;
     }
-    
+
     public void ToggleCursor()
     {
         if (Cursor.lockState == CursorLockMode.Locked)
