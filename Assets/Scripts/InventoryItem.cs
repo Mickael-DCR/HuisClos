@@ -6,6 +6,7 @@ public class InventoryItem : MonoBehaviour
 {
     private Item _item;
     [SerializeField] private Image _icon;
+    private ItemInspector _inspector;
 
 
     public void InitialiseItem(Item item)
@@ -17,9 +18,10 @@ public class InventoryItem : MonoBehaviour
     void Start()
     {
         InitialiseItem(_item);
+        _inspector = ItemInspector.Instance;
     }
 
-    public void EquipItem()
+    public void EquipItem() // primary action 
     {
         var playerHand = InventoryManager.Instance.HandSlot;
         if (playerHand.childCount > 0)
@@ -29,8 +31,13 @@ public class InventoryItem : MonoBehaviour
         Instantiate(_item.ItemPrefab3D, playerHand);
     }
 
-    public void InspectItem()
+    public void InspectItem() //secondary action
     {
-        
+        _inspector.InspectWindow.SetActive(true);
+        if (_inspector.InspectSlot.childCount > 0)
+        {
+            Destroy(_inspector.InspectSlot.GetChild(0).gameObject);
+        }
+        Instantiate(_item.ItemPrefab3D, _inspector.InspectSlot);
     }
 }
