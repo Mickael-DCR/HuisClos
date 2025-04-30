@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     public GameObject InventoryWindow;
     [SerializeField] private InventorySlot[] inventorySlots;
+    public Transform HandSlot;
     private void Awake()
     {
         if(Instance == null)Instance = this;
@@ -37,4 +38,6 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGObject.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
     }
+    
+    
 }
