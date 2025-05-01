@@ -40,9 +40,8 @@ public class PlayerController : MonoBehaviour
     [Header ("Interaction Settings")]
     [SerializeField] private float _interactionRange = 3f;
     [SerializeField] private LayerMask _pickupLayer;
-    
-    [Header ("Interaction Settings")]
     [SerializeField] private GameObject _crosshair;
+    private bool _isRayCastHitting;
     
     
     private void Awake()
@@ -212,18 +211,19 @@ public class PlayerController : MonoBehaviour
         //For Collectible Objects
         if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _pickupLayer))
         {
+            
             var pickup = hit.collider.GetComponent<Collectible>();
             if (pickup != null)
             {
                 if (pickup.Interact())
                 {
-                    //Debug
-                    Debug.Log("Interact");
                     Destroy(hit.collider.gameObject);
                 }
             }
         }
     }
+    
+    
 
     private void CloseInventoryWindow(InputAction.CallbackContext context)
     {
@@ -244,6 +244,4 @@ public class PlayerController : MonoBehaviour
         _inputSystemActions.Player.Disable();
         _inputSystemActions.UI.Enable();
     }
-
-    
 }
