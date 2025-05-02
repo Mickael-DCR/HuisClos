@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 26311189}
   - component: {fileID: 26311188}
   - component: {fileID: 26311187}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 608659192}
   - component: {fileID: 608659191}
   - component: {fileID: 608659190}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Directional Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4074,7 +4074,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2027286302}
   - component: {fileID: 2027286301}
-  - component: {fileID: 2027286300}
   - component: {fileID: 2027286299}
   m_Layer: 7
   m_Name: Inspect Camera
@@ -4127,14 +4126,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &2027286300
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027286297}
-  m_Enabled: 1
 --- !u!20 &2027286301
 Camera:
   m_ObjectHideFlags: 0
