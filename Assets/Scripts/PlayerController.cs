@@ -9,7 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class PlayerController : MonoBehaviour
 {
     [Header ("Input")] 
-    private InputSystem_Actions _inputSystemActions;
+    public static InputSystem_Actions InputSystemActions;
     private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction;
     private Vector2 _moveDirection, _lookDirection;
     
@@ -39,14 +39,13 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Interaction Settings")]
     [SerializeField] private float _interactionRange = 3f;
-    [SerializeField] private LayerMask _pickupLayer,_propLayer;
-    [SerializeField] private GameObject _crosshair;
+    [SerializeField] private LayerMask _pickupLayer,_propLayer, _tooltipLayer;
     private bool _isRayCastHitting;
     
     
     private void Awake()
     {
-        _inputSystemActions = new InputSystem_Actions();
+        InputSystemActions = new InputSystem_Actions();
         _playerRB = GetComponent<Rigidbody>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
         _originalCameraLocalPosition = _cameraTransform.localPosition;
@@ -54,25 +53,25 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _movementAction = _inputSystemActions.Player.Move;
+        _movementAction = InputSystemActions.Player.Move;
         _movementAction.Enable();
         
-        _lookAction = _inputSystemActions.Player.Look;
+        _lookAction = InputSystemActions.Player.Look;
         _lookAction.Enable();
         
-        _crouchAction = _inputSystemActions.Player.Crouch;
+        _crouchAction = InputSystemActions.Player.Crouch;
         _crouchAction.Enable();
         _crouchAction.performed += StartCrouch;
         
-        _interactAction = _inputSystemActions.Player.Interact;
+        _interactAction = InputSystemActions.Player.Interact;
         _interactAction.Enable();
         _interactAction.performed += Interact;
         
-        _openInventoryAction = _inputSystemActions.Player.OpenInventory;
+        _openInventoryAction = InputSystemActions.Player.OpenInventory;
         _openInventoryAction.Enable();
         _openInventoryAction.performed += OpenInventoryWindow;
         
-        _closeInventoryAction = _inputSystemActions.UI.CloseInventory;
+        _closeInventoryAction = InputSystemActions.UI.CloseInventory;
         _closeInventoryAction.performed += CloseInventoryWindow;
     }
 
@@ -225,6 +224,7 @@ public class PlayerController : MonoBehaviour
         // for props
         else if (Physics.Raycast(ray, out RaycastHit hit2, _interactionRange, _propLayer))
         {
+            hit2.collider.GetComponent<Prop>().ReceiveItem();
             hit2.collider.SendMessage("Interact");
         }
     }
@@ -233,21 +233,40 @@ public class PlayerController : MonoBehaviour
 
     private void CloseInventoryWindow(InputAction.CallbackContext context)
     {
+        if (!InventoryManager.Instance.InventoryWindow.activeInHierarchy) return;
+        /*
+         if (ItemInspector.Instance.InspectWindow.activeInHierarchy)
+        {
+            ItemInspector.Instance.InspectWindow.SetActive(false);
+            return;
+        }
+        */
         InventoryManager.Instance.InventoryWindow.SetActive(false);
-        _crosshair.SetActive(true);
         UIManager.Instance.ToggleCursor();
         // Input changes
-        _inputSystemActions.UI.Disable();
-        _inputSystemActions.Player.Enable();
+        InputSystemActions.UI.Disable();
+        InputSystemActions.Player.Enable();
     }
 
     private void OpenInventoryWindow(InputAction.CallbackContext context)
     {
         InventoryManager.Instance.InventoryWindow.SetActive(true); // Opens Inventory
-        _crosshair.SetActive(false);
         UIManager.Instance.ToggleCursor();
         // Input changes
-        _inputSystemActions.Player.Disable();
-        _inputSystemActions.UI.Enable();
+        InputSystemActions.Player.Disable();
+        InputSystemActions.UI.Enable();
+    }
+
+    private void ToolTip()
+    {
+        Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _tooltipLayer))
+        {
+            // display tool tip
+        }
+        else
+        {
+            // hide tooltip
+        }
     }
 }

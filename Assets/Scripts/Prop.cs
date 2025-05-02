@@ -16,4 +16,9 @@ public class Prop : MonoBehaviour
     {
         return false;
     }
+
+    public virtual void ReceiveItem()
+    {
+        
+    }
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8bc307564b3dc4a8e38d462173cb69, type: 3}
+  m_Name: ConstellationPiece
+  m_EditorClassIdentifier: 
+  ItemPrefab3D: {fileID: 6265195197568091, guid: bcc638bde8e69f14d8ed21a122e00d50, type: 3}
+  ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
+  Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
