@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Interaction Settings")]
     [SerializeField] private float _interactionRange = 3f;
-    [SerializeField] private LayerMask _pickupLayer;
+    [SerializeField] private LayerMask _pickupLayer, _pivotLayer;
     [SerializeField] private GameObject _crosshair;
     private bool _isRayCastHitting;
     
@@ -219,6 +219,15 @@ public class PlayerController : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject);
                 }
+            }
+        }
+        else if (Physics.Raycast(ray, out RaycastHit hit2, _interactionRange, _pivotLayer))
+        {
+            var pickup = hit2.collider.GetComponent<Pivot>();
+            if (pickup != null)
+            {
+                pickup.Interact();
+          
             }
         }
     }
