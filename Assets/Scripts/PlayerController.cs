@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Interaction Settings")]
     [SerializeField] private float _interactionRange = 3f;
-    [SerializeField] private LayerMask _pickupLayer;
+    [SerializeField] private LayerMask _pickupLayer,_propLayer;
     [SerializeField] private GameObject _crosshair;
     private bool _isRayCastHitting;
     
@@ -220,6 +220,12 @@ public class PlayerController : MonoBehaviour
                     Destroy(hit.collider.gameObject);
                 }
             }
+        }
+        
+        // for props
+        else if (Physics.Raycast(ray, out RaycastHit hit2, _interactionRange, _propLayer))
+        {
+            hit2.collider.SendMessage("Interact");
         }
     }
     
