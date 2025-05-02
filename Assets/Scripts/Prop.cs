@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Prop : MonoBehaviour
 {
+    
     protected void OnHoverEnter()
     {
         
