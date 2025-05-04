@@ -1,20 +1,18 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-
-
 public class Pivot : Prop
 {
-    // Objet à tourner 
+    // Objet Ã  tourner 
     public GameObject Target;
 
     // axe (Vector 3)
-    public Vector3 _axeRotation = Vector3.up;
-    public float _rotationAngle = 60f;
+    public Vector3 AxeRotation = Vector3.up;
+    public float RotationAngle = 60f;
 
-    public float _angleTarget = 120f;
+    public float AngleTarget = 120f;
 
-    public bool _winCondition = false;
+    public bool WinCondition;
 
     public override bool Interact()
     {
@@ -22,12 +20,11 @@ public class Pivot : Prop
 
         //Calcul de la rotation 
         Quaternion _currentRotation = Target.transform.rotation;
-        Quaternion _targetRotation = _currentRotation * Quaternion.Euler(_axeRotation * _rotationAngle);
+        Quaternion _targetRotation = _currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
 
-        Target.transform.rotation = Quaternion.RotateTowards(_currentRotation, _targetRotation, _rotationAngle );
+        Target.transform.rotation = Quaternion.RotateTowards(_currentRotation, _targetRotation, RotationAngle );
 
         Modulo();
-        Win();
         //ici fonction modulo
         return true;
     }
@@ -42,24 +39,14 @@ public class Pivot : Prop
         if(angleDiff < 0.1f)
         {
             Debug.Log("Win");
-            _winCondition = true;
+            WinCondition = true;
             
         }
         else
         {
             Debug.Log("Lose");
-            _winCondition = false;
+            WinCondition = false;
             
         }
     }
-    // compteur de win condition  
-
-    private void Win()
-    {
-        if (_winCondition == true)
-        {
-            Debug.Log("Big Win !");
-        }
-    }
-
 }

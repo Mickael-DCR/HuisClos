@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Candle
   - ConstellationPaper
+  - ConstPuzzlePiece
   layers:
   - Default
   - TransparentFX
