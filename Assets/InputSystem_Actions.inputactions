@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Tooltip",
+                    "type": "PassThrough",
+                    "id": "82772da1-066f-412d-9ab0-42ce33a72efc",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -280,6 +289,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Open Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ed0946c-7c9b-4ebc-a7e8-bbadfacd5ac0",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tooltip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ce76192-272b-4604-8439-ff89e4098a4f",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Tooltip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -654,6 +685,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "Close Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6df1ae61-ce0f-4e05-a12a-b8bfdbf901bd",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Close Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false

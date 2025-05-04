@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6273171723539429650}
   m_Layer: 0
   m_Name: Constellation Paper
-  m_TagString: Untagged
+  m_TagString: ConstellationPaper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7434838795447212977}
   - component: {fileID: 6868549219580146487}
   - component: {fileID: 5380604223501796607}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Hand Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

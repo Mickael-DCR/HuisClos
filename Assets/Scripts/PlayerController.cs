@@ -9,8 +9,17 @@ using Vector3 = UnityEngine.Vector3;
 public class PlayerController : MonoBehaviour
 {
     [Header ("Input")] 
-    public static InputSystem_Actions InputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction;
+    public static InputSystem_Actions InputSystemActions
+    {
+        get
+        {
+            if (_inputSystemActions == null)
+                _inputSystemActions = new InputSystem_Actions();
+            return _inputSystemActions;
+        }
+    }
+    private static InputSystem_Actions _inputSystemActions;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction, _tooltipAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]
@@ -38,14 +47,14 @@ public class PlayerController : MonoBehaviour
     
     
     [Header ("Interaction Settings")]
-    [SerializeField] private float _interactionRange = 3f;
+    [SerializeField] private float _interactionRange = 2.5f;
     [SerializeField] private LayerMask _pickupLayer,_propLayer, _tooltipLayer;
     private bool _isRayCastHitting;
     
     
     private void Awake()
     {
-        InputSystemActions = new InputSystem_Actions();
+        _inputSystemActions = new InputSystem_Actions();
         _playerRB = GetComponent<Rigidbody>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
         _originalCameraLocalPosition = _cameraTransform.localPosition;
@@ -53,26 +62,28 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _movementAction = InputSystemActions.Player.Move;
+        _movementAction = _inputSystemActions.Player.Move;
         _movementAction.Enable();
         
-        _lookAction = InputSystemActions.Player.Look;
+        _lookAction = _inputSystemActions.Player.Look;
         _lookAction.Enable();
         
-        _crouchAction = InputSystemActions.Player.Crouch;
+        _crouchAction = _inputSystemActions.Player.Crouch;
         _crouchAction.Enable();
         _crouchAction.performed += StartCrouch;
         
-        _interactAction = InputSystemActions.Player.Interact;
+        _interactAction = _inputSystemActions.Player.Interact;
         _interactAction.Enable();
-        _interactAction.performed += Interact;
         
-        _openInventoryAction = InputSystemActions.Player.OpenInventory;
+        _openInventoryAction = _inputSystemActions.Player.OpenInventory;
         _openInventoryAction.Enable();
         _openInventoryAction.performed += OpenInventoryWindow;
         
-        _closeInventoryAction = InputSystemActions.UI.CloseInventory;
+        _closeInventoryAction = _inputSystemActions.UI.CloseInventory;
         _closeInventoryAction.performed += CloseInventoryWindow;
+        
+        _tooltipAction = _inputSystemActions.Player.Tooltip;
+        _tooltipAction.Enable();
     }
 
     private void OnDisable()
@@ -82,6 +93,7 @@ public class PlayerController : MonoBehaviour
         _crouchAction.Disable();
         _interactAction.Disable();
         _openInventoryAction.Disable();
+        _tooltipAction.Disable();
     }
 
     private void Start()
@@ -203,44 +215,23 @@ public class PlayerController : MonoBehaviour
     _playerRB.linearVelocity = move;
     }
 
-    private void Interact(InputAction.CallbackContext context)
-    {
-        Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
-        
-        //For Collectible Objects
-        if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _pickupLayer))
-        {
-            
-            var pickup = hit.collider.GetComponent<Collectible>();
-            if (pickup != null)
-            {
-                if (pickup.Interact())
-                {
-                    Destroy(hit.collider.gameObject);
-                }
-            }
-        }
-        
-        // for props
-        else if (Physics.Raycast(ray, out RaycastHit hit2, _interactionRange, _propLayer))
-        {
-            hit2.collider.GetComponent<Prop>().ReceiveItem();
-            hit2.collider.SendMessage("Interact");
-        }
-    }
-    
-    
-
     private void CloseInventoryWindow(InputAction.CallbackContext context)
     {
-        if (!InventoryManager.Instance.InventoryWindow.activeInHierarchy) return;
-        /*
-         if (ItemInspector.Instance.InspectWindow.activeInHierarchy)
+        if (UIManager.Instance.TelescopeWindow.activeInHierarchy)
         {
-            ItemInspector.Instance.InspectWindow.SetActive(false);
+            UIManager.Instance.ToggleTelescope(false);
             return;
         }
-        */
+        
+        
+        if (UIManager.Instance.InspectWindow.activeInHierarchy)
+        {
+            ItemInspector.Instance.PlayerCamera.SetActive(true);
+            UIManager.Instance.ToggleInspectWindow(false);
+            InventoryManager.Instance.InventoryWindow.SetActive(true);
+            return;
+        }
+        if (!InventoryManager.Instance.InventoryWindow.activeInHierarchy) return;
         InventoryManager.Instance.InventoryWindow.SetActive(false);
         UIManager.Instance.ToggleCursor();
         // Input changes
@@ -255,18 +246,5 @@ public class PlayerController : MonoBehaviour
         // Input changes
         InputSystemActions.Player.Disable();
         InputSystemActions.UI.Enable();
-    }
-
-    private void ToolTip()
-    {
-        Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _tooltipLayer))
-        {
-            // display tool tip
-        }
-        else
-        {
-            // hide tooltip
-        }
     }
 }

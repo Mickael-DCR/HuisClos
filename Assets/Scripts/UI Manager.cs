@@ -5,9 +5,10 @@ using UnityEngine.Serialization;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    [SerializeField] private GameObject _crosshair;
-    public GameObject TelescopeWindow;
+    public GameObject Crosshair;
+    public GameObject TelescopeWindow, InspectWindow;
     public GameObject TelescopeMissingPiece;
+    
 
     private void Awake()
     {
@@ -20,19 +21,19 @@ public class UIManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            _crosshair.SetActive(false);
+            Crosshair.SetActive(false);
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            _crosshair.SetActive(true);
+            Crosshair.SetActive(true);
         }
     }
 
-    public void ToggleTelescope()
+    public void ToggleTelescope(bool on)
     {
-        if (TelescopeWindow.activeInHierarchy)
+        if (!on)
         {
             TelescopeWindow.SetActive(false);
             PlayerController.InputSystemActions.Player.Enable();
@@ -45,5 +46,10 @@ public class UIManager : MonoBehaviour
             PlayerController.InputSystemActions.UI.Enable();
         }
         ToggleCursor();
+    }
+
+    public void ToggleInspectWindow(bool on)
+    {
+        InspectWindow.SetActive(on);
     }
 }

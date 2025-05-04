@@ -34,10 +34,12 @@ public class InventoryItem : MonoBehaviour
     public void InspectItem() //secondary action
     {
         _inspector.InspectWindow.SetActive(true);
+        _inspector.InventoryWindow.SetActive(false);
+        _inspector.PlayerCamera.SetActive(false);
         if (_inspector.InspectSlot.childCount > 0)
         {
             Destroy(_inspector.InspectSlot.GetChild(0).gameObject);
         }
-        Instantiate(_item.ItemPrefab3D, _inspector.InspectSlot);
+        Instantiate(_item.ItemPrefabInspect, _inspector.InspectSlot);
     }
 }

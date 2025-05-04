@@ -2,12 +2,12 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Collectible : Prop
+public class Collectible : MonoBehaviour
 {
     public Item Item;
 
-    public override bool Interact()
+    public bool PickUp()
     {
-        return InventoryManager.Instance.AddItem(Item);
+        return InventoryManager.Instance.AddItem(Item, gameObject);
     }
 }

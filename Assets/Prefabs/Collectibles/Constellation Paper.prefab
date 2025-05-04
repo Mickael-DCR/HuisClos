@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8826465070924764718}
   - component: {fileID: 4370593006405824817}
   - component: {fileID: 4715603942117159595}
-  m_Layer: 0
+  - component: {fileID: 4507766779650367918}
+  m_Layer: 6
   m_Name: Constellation Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,3 +124,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: 1f4ca77361b7d7449824fc43aa351afa, type: 2}
+--- !u!114 &4507766779650367918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688315386771199853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181010fe465e0234fa5f9cf3c869e6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Options:
+  - PickUp

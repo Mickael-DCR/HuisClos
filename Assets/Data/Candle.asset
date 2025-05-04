@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8bc307564b3dc4a8e38d462173cb69, type: 3}
   m_Name: Candle
   m_EditorClassIdentifier: 
+  ItemPrefabInspect: {fileID: 7048335755621763646, guid: 59429a097a1324c4080a4ae94e599cb1, type: 3}
   ItemPrefab3D: {fileID: 7271121410618862363, guid: 52e0836984fa1d44f9d9c2b89fe739ec, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
   Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

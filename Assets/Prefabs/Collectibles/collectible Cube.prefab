@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5380604223501796607}
   - component: {fileID: 5342161673384246276}
   - component: {fileID: 9007917973278626696}
+  - component: {fileID: 46698620075238757}
   m_Layer: 6
   m_Name: collectible Cube
   m_TagString: Untagged
@@ -121,4 +122,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bad5b94f2940d428573bae3d7a66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
+  Item: {fileID: 11400000, guid: 48f57d345db74134fa5773fece58b335, type: 2}
+--- !u!114 &46698620075238757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603998912585118790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181010fe465e0234fa5f9cf3c869e6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Options:
+  - PickUp

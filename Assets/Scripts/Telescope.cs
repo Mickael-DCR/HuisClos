@@ -9,11 +9,11 @@ public class Telescope : Prop
     
     public override bool Interact()
     {
-        UIManager.Instance.ToggleTelescope();
+        UIManager.Instance.ToggleTelescope(true);
         return true;
     }
 
-    public override void ReceiveItem()
+    public override void PlaceItem()
     {
         if (!_resolved)
         {
@@ -31,6 +31,7 @@ public class Telescope : Prop
             else
             {
                 // item doesnt fit.
+                Debug.Log("No solver found");
             }
         }
     }

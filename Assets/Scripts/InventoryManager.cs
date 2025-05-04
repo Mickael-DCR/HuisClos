@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
         if(Instance == null)Instance = this;
     }
     
-    public bool AddItem(Item item)
+    public bool AddItem(Item item, GameObject objectToDestroy)
     {
         //Looks for an empty slot
         foreach (var slot in inventorySlots)
@@ -23,6 +23,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                Destroy(objectToDestroy);
                 return true; // item added
             }
         }
