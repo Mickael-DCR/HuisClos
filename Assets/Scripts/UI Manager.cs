@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject Crosshair;
     public GameObject TelescopeWindow, InspectWindow;
     public GameObject TelescopeMissingPiece;
-    
+    public bool IsInUI;
 
     private void Awake()
     {
@@ -22,12 +22,14 @@ public class UIManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Crosshair.SetActive(false);
+            IsInUI = true;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Crosshair.SetActive(true);
+            IsInUI = false;
         }
     }
 

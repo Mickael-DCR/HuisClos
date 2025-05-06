@@ -44,6 +44,12 @@ public class TooltipManager : MonoBehaviour
 
     void Update()
     {
+        if (UIManager.Instance.IsInUI)
+        {
+            _currentTarget = null;
+            _tooltipUI.SetActive(false);
+            return;
+        }
         _scroll = PlayerController.InputSystemActions.Player.Tooltip.ReadValue<Vector2>();
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))

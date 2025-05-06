@@ -1,8 +1,11 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Pivot : Prop
 {
+    public EmissiveChanger EmissiveTarget;
     // Objet à tourner 
     public GameObject Target;
 
@@ -13,25 +16,36 @@ public class Pivot : Prop
     public float AngleTarget = 120f;
 
     public bool WinCondition;
+    public bool FirstTimeSpawned;
 
+    private void Update()
+    {
+        if (FirstTimeSpawned)
+        {
+            DisableEmissive();
+            FirstTimeSpawned = false;
+        }
+    }
+
+    public void DisableEmissive()
+    {
+        EmissiveTarget.DisableEmissive();
+    }
     public override bool Interact()
     {
-        //var _rotateValue = _axeRotation * _rotationAngle;
-
         //Calcul de la rotation 
-        Quaternion _currentRotation = Target.transform.rotation;
-        Quaternion _targetRotation = _currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
+        Quaternion currentRotation = Target.transform.rotation;
+        Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
 
-        Target.transform.rotation = Quaternion.RotateTowards(_currentRotation, _targetRotation, RotationAngle );
+        Target.transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle );
 
-        Modulo();
-        //ici fonction modulo
+        RotationCheck();
         return true;
     }
 
-    private void Modulo()
+    private void RotationCheck()
     {
-        Quaternion targetRot = Quaternion.Euler(120, 0, 0);
+        Quaternion targetRot = Quaternion.Euler(AngleTarget, -180, 0);
         float angleDiff = Quaternion.Angle(Target.transform.rotation, targetRot);
 
         Debug.Log(angleDiff);

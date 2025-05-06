@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: af66170831eb51c47bb9762641b5998a, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7331844619097107670, guid: d6a9d4ad73cbaa64e840834952bfdfa1, type: 3}
     - target: {fileID: 919132149155446097, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
       propertyPath: m_Name
       value: missing beta puzzle murale
@@ -59,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5351100158527014562}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2861294098141638976}
   m_SourcePrefab: {fileID: 100100000, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
 --- !u!1 &5761463838331183495 stripped
 GameObject:
@@ -79,3 +90,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+--- !u!114 &-2861294098141638976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761463838331183495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c570677e678faeb4c8ec3b0b4b8cf198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 6121562486586114130}
+  _emissiveIntensity: 10
+  _lerpDuration: 1
+  _emissiveColor: {r: 0.8196079, g: 0.72156864, b: 0.050980397, a: 0}
+--- !u!23 &6121562486586114130 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 3b1b70da5ee0ad14aac030088f0b6bb3, type: 3}
+  m_PrefabInstance: {fileID: 4842984800156392662}
+  m_PrefabAsset: {fileID: 0}

@@ -4,21 +4,27 @@ using UnityEngine.Serialization;
 
 public class WinCondition : MonoBehaviour
 {
-    public List<Pivot> Conditions;
+    public List<Pivot> Pivots;
     
     private void Interact()
     {
-        var numberOfConditions = Conditions.Count;
+        var numberOfConditions = Pivots.Count;
         var numberOfTrue = 0;
-        foreach (var win in Conditions)
+        foreach (var pivot in Pivots)
         {
-            if (win.WinCondition) numberOfTrue++;
+            if (pivot.WinCondition) numberOfTrue++;
+            
         }
 
         if (numberOfTrue == numberOfConditions)
         {
-            Debug.Log("Win");
-            // 
+            // light up the pivots
+            foreach (var pivot in Pivots)
+            {
+                pivot.EmissiveTarget.EnableEmissive();
+                pivot.EmissiveTarget.ChangeEmissiveIntensity(); 
+            }
+            
         }
     }
 }

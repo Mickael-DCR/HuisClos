@@ -13,8 +13,10 @@ public class PuzzlePiece : Prop
         {
                 var hand = InventoryManager.Instance.HandSlot;
                 var collectible = hand.GetChild(0).GetComponent<Collectible>();
-                var newProp = Instantiate( collectible.Item.ItemPrefabInspect, _parentPivot.transform.position, Quaternion.identity);
+                var newProp = Instantiate( collectible.Item.ItemPrefab3D, _parentPivot.transform.position, Quaternion.Euler(240,180,0));
                 _parentPivot.Target = newProp;
+                _parentPivot.EmissiveTarget = newProp.GetComponent<EmissiveChanger>();
+                _parentPivot.FirstTimeSpawned = true;
                 Destroy(gameObject);
         }
     }
