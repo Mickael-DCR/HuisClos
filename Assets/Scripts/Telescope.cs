@@ -16,6 +16,7 @@ public class Telescope : Prop
         base.PlaceItem();
         if (_resolved)
         {
+            
             UIManager.Instance.TelescopeMissingPiece.SetActive(true);
             Instantiate(_reward,_spawnPoint);
         }

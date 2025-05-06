@@ -30,6 +30,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = !isPaused;
         PauseWindow.SetActive(isPaused);
         Time.timeScale = isPaused ? 0.0f : 1.0f;
+
+        UIManager.Instance.ToggleCursor();
     }
 
     public void ExitGame()
