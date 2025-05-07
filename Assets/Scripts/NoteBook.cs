@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class NoteBook : MonoBehaviour
 {
+    
     public GameObject PageOne;
     public GameObject PageTwo;
     public GameObject PageThree;
 
-    public GameObject TextTelescope;
+    public Text TextTelescope;
 
     public bool IsOpen = false;
 
@@ -63,4 +65,10 @@ public class NoteBook : MonoBehaviour
         PageThree.SetActive(false);
         PageTwo.SetActive(true);
     }
+
+    public void Text(string text)
+    {       
+        TextTelescope.text = text;
+    }
+    
 }
