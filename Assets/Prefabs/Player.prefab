@@ -87,7 +87,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.48
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -160,21 +160,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf741c03753835d42b709fdfe26a28bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 3.5
+  _crouchHeight: 1
+  _standingHeight: 2
+  _crouchCamOffset: -0.7
+  _crouchDuration: 0.25
+  _crouchSpeed: 1.5
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _crouchHeight: 1
-  _standingHeight: 2
-  _crouchCamOffset: -0.5
-  _crouchDuration: 0.15
+  _groundCheck: {fileID: 6447886615433746470}
   _cameraTransform: {fileID: 2532877796495005445}
   _lookSensitivity: 0.1
-  _interactionRange: 10
+  _interactionRange: 2.5
   _pickupLayer:
     serializedVersion: 2
     m_Bits: 64
-  _inventory: {fileID: 0}
+  _propLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _tooltipLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6038243734022967970
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 6038243734022967970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.908, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

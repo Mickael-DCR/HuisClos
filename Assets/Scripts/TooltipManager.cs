@@ -64,7 +64,7 @@ public class TooltipManager : MonoBehaviour
                 }
 
                 _tooltipUI.SetActive(true);
-                _tooltipText.text = $"<b>{_currentTarget.Options[_selectedIndex]}</b>\n(Scroll to change, Press T to select)";
+                _tooltipText.text = $"<b>{_currentTarget.Options[_selectedIndex]}</b>\n(Scroll to change, Press E to select)";
 
                 HandleScrollInput(_currentTarget);
                 return;

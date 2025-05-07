@@ -6,7 +6,6 @@ public class EmissiveChanger : MonoBehaviour
     private Material _emissiveMaterial;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private float _emissiveIntensity;
-    [SerializeField] private float _lerpDuration;
     [SerializeField] private Color _emissiveColor;
 
     private void Awake()
