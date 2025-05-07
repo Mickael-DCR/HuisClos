@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Disk part 3
   m_EditorClassIdentifier: 
   ItemPrefabInspect: {fileID: 1338882296360250709, guid: 049096463627f974fb20c8be69eca37a, type: 3}
-  ItemPrefab3D: {fileID: 1338882296360250709, guid: 2eb857052dfa6064889982e4d4dfea92, type: 3}
+  ItemPrefab3D: {fileID: 1338882296360250709, guid: cf30ceaf4735f6e46890b49d7bbfb0fe, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
   Icon: {fileID: 21300000, guid: 9c9f7c5e19ddc704298b7d04ed61229d, type: 3}
