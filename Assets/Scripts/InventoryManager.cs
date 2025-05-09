@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private InventorySlot[] inventorySlots;
     public Transform HandSlot;
     [SerializeField] private Item _candle;
+    private Item _swapItem;
     private void Awake()
     {
         if(Instance == null)Instance = this;
@@ -38,24 +39,40 @@ public class InventoryManager : MonoBehaviour
         if (HandSlot.childCount > 0)
         {
             var objectInHand = HandSlot.GetChild(0);
-            if (objectInHand.CompareTag("Candle"))return;
+            if (!objectInHand.CompareTag("Candle"))
+            {
+                _swapItem = objectInHand.GetComponent<Collectible>().Item;
+            }
+            if (objectInHand.CompareTag("Candle"))
+            {
+                if (_swapItem != null)
+                {
+                    Destroy(objectInHand.gameObject);
+                    Instantiate(_swapItem.ItemPrefab3D, HandSlot);
+                }
+            }
+            else
+            {
+                Destroy(objectInHand.gameObject);
+                Instantiate(FindItem(_candle).ItemPrefab3D, HandSlot);
+            }
         }
-        if(FindItem(_candle)) return;
-        Debug.Log("No candle in inventory");
-        
+        else
+        {
+            Instantiate(FindItem(_candle).ItemPrefab3D, HandSlot);
+        }
     }
-    public bool FindItem(Item itemToFind)
+    public Item FindItem(Item itemToFind)
     {
         foreach (InventorySlot slot in inventorySlots)
         {
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.Item == itemToFind)
             {
-                Instantiate(itemInSlot.Item.ItemPrefab3D, HandSlot);
-                return true;
+                return itemInSlot.Item;
             }
         }
-        return false;
+        return null;
     }
     public bool AddItem(Item item, GameObject objectToDestroy)
     {

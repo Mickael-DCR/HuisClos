@@ -12,7 +12,7 @@ public class InventoryItem : MonoBehaviour
     public void InitialiseItem(Item item)
     {
         Item = item;
-        _icon.sprite = item.Icon;
+        if(_icon!=null) _icon.sprite = item.Icon;
     }
 
     void Start()

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 8044527116888109473}
   - component: {fileID: 6344513456545463812}
   - component: {fileID: 9216838833923099342}
+  - component: {fileID: 8630873399579171771}
   m_Layer: 0
   m_Name: Hand Candle
   m_TagString: Candle
@@ -208,3 +209,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8630873399579171771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271121410618862363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bad5b94f2940d428573bae3d7a66dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 9d1ddd2566ecbe94a893318b71519add, type: 2}

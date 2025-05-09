@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 2053453023661365327}
   - component: {fileID: 87858292096614865}
   - component: {fileID: 6071258394079002736}
-  - component: {fileID: -4819355687433997117}
+  - component: {fileID: -751444832903518885}
+  - component: {fileID: -3701257781330921164}
   m_Layer: 0
-  m_Name: Hand Needle 2
-  m_TagString: Needle2
+  m_Name: Needle 1
+  m_TagString: Needle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +88,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-4819355687433997117
+--- !u!114 &-751444832903518885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +97,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338882296360250709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05bad5b94f2940d428573bae3d7a66dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 131dc477f0233014b8d3222881fd400b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 910a9bde03052784ba1d157686544a9a, type: 2}
+  Item: {fileID: 11400000, guid: bf7b2f5f062711949b73ba6b11e4c285, type: 2}
+  _icon: {fileID: 0}
+--- !u!114 &-3701257781330921164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338882296360250709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181010fe465e0234fa5f9cf3c869e6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Options:
+  - Interact

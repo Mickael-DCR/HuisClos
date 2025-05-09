@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 public class Pivot : Prop
 {
     public EmissiveChanger EmissiveTarget;
+    public bool IsEmissive;
     // Objet à tourner 
     public GameObject Target;
 
@@ -20,7 +21,7 @@ public class Pivot : Prop
 
     private void Update()
     {
-        if (FirstTimeSpawned)
+        if (IsEmissive && FirstTimeSpawned)
         {
             DisableEmissive();
             FirstTimeSpawned = false;

@@ -10,6 +10,7 @@ TagManager:
   - Disk
   - Needle1
   - Needle2
+  - Needle
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7434838795447212977}
   - component: {fileID: 6868549219580146487}
   - component: {fileID: 5380604223501796607}
-  - component: {fileID: 9007917973278626696}
   - component: {fileID: -6749508266961065618}
+  - component: {fileID: 4488905121697648059}
   m_Layer: 0
   m_Name: Hand Puzzle Piece
   m_TagString: ConstPuzzlePiece
@@ -88,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9007917973278626696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6603998912585118790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05bad5b94f2940d428573bae3d7a66dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: dda8e5ef8c080204781e2d3e8e3ab45f, type: 2}
 --- !u!114 &-6749508266961065618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,5 +102,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 5380604223501796607}
   _emissiveIntensity: 10
-  _lerpDuration: 1
   _emissiveColor: {r: 0.8117648, g: 0.7137255, b: 0.039215688, a: 0}
+--- !u!114 &4488905121697648059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603998912585118790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bad5b94f2940d428573bae3d7a66dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: dda8e5ef8c080204781e2d3e8e3ab45f, type: 2}
