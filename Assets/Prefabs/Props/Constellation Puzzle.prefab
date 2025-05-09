@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1056339955663113658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0.0069999993}
+  m_LocalPosition: {x: 0, y: 0.539, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84,13 +84,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e986aa456b750b346a867e9d46e8569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: 
+  _solverTags: []
   EmissiveTarget: {fileID: 0}
+  IsEmissive: 1
   Target: {fileID: 5608665780588566757}
   AxeRotation: {x: 1, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
+  FirstTimeSpawned: 0
 --- !u!114 &6423311512253230919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,13 +157,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608665780588566757}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710707, w: 0.70710653}
+  m_LocalRotation: {x: 0.3535534, y: 0.3535534, z: 0.61237246, w: -0.61237246}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: -0.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2324458143648938178}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 300, y: 0, z: -90}
 --- !u!33 &912787223462422436
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -264,7 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68381ca9f361fa048b03fd09744a988a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: ConstPuzzlePiece
+  _solverTags:
+  - ConstPuzzlePiece
   _parentPivot: {fileID: 8316279741019957334}
   _piecePrefab: {fileID: 5761463838331183495, guid: 358607c62fc99324bb89a026b4b35d34, type: 3}
 --- !u!1 &7468302425776385936
@@ -297,7 +300,7 @@ Transform:
   m_GameObject: {fileID: 7468302425776385936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12960005, y: -0.2800001, z: 0.030999996}
+  m_LocalPosition: {x: -0.13, y: -0.42, z: 0.144}
   m_LocalScale: {x: 0.44021, y: 0.44021, z: 0.44021}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,7 +392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4100feb66ca3f8241a250f24b309d4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pivots: []
+  Pivots:
+  - {fileID: 6890658541603254566}
+  - {fileID: 2426461673955621423}
+  - {fileID: 8632036630266906808}
+  - {fileID: 2248594468529242328}
+  - {fileID: 8316279741019957334}
 --- !u!114 &2853467185290926693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +422,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -422,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -430,23 +438,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.8660254
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -509,13 +517,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e986aa456b750b346a867e9d46e8569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: 
+  _solverTags: []
   EmissiveTarget: {fileID: 5330538939021943636}
+  IsEmissive: 1
   Target: {fileID: 3205246324345069587}
   AxeRotation: {x: 1, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
+  FirstTimeSpawned: 1
 --- !u!65 &2885804500714385568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -550,7 +560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 3997981495646568902}
-  _emissiveManager: {fileID: 0}
+  _emissiveIntensity: 10
+  _emissiveColor: {r: 0.8196079, g: 0.72156864, b: 0.050980397, a: 0}
 --- !u!23 &3997981495646568902 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: d8c7872d1468f514681d023504e6fdd3, type: 3}
@@ -566,7 +577,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -574,31 +585,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.49999994
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.86602545
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -661,13 +672,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e986aa456b750b346a867e9d46e8569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: 
+  _solverTags: []
   EmissiveTarget: {fileID: 4382496830566043224}
+  IsEmissive: 1
   Target: {fileID: 3058682342352857047}
   AxeRotation: {x: 1, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
+  FirstTimeSpawned: 1
 --- !u!65 &7130971492106091576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -702,7 +715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 3563019187219334658}
-  _emissiveManager: {fileID: 0}
+  _emissiveIntensity: 10
+  _emissiveColor: {r: 0.8196079, g: 0.72156864, b: 0.050980397, a: 0}
 --- !u!23 &3563019187219334658 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4854206399b55a147aebfb902dbc3abd, type: 3}
@@ -718,7 +732,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -726,31 +740,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
-      propertyPath: m_LocalRotation.y
       value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
-      propertyPath: m_LocalRotation.z
+      propertyPath: m_LocalRotation.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 300
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -808,13 +822,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e986aa456b750b346a867e9d46e8569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: 
+  _solverTags: []
   EmissiveTarget: {fileID: 252967807602520390}
+  IsEmissive: 1
   Target: {fileID: 2858814277032543802}
   AxeRotation: {x: 1, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
+  FirstTimeSpawned: 1
 --- !u!65 &4527957437325924547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -849,7 +865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 4371992483638847471}
-  _emissiveManager: {fileID: 0}
+  _emissiveIntensity: 10
+  _emissiveColor: {r: 0.8196079, g: 0.72156864, b: 0.050980397, a: 0}
 --- !u!4 &3235656960202726528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2c38592f11f4a4345985cd2f2a7b5dd2, type: 3}
@@ -870,39 +887,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.129
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0.794
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.49999994
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.86602545
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 120
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -960,13 +977,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e986aa456b750b346a867e9d46e8569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: 
+  _solverTags: []
   EmissiveTarget: {fileID: 1838789814426428036}
+  IsEmissive: 1
   Target: {fileID: 4834175405428325013}
   AxeRotation: {x: 1, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
+  FirstTimeSpawned: 1
 --- !u!65 &2923532747227095059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1001,7 +1020,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 6347415322589633344}
-  _emissiveManager: {fileID: 0}
+  _emissiveIntensity: 10
+  _emissiveColor: {r: 0.8196079, g: 0.72156864, b: 0.050980397, a: 0}
 --- !u!4 &5214500173401317423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5fb982851c654274487c2d6247656bf6, type: 3}

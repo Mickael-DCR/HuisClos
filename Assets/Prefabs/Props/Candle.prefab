@@ -215,7 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f098dc9ae998bb34c8dd13a29fbdb1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTag: Candle
+  _solverTags:
+  - Candle
   _light: {fileID: 5747547014600955076}
 --- !u!114 &2174865436233895986
 MonoBehaviour:

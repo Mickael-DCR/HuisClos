@@ -13,7 +13,6 @@ public class Pivot : Prop
     // axe (Vector 3)
     public Vector3 AxeRotation = Vector3.up;
     public float RotationAngle = 60f;
-
     public float AngleTarget = 120f;
 
     public bool WinCondition;
@@ -35,23 +34,20 @@ public class Pivot : Prop
     public override bool Interact()
     {
         //Calcul de la rotation 
-        Quaternion currentRotation = Target.transform.rotation;
+        Quaternion currentRotation = Target.transform.localRotation;
         Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
 
-        Target.transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle );
-
+        Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle );
+        
+        
+        
         RotationCheck();
         return true;
     }
 
     private void RotationCheck()
     {
-        Quaternion targetRot = Quaternion.Euler(AngleTarget, -180, 0);
-        float angleDiff = Quaternion.Angle(Target.transform.rotation, targetRot);
-
-        Debug.Log(angleDiff);
-
-        if(angleDiff < 0.1f)
+        if( Mathf.Abs(Target.transform.localRotation.eulerAngles.x- AngleTarget) < 0.01f )
         {
             Debug.Log("Win");
             WinCondition = true;
