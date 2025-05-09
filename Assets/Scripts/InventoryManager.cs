@@ -9,11 +9,54 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryWindow;
     [SerializeField] private InventorySlot[] inventorySlots;
     public Transform HandSlot;
+    [SerializeField] private Item _candle;
     private void Awake()
     {
         if(Instance == null)Instance = this;
     }
     
+    private void Start()
+    {
+        if (PlayerController.InputSystemActions != null)
+        {
+            PlayerController.InputSystemActions.Player.EquipCandle.performed += EquipCandle;
+        }
+    }
+    private void OnEnable()
+    {
+        PlayerController.InputSystemActions.Player.EquipCandle.performed += EquipCandle;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.InputSystemActions.Player.EquipCandle.Disable();
+    }
+    
+    
+    private void EquipCandle(InputAction.CallbackContext ctx)
+    {
+        if (HandSlot.childCount > 0)
+        {
+            var objectInHand = HandSlot.GetChild(0);
+            if (objectInHand.CompareTag("Candle"))return;
+        }
+        if(FindItem(_candle)) return;
+        Debug.Log("No candle in inventory");
+        
+    }
+    public bool FindItem(Item itemToFind)
+    {
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.Item == itemToFind)
+            {
+                Instantiate(itemInSlot.Item.ItemPrefab3D, HandSlot);
+                return true;
+            }
+        }
+        return false;
+    }
     public bool AddItem(Item item, GameObject objectToDestroy)
     {
         //Looks for an empty slot

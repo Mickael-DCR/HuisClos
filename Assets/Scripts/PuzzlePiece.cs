@@ -17,6 +17,7 @@ public class PuzzlePiece : Prop
                 _parentPivot.Target = newProp;
                 _parentPivot.EmissiveTarget = newProp.GetComponent<EmissiveChanger>();
                 _parentPivot.FirstTimeSpawned = true;
+                Destroy(hand.GetChild(0).gameObject);
                 Destroy(gameObject);
         }
     }

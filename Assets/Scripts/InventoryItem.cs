@@ -4,20 +4,20 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
-    private Item _item;
+    public Item Item;
     [SerializeField] private Image _icon;
     private ItemInspector _inspector;
 
 
     public void InitialiseItem(Item item)
     {
-        _item = item;
+        Item = item;
         _icon.sprite = item.Icon;
     }
 
     void Start()
     {
-        InitialiseItem(_item);
+        InitialiseItem(Item);
         _inspector = ItemInspector.Instance;
     }
 
@@ -28,7 +28,7 @@ public class InventoryItem : MonoBehaviour
         {
             Destroy(playerHand.GetChild(0).gameObject);
         }
-        Instantiate(_item.ItemPrefab3D, playerHand);
+        Instantiate(Item.ItemPrefab3D, playerHand);
     }
 
     public void InspectItem() //secondary action
@@ -40,6 +40,6 @@ public class InventoryItem : MonoBehaviour
         {
             Destroy(_inspector.InspectSlot.GetChild(0).gameObject);
         }
-        Instantiate(_item.ItemPrefabInspect, _inspector.InspectSlot);
+        Instantiate(Item.ItemPrefabInspect, _inspector.InspectSlot);
     }
 }

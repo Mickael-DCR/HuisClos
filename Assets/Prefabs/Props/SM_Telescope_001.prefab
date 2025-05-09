@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3231566172fb8f04e97434aa499e5a35, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3231566172fb8f04e97434aa499e5a35, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3231566172fb8f04e97434aa499e5a35, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3231566172fb8f04e97434aa499e5a35, type: 3}
       propertyPath: m_LocalRotation.z
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3231566172fb8f04e97434aa499e5a35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3231566172fb8f04e97434aa499e5a35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -190,8 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd41267ed8da0f4797a7ac21cf4f7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handSlot: {fileID: 0}
   _solverTag: ConstellationPaper
+  _reward: {fileID: 6603998912585118790, guid: 1cf6f1c491cfee541840acd44d13578d, type: 3}
+  _spawnPoint: {fileID: 1374273511324578148}
 --- !u!114 &4287349121741115830
 MonoBehaviour:
   m_ObjectHideFlags: 0

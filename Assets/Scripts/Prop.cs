@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Prop : MonoBehaviour
 {
+    [SerializeField] protected string[] _solverTags; // Multiple tags for multiple items
     protected bool _resolved;
-    [SerializeField] private string _solverTag; // Tag held by solver HandItem
+
     public virtual bool Interact()
     {
         return false;
@@ -11,24 +12,28 @@ public class Prop : MonoBehaviour
 
     public virtual void PlaceItem()
     {
-        if (!_resolved)
+        if (_resolved) return;
+
+        var playerHand = InventoryManager.Instance.HandSlot;
+        if (playerHand.childCount == 0)
         {
-            var playerHand = InventoryManager.Instance.HandSlot;
-            Transform objectInHand = null;
-            if (playerHand.childCount > 0)
-            {
-                objectInHand = playerHand.GetChild(0);
-            }
-            if (objectInHand != null && objectInHand.gameObject.CompareTag(_solverTag))
+            Debug.Log("No items in hand.");
+            return;
+        }
+
+        Transform objectInHand = playerHand.GetChild(0);
+
+        // Check if the item in hand matches any of the required tags
+        foreach (string tag in _solverTags)
+        {
+            if (objectInHand.CompareTag(tag))
             {
                 _resolved = true;
-            }
-            else
-            {
-                // item doesnt fit.
-                Debug.Log("No solver found");
+                Debug.Log("Correct item detected.");
+                return;
             }
         }
+
+        Debug.Log("No matching item found.");
     }
-    
 }

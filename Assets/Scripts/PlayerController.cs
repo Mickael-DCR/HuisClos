@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private static InputSystem_Actions _inputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction, _tooltipAction;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction, _tooltipAction, _equipCandleAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]
@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     
     [Header ("Interaction Settings")]
     [SerializeField] private float _interactionRange = 2.5f;
-    [SerializeField] private LayerMask _pickupLayer,_propLayer, _tooltipLayer;
     private bool _isRayCastHitting;
     
     
@@ -84,6 +83,9 @@ public class PlayerController : MonoBehaviour
         
         _tooltipAction = _inputSystemActions.Player.Tooltip;
         _tooltipAction.Enable();
+        
+        _equipCandleAction = _inputSystemActions.Player.EquipCandle;
+        _equipCandleAction.Enable();
     }
 
     private void OnDisable()

@@ -8,6 +8,8 @@ TagManager:
   - ConstellationPaper
   - ConstPuzzlePiece
   - Disk
+  - Needle1
+  - Needle2
   layers:
   - Default
   - TransparentFX

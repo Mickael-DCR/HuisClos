@@ -56,6 +56,7 @@ public class Projector : Prop
                 _complete = true;
                 _projectorLight.cookie = _cookie;
             }
+            Destroy(playerHand.GetChild(0).gameObject);
             _resolved = false;
         }
     }
