@@ -18,6 +18,7 @@ public class Pivot : Prop
     public bool WinCondition;
     public bool FirstTimeSpawned;
     public bool CanRotate = true;
+    [SerializeField] private bool _selfLocking;
 
     private void Update()
     {
@@ -45,6 +46,7 @@ public class Pivot : Prop
         
         
         RotationCheck();
+        CanRotate = !(WinCondition && _selfLocking );
         return true;
     }
 

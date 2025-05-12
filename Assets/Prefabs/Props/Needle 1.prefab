@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 87858292096614865}
   - component: {fileID: 6071258394079002736}
   - component: {fileID: -751444832903518885}
-  - component: {fileID: -3701257781330921164}
-  - component: {fileID: 2870491935497945655}
   m_Layer: 0
   m_Name: Needle 1
   m_TagString: Needle
@@ -103,38 +101,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: bf7b2f5f062711949b73ba6b11e4c285, type: 2}
   _icon: {fileID: 0}
---- !u!114 &-3701257781330921164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338882296360250709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181010fe465e0234fa5f9cf3c869e6a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Options:
-  - Interact
---- !u!65 &2870491935497945655
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338882296360250709}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12931034, y: 0.09886646, z: 1.3394396}
-  m_Center: {x: 0.000000007450581, y: 0, z: 0}

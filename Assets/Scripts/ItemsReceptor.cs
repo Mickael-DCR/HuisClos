@@ -5,7 +5,6 @@ public class ItemsReceptor : Prop
     [Header("Placement Settings")]
     [SerializeField] private Transform[] _parents;  // Multiple parents for multiple items
     [SerializeField] private GameObject[] _prefabs; // Multiple prefabs for multiple items
-    [SerializeField] private Pivot[] _pivots;       // Multiple pivots for multiple items
     private bool[] _itemsPlaced;                    // prevents from placing the same item twice
     
 
@@ -31,8 +30,7 @@ public class ItemsReceptor : Prop
             {
                 if (!_itemsPlaced[i] && objectInHand.CompareTag(_solverTags[i]))
                 {
-                    var currentObject = Instantiate(_prefabs[i], _parents[i], false) ;
-                    _pivots[i].Target = currentObject;  // sets the GameObject instantiated as pivot target
+                    Instantiate(_prefabs[i], _parents[i], false) ;
                     _itemsPlaced[i] = true;
                     Destroy(objectInHand.gameObject); // Remove item from player's hand
                     Debug.Log($"Placed item: {_solverTags[i]}");
