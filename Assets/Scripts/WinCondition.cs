@@ -23,6 +23,7 @@ public class WinCondition : MonoBehaviour
             {
                 pivot.EmissiveTarget.EnableEmissive();
                 pivot.EmissiveTarget.ChangeEmissiveIntensity(); 
+                pivot.CanRotate = false;
             }
             
         }

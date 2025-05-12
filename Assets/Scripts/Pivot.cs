@@ -17,6 +17,7 @@ public class Pivot : Prop
 
     public bool WinCondition;
     public bool FirstTimeSpawned;
+    public bool CanRotate = true;
 
     private void Update()
     {
@@ -33,14 +34,15 @@ public class Pivot : Prop
     }
     public override bool Interact()
     {
-        if(WinCondition)
+        if(CanRotate)
         {
             //Calcul de la rotation 
             Quaternion currentRotation = Target.transform.localRotation;
             Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
 
-            Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle );
+            Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle);
         }
+        
         
         RotationCheck();
         return true;
