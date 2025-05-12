@@ -33,13 +33,14 @@ public class Pivot : Prop
     }
     public override bool Interact()
     {
-        //Calcul de la rotation 
-        Quaternion currentRotation = Target.transform.localRotation;
-        Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
+        if(WinCondition)
+        {
+            //Calcul de la rotation 
+            Quaternion currentRotation = Target.transform.localRotation;
+            Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
 
-        Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle );
-        
-        
+            Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle );
+        }
         
         RotationCheck();
         return true;
@@ -49,15 +50,11 @@ public class Pivot : Prop
     {
         if( Mathf.Abs(Target.transform.localRotation.eulerAngles.x- AngleTarget) < 0.01f )
         {
-            Debug.Log("Win");
             WinCondition = true;
-            
         }
         else
         {
-            Debug.Log("Lose");
             WinCondition = false;
-            
         }
     }
 }

@@ -13,7 +13,7 @@ public class PuzzlePiece : Prop
         if (_resolved)
         {
                 var hand = InventoryManager.Instance.HandSlot;
-                var inventoryItem = hand.GetChild(0).GetComponent<InventoryItem>();
+                var inventoryItem = hand.GetChild(0).GetComponent<Collectible>();
                 var newProp = Instantiate( inventoryItem.Item.ItemPrefab3D, _parentPivot.transform.position, Quaternion.Euler(240,180,0));
                 _parentPivot.Target = newProp;
                 
