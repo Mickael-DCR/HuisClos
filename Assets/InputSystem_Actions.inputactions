@@ -440,15 +440,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Notebook",
-                    "type": "Button",
-                    "id": "91759e2f-7575-4e30-bcb2-0aeab549c818",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -883,8 +874,8 @@
                 },
                 {
                     "name": "",
-                    "id": "5919e716-7849-45c4-89b1-15c4605da860",
-                    "path": "<Keyboard>/escape",
+                    "id": "31dce9cc-ef9d-4c0b-ae65-93c72ad24760",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -894,12 +885,12 @@
                 },
                 {
                     "name": "",
-                    "id": "6f0dc840-864f-440a-966a-e2f21b2f52ba",
-                    "path": "<Keyboard>/l",
+                    "id": "5919e716-7849-45c4-89b1-15c4605da860",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Notebook",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
