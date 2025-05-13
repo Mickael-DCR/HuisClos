@@ -29,8 +29,8 @@ public class PropMovement : MonoBehaviour
 
     public void Interact()
     {
-        //if (_isInteracting) return;
-
+        if (_isInteracting) return;
+        
         _isInteracting = true;
         _isOpen = !_isOpen;
 
