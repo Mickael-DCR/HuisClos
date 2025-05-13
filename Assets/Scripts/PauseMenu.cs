@@ -26,10 +26,12 @@ public class PauseMenu : MonoBehaviour
 
     public void TogglePause()
     {
-        //Debug.Log("ça marche");
+        //Debug.Log("Ã§a marche");
         isPaused = !isPaused;
         PauseWindow.SetActive(isPaused);
         Time.timeScale = isPaused ? 0.0f : 1.0f;
+
+        UIManager.Instance.ToggleCursor();
     }
 
     public void ExitGame()

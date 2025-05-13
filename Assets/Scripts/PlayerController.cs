@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private static InputSystem_Actions _inputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction, _tooltipAction, _equipCandleAction;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction, _tooltipAction, _equipCandleAction, _openNotebookAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]
@@ -86,6 +86,9 @@ public class PlayerController : MonoBehaviour
         
         _equipCandleAction = _inputSystemActions.Player.EquipCandle;
         _equipCandleAction.Enable();
+
+        _openNotebookAction = _inputSystemActions.UI.NoteBook;
+        _openNotebookAction.Enable();
     }
 
     private void OnDisable()
