@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 75661b998f9cd6347869fddf7bcbeba0
+guid: ef55cea215d6d5043a913655f1b70d8b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: standardSurface2
-    second: {fileID: 2100000, guid: b699de83e27b9524da21ef0ca0b4ff37, type: 2}
+      name: standardSurface4
+    second: {fileID: 2100000, guid: 2db24e786d33e554798181cc92f50222, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -81,7 +81,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
