@@ -140,7 +140,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &552319211234821394
 Transform:
@@ -315,7 +315,6 @@ MonoBehaviour:
   _solverTags: []
   _parents: []
   _prefabs: []
-  _pivots: []
   RewardActive: 0
 --- !u!65 &4360726227183307498
 BoxCollider:

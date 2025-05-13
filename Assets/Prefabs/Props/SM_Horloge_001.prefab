@@ -55,6 +55,7 @@ MonoBehaviour:
   WinCondition: 0
   FirstTimeSpawned: 0
   CanRotate: 1
+  _selfLocking: 0
 --- !u!65 &6625009107677994425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,9 +135,6 @@ MonoBehaviour:
   _prefabs:
   - {fileID: 1338882296360250709, guid: 6b4d95f491d427847a6a7fce5420f826, type: 3}
   - {fileID: 1338882296360250709, guid: 345920ffeb87f14459ca0b76c4e69f49, type: 3}
-  _pivots:
-  - {fileID: 6651053793816590935}
-  - {fileID: 2001303343553563123}
   RewardActive: 0
 --- !u!114 &5814275036413716401
 MonoBehaviour:
@@ -244,6 +242,7 @@ MonoBehaviour:
   WinCondition: 0
   FirstTimeSpawned: 0
   CanRotate: 1
+  _selfLocking: 0
 --- !u!114 &322037781714821166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +337,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2af71a7f0e01e0c498359ac82cb80cf3, type: 3}
       propertyPath: m_Name
       value: SM_Horloge_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2af71a7f0e01e0c498359ac82cb80cf3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4743695333417779193, guid: 2af71a7f0e01e0c498359ac82cb80cf3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

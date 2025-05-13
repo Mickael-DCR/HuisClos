@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6017980423183741355
 Transform:
@@ -93,6 +93,8 @@ MonoBehaviour:
   AngleTarget: 0
   WinCondition: 0
   FirstTimeSpawned: 0
+  CanRotate: 1
+  _selfLocking: 0
 --- !u!114 &6423311512253230919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +528,8 @@ MonoBehaviour:
   AngleTarget: 0
   WinCondition: 0
   FirstTimeSpawned: 1
+  CanRotate: 1
+  _selfLocking: 0
 --- !u!65 &2885804500714385568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -681,6 +685,8 @@ MonoBehaviour:
   AngleTarget: 0
   WinCondition: 0
   FirstTimeSpawned: 1
+  CanRotate: 1
+  _selfLocking: 0
 --- !u!65 &7130971492106091576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -831,6 +837,8 @@ MonoBehaviour:
   AngleTarget: 0
   WinCondition: 0
   FirstTimeSpawned: 1
+  CanRotate: 1
+  _selfLocking: 0
 --- !u!65 &4527957437325924547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -986,6 +994,8 @@ MonoBehaviour:
   AngleTarget: 0
   WinCondition: 0
   FirstTimeSpawned: 1
+  CanRotate: 1
+  _selfLocking: 0
 --- !u!65 &2923532747227095059
 BoxCollider:
   m_ObjectHideFlags: 0
