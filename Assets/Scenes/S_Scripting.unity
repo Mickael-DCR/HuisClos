@@ -656,8 +656,9 @@ MonoBehaviour:
   _hintTextUI: {fileID: 1458178940}
   _hintPanel: {fileID: 1284401807}
   _displayDuration: 5
-  _intervalBetweenHints: 120
-  _puzzle1Hints: []
+  _intervalBetweenHints: 10
+  _puzzle1Hints:
+  - Clue Placeholder
   _puzzle2Hints: []
   _puzzle3Hints: []
   _emissiveToChange: {fileID: 562779373}
@@ -681,6 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &160098623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &194587508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,6 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &248924032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1744,7 +1748,6 @@ GameObject:
   - component: {fileID: 562779377}
   - component: {fileID: 562779376}
   - component: {fileID: 562779375}
-  - component: {fileID: 562779374}
   - component: {fileID: 562779373}
   m_Layer: 0
   m_Name: Sphere
@@ -1768,27 +1771,6 @@ MonoBehaviour:
   _renderer: {fileID: 562779375}
   _emissiveIntensity: 1
   _emissiveColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!135 &562779374
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562779372}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &562779375
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2323,11 +2305,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0983356, y: 1.0149463, z: 1.5759609}
   m_Center: {x: 0, y: -1.2017407, z: 0}
---- !u!4 &748740997 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4180688338956792936, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
-  m_PrefabInstance: {fileID: 3468354329186023843}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &828150035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2434,6 +2411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &865933259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,6 +2637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &992193199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3265,6 +3244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &1231921862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3902,6 +3882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &1491549734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4485,7 +4466,7 @@ MonoBehaviour:
   InventoryWindow: {fileID: 311353360}
   PlayerCamera: {fileID: 1180197724}
   InspectSlot: {fileID: 1765395488}
-  rotationSpeed: 15
+  rotationSpeed: 100
 --- !u!1001 &1771906389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4587,6 +4568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &1796238723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5208,6 +5190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!1 &1941983998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8430616577917015147, guid: dab54526d78d0914cb62e259de2f68d4, type: 3}
@@ -5584,6 +5567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &2121823366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6043,19 +6027,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.52
+      value: -0.51999736
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.927
+      value: 0.684
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.306
+      value: 9.367999
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6063,7 +6047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: -0.000000014901159
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalRotation.z
@@ -6075,31 +6059,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 552319211234821394, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1079034229282623962, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289034503194948835, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289034503194948835, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5832992624338244450, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
       propertyPath: m_Name
       value: Projector
-      objectReference: {fileID: 0}
-    - target: {fileID: 8785656159887679345, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
-      propertyPath: _parents.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8785656159887679345, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
-      propertyPath: '_parents.Array.data[0]'
-      value: 
-      objectReference: {fileID: 748740997}
-    - target: {fileID: 8785656159887679345, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
-      propertyPath: _solverTags.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8785656159887679345, guid: 9b6f51b80cca3be4b82e53aec8e5e4f7, type: 3}
-      propertyPath: '_solverTags.Array.data[0]'
-      value: Candle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

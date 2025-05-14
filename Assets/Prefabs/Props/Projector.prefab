@@ -44,8 +44,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 103.97
-  m_Range: 19.56
+  m_Intensity: 337.57
+  m_Range: 30.7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -75,7 +75,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: acd4606142ec06a4da3fec6fd507dfd7, type: 3}
+  m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   _projectorLight: {fileID: 2289034503194948835}
   _lighting: {fileID: 1079034229282623962}
   _candleReceiver: {fileID: 4180688338956792936}
-  _cookie: {fileID: 0}
+  _cookie: {fileID: 2800000, guid: d7b15cc5df993f74db57ed6d8a6b39b1, type: 3}
   Disks: 
 --- !u!1 &9024243075027797291
 GameObject:
@@ -312,9 +312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d8b56065e83bc4fa6ff7f72dfc1d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solverTags: []
-  _parents: []
-  _prefabs: []
+  _solverTags:
+  - Candle
+  _parents:
+  - {fileID: 4180688338956792936}
+  _prefabs:
+  - {fileID: 7048335755621763646, guid: 127fd2e774879b549bc65f62fdb2de70, type: 3}
   RewardActive: 0
 --- !u!65 &4360726227183307498
 BoxCollider:
@@ -351,3 +354,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - PlaceItem
+  - PickUp

@@ -87,7 +87,6 @@ public class InventoryManager : MonoBehaviour
                 return true; // item added
             }
         }
-
         return false; // no space in inventory
     }
 
@@ -99,6 +98,17 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGObject.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
     }
-    
+
+    public void RemoveItem(Item itemToRemove)
+    {
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.Item == itemToRemove)
+            {
+                 Destroy(itemInSlot.gameObject);
+            }
+        }
+    }
     
 }

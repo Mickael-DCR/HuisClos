@@ -8,6 +8,7 @@ public class HintPhone : Prop
         {
             HintManager.Instance.ShowHint();
             HintManager.Instance.CanUse = false;
+            HintManager.Instance.StartHintRoutine();
             return true;
         }
         return false;

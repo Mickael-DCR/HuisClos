@@ -16,6 +16,8 @@ public class Telescope : Prop
         base.PlaceItem();
         if (_resolved && !_rewardActive)
         {
+            var itemInHand = InventoryManager.Instance.HandSlot.GetChild(0).GetComponent<Collectible>().Item;
+            InventoryManager.Instance.RemoveItem(itemInHand);
             
             UIManager.Instance.TelescopeMissingPiece.SetActive(true);
             Instantiate(_reward,_spawnPoint);

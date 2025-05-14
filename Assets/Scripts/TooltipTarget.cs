@@ -3,5 +3,8 @@ using UnityEngine;
 
 public class TooltipTarget : MonoBehaviour
 {
-    public List<string> Options;
+    [Header("<Function's Name>")]
+    public List<string> Options;  
+    [Header("<In Game Name>")]
+    public List<string> OptionsName;
 }

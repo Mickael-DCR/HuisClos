@@ -18,7 +18,6 @@ public class TooltipManager : MonoBehaviour
     private int _selectedIndex = 0;
 
     private InputSystem_Actions _inputSystem;
-    private Vector2 _scroll;
 
     private void Awake()
     {
@@ -52,7 +51,6 @@ public class TooltipManager : MonoBehaviour
             return;
         }
 
-        _scroll = PlayerController.InputSystemActions.Player.Tooltip.ReadValue<Vector2>();
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
@@ -63,12 +61,9 @@ public class TooltipManager : MonoBehaviour
                 {
                     _currentTarget = target;
                     _selectedIndex = 0;
-                    PopulateOptions();
                 }
 
                 _tooltipUI.SetActive(true);
-                HandleScrollInput();
-                UpdateOptionHighlight();
                 return;
             }
         }
@@ -76,39 +71,6 @@ public class TooltipManager : MonoBehaviour
         // Hide UI if not looking at a tooltip target
         _currentTarget = null;
         _tooltipUI.SetActive(false);
-    }
-
-    private void PopulateOptions()
-    {
-        // Clear existing options
-        foreach (Transform child in _contentPanel)
-        {
-            Destroy(child.gameObject);
-        }
-
-        // Populate new options
-        foreach (string option in _currentTarget.Options)
-        {
-            GameObject newOption = Instantiate(_optionPrefab, _contentPanel);
-            newOption.GetComponent<TMP_Text>().text = option;
-        }
-    }
-
-    private void HandleScrollInput()
-    {
-        if (_scroll.y > 0f)
-            _selectedIndex = (_selectedIndex - 1 + _currentTarget.Options.Count) % _currentTarget.Options.Count;
-        else if (_scroll.y < 0f)
-            _selectedIndex = (_selectedIndex + 1) % _currentTarget.Options.Count;
-    }
-
-    private void UpdateOptionHighlight()
-    {
-        for (int i = 0; i < _contentPanel.childCount; i++)
-        {
-            TMP_Text optionText = _contentPanel.GetChild(i).GetComponent<TMP_Text>();
-            optionText.color = (i == _selectedIndex) ? Color.yellow : Color.white;
-        }
     }
 
     public void OnInteract(InputAction.CallbackContext ctx)

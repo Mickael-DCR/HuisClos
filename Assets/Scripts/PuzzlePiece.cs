@@ -21,6 +21,7 @@ public class PuzzlePiece : Prop
                 _parentPivot.FirstTimeSpawned = true;
                 
                 Destroy(hand.GetChild(0).gameObject);   // destroys object in hand
+                InventoryManager.Instance.RemoveItem(inventoryItem.Item);
                 Destroy(gameObject);                    // destroys receptor
         }
     }

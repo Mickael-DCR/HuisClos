@@ -42,19 +42,22 @@ public class HintManager : MonoBehaviour
         };
 
         // Start the hint generation process
-        _hintCoroutine = StartCoroutine(HintRoutine());
+        _hintCoroutine = StartHintRoutine();
     }
 
+    public Coroutine StartHintRoutine()
+    {
+        return StartCoroutine(HintRoutine());
+    }
     private IEnumerator HintRoutine()
     {
-        while (!CanUse)
+        if(!CanUse)
         {
             _emissiveToChange.DisableEmissive();
             yield return new WaitForSeconds(_intervalBetweenHints);
             _emissiveToChange.EnableEmissive();
             CanUse = true;
         }
-        
     }
 
     public void ShowHint()
