@@ -34,21 +34,6 @@ public class Projector : Prop
 
     public override void PlaceItem()
     {
-        if (!_resolved)
-        {
-            var playerHand = InventoryManager.Instance.HandSlot;
-            Transform objectInHand = null;
-            if (playerHand.childCount > 0)
-            {
-                objectInHand = playerHand.GetChild(0);
-            }
-
-            if (objectInHand != null && objectInHand.gameObject.CompareTag("Candle"))
-            {
-                _resolved = true;
-            }
-        }
-
         base.PlaceItem();
         if (_resolved && !_complete)
         {

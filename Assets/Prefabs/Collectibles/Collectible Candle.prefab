@@ -259,3 +259,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - PickUp
+  OptionsName:
+  - Ramasser

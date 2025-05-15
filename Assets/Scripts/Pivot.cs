@@ -7,10 +7,11 @@ public class Pivot : Prop
 {
     public EmissiveChanger EmissiveTarget;
     public bool IsEmissive;
-    // Objet à tourner 
+    
+    // Object to rotate 
     public GameObject Target;
-
-    // axe (Vector 3)
+    
+    // Rotation Axis (Vector3)
     public Vector3 AxeRotation = Vector3.up;
     public float RotationAngle = 60f;
     public float AngleTarget = 120f;
@@ -19,6 +20,7 @@ public class Pivot : Prop
     public bool FirstTimeSpawned;
     public bool CanRotate = true;
     [SerializeField] private bool _selfLocking;
+    private bool _isLocked = false; // New: Lock flag
 
     private void Update()
     {
@@ -33,26 +35,32 @@ public class Pivot : Prop
     {
         EmissiveTarget.DisableEmissive();
     }
+
     public override bool Interact()
     {
-        if(CanRotate)
+        if (_isLocked) return false; // New: Prevent interaction if locked
+
+        if (CanRotate)
         {
-            //Calcul de la rotation 
+            // Calculate rotation
             Quaternion currentRotation = Target.transform.localRotation;
             Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
 
             Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle);
         }
         
-        
         RotationCheck();
-        CanRotate = !(WinCondition && _selfLocking );
+        CanRotate = !(WinCondition && _selfLocking) && !_isLocked;
         return true;
     }
 
     private void RotationCheck()
     {
-        if( Mathf.Abs(Target.transform.localRotation.eulerAngles.x- AngleTarget) < 0.01f )
+        // Adjusted to allow for any axis (x, y, z)
+        float targetAngle = AngleTarget % 360f;
+        float currentAngle = Target.transform.localRotation.eulerAngles.y % 360f; // Assuming Y-axis
+
+        if (Mathf.Abs(currentAngle - targetAngle) < 0.01f)
         {
             WinCondition = true;
         }
@@ -60,5 +68,11 @@ public class Pivot : Prop
         {
             WinCondition = false;
         }
+    }
+
+    public void Lock()
+    {
+        _isLocked = true;
+        CanRotate = false;
     }
 }

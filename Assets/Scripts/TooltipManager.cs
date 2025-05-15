@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,9 +16,7 @@ public class TooltipManager : MonoBehaviour
     [SerializeField] private GameObject _optionPrefab;          // Prefab for each option (TMP_Text)
     
     private TooltipTarget _currentTarget;
-    private int _selectedIndex = 0;
-
-    private InputSystem_Actions _inputSystem;
+    private List<TMP_Text> _optionPool = new List<TMP_Text>();  // Object pool for option text
 
     private void Awake()
     {
@@ -29,17 +28,22 @@ public class TooltipManager : MonoBehaviour
         if (PlayerController.InputSystemActions != null)
         {
             PlayerController.InputSystemActions.Player.Interact.performed += OnInteract;
+            PlayerController.InputSystemActions.Player.AltInteraction.performed += OnAltInteract;
         }
+
+        InitializeOptionPool();
     }
 
     private void OnEnable()
     {
-        PlayerController.InputSystemActions.Player.Interact.performed += OnInteract;
+        PlayerController.InputSystemActions.Player.Interact.Enable();
+        PlayerController.InputSystemActions.Player.AltInteraction.Enable();
     }
 
     private void OnDisable()
     {
         PlayerController.InputSystemActions.Player.Interact.Disable();
+        PlayerController.InputSystemActions.Player.AltInteraction.Disable();
     }
 
     void Update()
@@ -60,7 +64,7 @@ public class TooltipManager : MonoBehaviour
                 if (_currentTarget != target)
                 {
                     _currentTarget = target;
-                    _selectedIndex = 0;
+                    UpdateTooltipUI();
                 }
 
                 _tooltipUI.SetActive(true);
@@ -73,14 +77,73 @@ public class TooltipManager : MonoBehaviour
         _tooltipUI.SetActive(false);
     }
 
-    public void OnInteract(InputAction.CallbackContext ctx)
+    private void InitializeOptionPool()
     {
-        if (_currentTarget != null)
+        _optionPool.Clear();
+    
+        for (int i = 0; i < 2; i++)  // Only two options
         {
-            Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+            var optionInstance = Instantiate(_optionPrefab, _contentPanel);
+            optionInstance.SetActive(false);
+            _optionPool.Add(optionInstance.GetComponentInChildren<TMP_Text>());
+        }
+    }
+
+    private void UpdateTooltipUI()
+    {
+        if (_currentTarget == null) return;
+
+        // Deactivate all options first
+        foreach (var option in _optionPool)
+        {
+            option.transform.parent.gameObject.SetActive(false); // Disable entire option prefab
+        }
+
+        // Display first option if available
+        if (_currentTarget.Options.Count > 0 && _currentTarget.OptionsName.Count > 0)
+        {
+            _optionPool[0].text = _currentTarget.OptionsName[0];
+            _optionPool[0].transform.parent.gameObject.SetActive(true); // Enable the parent (Image)
+        }
+
+        // Display second option if available
+        if (_currentTarget.Options.Count > 1 && _currentTarget.OptionsName.Count > 1)
+        {
+            _optionPool[1].text = _currentTarget.OptionsName[1];
+            _optionPool[1].transform.parent.gameObject.SetActive(true); // Enable the parent (Image)
+        }
+
+        // Ensure UI is updated
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_contentPanel.GetComponent<RectTransform>());
+    }
+
+    private void OnInteract(InputAction.CallbackContext ctx)
+    {
+        if (_currentTarget != null && _currentTarget.Options.Count > 0)
+        {
+            SendMessageToTarget(0); // First option (E / LMB)
+        }
+    }
+
+    private void OnAltInteract(InputAction.CallbackContext ctx)
+    {
+        if (_currentTarget != null && _currentTarget.Options.Count > 1)
+        {
+            SendMessageToTarget(1); // Second option (A / RMB)
+        }
+    }
+
+    private void SendMessageToTarget(int index)
+    {
+        if (_currentTarget == null) return;
+
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+        {
+            if (index < _currentTarget.Options.Count)
             {
-                hit.collider.SendMessage(_currentTarget.Options[_selectedIndex]);
+                Debug.Log($"TooltipManager: Sending message - {_currentTarget.Options[index]}");
+                hit.collider.SendMessage(_currentTarget.Options[index]);
             }
         }
     }

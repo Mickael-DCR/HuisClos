@@ -153,6 +153,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AltInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7578830-19c7-4208-b510-636f80ccce8b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -345,17 +354,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa1d9bb6-8be0-404e-866e-bc54fd093e71"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""4f4649ac-64a8-4a73-af11-b3faef356a4d"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
@@ -439,6 +437,39 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""EquipCandle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f9d3898-cc57-4c07-95aa-03e03a5d73c9"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AltInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68706a9e-7d44-4eac-93ca-10f7a05d163e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""AltInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f7e1c68-6e5e-486a-b778-f5b1a1ecf86e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""AltInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1108,6 +1139,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_OpenInventory = m_Player.FindAction("Open Inventory", throwIfNotFound: true);
         m_Player_Tooltip = m_Player.FindAction("Tooltip", throwIfNotFound: true);
         m_Player_EquipCandle = m_Player.FindAction("EquipCandle", throwIfNotFound: true);
+        m_Player_AltInteraction = m_Player.FindAction("AltInteraction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1209,6 +1241,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenInventory;
     private readonly InputAction m_Player_Tooltip;
     private readonly InputAction m_Player_EquipCandle;
+    private readonly InputAction m_Player_AltInteraction;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1248,6 +1281,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/EquipCandle".
         /// </summary>
         public InputAction @EquipCandle => m_Wrapper.m_Player_EquipCandle;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/AltInteraction".
+        /// </summary>
+        public InputAction @AltInteraction => m_Wrapper.m_Player_AltInteraction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1295,6 +1332,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @EquipCandle.started += instance.OnEquipCandle;
             @EquipCandle.performed += instance.OnEquipCandle;
             @EquipCandle.canceled += instance.OnEquipCandle;
+            @AltInteraction.started += instance.OnAltInteraction;
+            @AltInteraction.performed += instance.OnAltInteraction;
+            @AltInteraction.canceled += instance.OnAltInteraction;
         }
 
         /// <summary>
@@ -1327,6 +1367,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @EquipCandle.started -= instance.OnEquipCandle;
             @EquipCandle.performed -= instance.OnEquipCandle;
             @EquipCandle.canceled -= instance.OnEquipCandle;
+            @AltInteraction.started -= instance.OnAltInteraction;
+            @AltInteraction.performed -= instance.OnAltInteraction;
+            @AltInteraction.canceled -= instance.OnAltInteraction;
         }
 
         /// <summary>
@@ -1687,6 +1730,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEquipCandle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "AltInteraction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAltInteraction(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

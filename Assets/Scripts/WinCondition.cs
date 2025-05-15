@@ -4,28 +4,52 @@ using UnityEngine.Serialization;
 
 public class WinCondition : MonoBehaviour
 {
+    public enum CheckMode { Automatic, Manual }
+    public CheckMode Mode = CheckMode.Automatic; // Choose mode in the inspector
+
     public List<Pivot> Pivots;
-    
-    private void Interact()
+
+    private void Update()
     {
-        var numberOfConditions = Pivots.Count;
-        var numberOfTrue = 0;
+        if (Mode == CheckMode.Automatic)
+        {
+            CheckWinConditions();
+        }
+    }
+
+    // Called automatically in automatic mode, or manually in manual mode
+    public void CheckWinConditions()
+    {
+        int numberOfConditions = Pivots.Count;
+        int numberOfTrue = 0;
+        
         foreach (var pivot in Pivots)
         {
             if (pivot.WinCondition) numberOfTrue++;
-            
         }
 
         if (numberOfTrue == numberOfConditions)
         {
-            // light up the pivots
-            foreach (var pivot in Pivots)
-            {
-                pivot.EmissiveTarget.EnableEmissive();
-                pivot.EmissiveTarget.ChangeEmissiveIntensity(); 
-                pivot.CanRotate = false;
-            }
-            
+            LockPivots();
+        }
+    }
+
+    private void LockPivots()
+    {
+        foreach (var pivot in Pivots)
+        {
+            pivot.EmissiveTarget.EnableEmissive();
+            pivot.EmissiveTarget.ChangeEmissiveIntensity();
+            pivot.Lock();
+        }
+    }
+
+    // New: Method to manually trigger the check (useful for Manual mode)
+    public void Interact()
+    {
+        if (Mode == CheckMode.Manual)
+        {
+            CheckWinConditions();
         }
     }
 }

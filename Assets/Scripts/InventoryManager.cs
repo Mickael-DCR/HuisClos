@@ -59,7 +59,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            Instantiate(FindItem(_candle).ItemPrefab3D, HandSlot);
+            if(FindItem(_candle) != null) Instantiate(FindItem(_candle).ItemPrefab3D, HandSlot);
         }
     }
     public Item FindItem(Item itemToFind)
