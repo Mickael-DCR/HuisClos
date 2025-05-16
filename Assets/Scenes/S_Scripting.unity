@@ -2812,6 +2812,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1292865934}
   m_SourcePrefab: {fileID: 100100000, guid: 4a82b702f24075d4abd4df093d58645d, type: 3}
+--- !u!135 &1007906166 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 8886347595148639861, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+  m_PrefabInstance: {fileID: 1376551127396560137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1019391362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8866460918252418530, guid: dab54526d78d0914cb62e259de2f68d4, type: 3}
@@ -3800,7 +3805,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1482155, y: 2.1482155, z: 2.1482155}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765395488}
@@ -5882,6 +5887,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 322037781714821166, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: OptionsName.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 322037781714821166, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: 'OptionsName.Array.data[0]'
+      value: Tourner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001303343553563123, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: AngleTarget
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001303343553563123, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: RotationAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137158361251402395, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 1007906166}
     - target: {fileID: 4771753362418318727, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
       propertyPath: m_Name
       value: SM_Horloge_001
@@ -5924,6 +5949,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5292711194653124413, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814275036413716401, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: OptionsName.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814275036413716401, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: 'OptionsName.Array.data[0]'
+      value: Placer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271494773026519129, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271494773026519129, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271494773026519129, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271494773026519129, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271494773026519129, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639957939695536816, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: OptionsName.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639957939695536816, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: 'OptionsName.Array.data[0]'
+      value: Tourner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651053793816590935, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: AngleTarget
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651053793816590935, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: RotationAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951771809543830819, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951771809543830819, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951771809543830819, guid: 96ac6041389ad4d499d1557ed8b1e424, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6176,6 +6257,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Constellation Puzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 2248594468529242328, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
+      propertyPath: RotationAxisVector.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426461673955621423, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
+      propertyPath: RotationAxisVector.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6017980423183741355, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.33
@@ -6215,6 +6304,18 @@ PrefabInstance:
     - target: {fileID: 6017980423183741355, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890658541603254566, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
+      propertyPath: RotationAxisVector.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316279741019957334, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
+      propertyPath: RotationAxisVector.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632036630266906808, guid: 5894cfcf4921a914ba680260684543c4, type: 3}
+      propertyPath: RotationAxisVector.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
