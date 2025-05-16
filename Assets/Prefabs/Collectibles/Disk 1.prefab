@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 253962442403673858}
   - component: {fileID: 2488224171982510971}
   - component: {fileID: 3869426771626716278}
-  - component: {fileID: 5925907292420194678}
+  - component: {fileID: 6610740258652069169}
   m_Layer: 0
   m_Name: Disk 1
   m_TagString: Untagged
@@ -116,8 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - PickUp
-  OptionsName: []
---- !u!65 &5925907292420194678
+  OptionsName:
+  - Ramasser
+--- !u!65 &6610740258652069169
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,5 +137,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.18240055, y: 0.09878708, z: 0.027284712}
-  m_Center: {x: 0.0015913583, y: -0.04939354, z: 0}
+  m_Size: {x: 0.1116629, y: 0.14508228, z: 0.027284712}
+  m_Center: {x: 0.041653555, y: 0.020459041, z: 0}

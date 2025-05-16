@@ -140,6 +140,9 @@ MonoBehaviour:
   Options:
   - Interact
   - PlaceItem
+  OptionsName:
+  - Interagir
+  - Placer
 --- !u!64 &8097715232298909204
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class ItemsReceptor : Prop
     [Header("Placement Settings")]
     [SerializeField] private Transform[] _parents;  // Multiple parents for multiple items
     [SerializeField] private GameObject[] _prefabs; // Multiple prefabs for multiple items
+    [SerializeField] private Collider _collider;    // Collider to disable (if needed)
     private bool[] _areItemsPlaced;                 // prevents from placing the same item twice
     
 
@@ -36,7 +37,6 @@ public class ItemsReceptor : Prop
                     _areItemsPlaced[i] = true;
                     InventoryManager.Instance.RemoveItem(itemToRemove); // Remove item from player's inventory
                     Destroy(objectInHand.gameObject); // Remove item from player's hand
-                    Debug.Log($"Placed item: {_solverTags[i]}");
                     break;
                 }
             }
@@ -44,8 +44,8 @@ public class ItemsReceptor : Prop
             // Check if all required items are placed
             if (Array.TrueForAll(_areItemsPlaced, placed => placed))
             {
+                if(_collider != null)_collider.enabled = false;
                 RewardActive = true;
-                Debug.Log("All required items placed. Reward activated.");
             }
         }
     }

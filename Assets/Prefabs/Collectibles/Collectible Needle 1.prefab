@@ -117,7 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - PickUp
-  OptionsName: []
+  OptionsName:
+  - Ramasser
 --- !u!65 &2462675290889501774
 BoxCollider:
   m_ObjectHideFlags: 0

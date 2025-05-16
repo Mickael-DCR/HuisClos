@@ -108,10 +108,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.15
-  m_Height: 0.61
+  m_Radius: 0.09
+  m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0.12, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.16, z: -0.00000008940697}
 --- !u!114 &2839827584170653251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,4 +139,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - PickUp
-  OptionsName: []
+  OptionsName:
+  - Ramasser

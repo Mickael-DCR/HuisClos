@@ -12,7 +12,9 @@ public class Pivot : Prop
     public GameObject Target;
     
     // Rotation Axis (Vector3)
-    public Vector3 AxeRotation = Vector3.up;
+    private enum RotationAxis { XAxis, YAxis, ZAxis };
+    [SerializeField] private RotationAxis _rotationAxis;
+    public Vector3 RotationAxisVector;
     public float RotationAngle = 60f;
     public float AngleTarget = 120f;
 
@@ -20,7 +22,7 @@ public class Pivot : Prop
     public bool FirstTimeSpawned;
     public bool CanRotate = true;
     [SerializeField] private bool _selfLocking;
-    private bool _isLocked = false; // New: Lock flag
+    private bool _isLocked = false; // Lock flag
 
     private void Update()
     {
@@ -38,19 +40,22 @@ public class Pivot : Prop
 
     public override bool Interact()
     {
-        if (_isLocked) return false; // New: Prevent interaction if locked
+        if (_isLocked) return false; // Prevents interaction if locked
+        
+        // Calculate rotation
+        /*
+        Quaternion currentRotation = Target.transform.localRotation;
 
-        if (CanRotate)
-        {
-            // Calculate rotation
-            Quaternion currentRotation = Target.transform.localRotation;
-            Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
-
-            Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle);
-        }
+        Target.transform.localRotation = Quaternion.RotateTowards(currentRotation,
+            currentRotation * Quaternion.Euler(AxeRotation * RotationAngle),
+            RotationAngle);
+        */
+        
+        
+        Target.transform.Rotate(RotationAxisVector, RotationAngle);
+        
         
         RotationCheck();
-        CanRotate = !(WinCondition && _selfLocking) && !_isLocked;
         return true;
     }
 
@@ -58,9 +63,23 @@ public class Pivot : Prop
     {
         // Adjusted to allow for any axis (x, y, z)
         float targetAngle = AngleTarget % 360f;
-        float currentAngle = Target.transform.localRotation.eulerAngles.y % 360f; // Assuming Y-axis
+        float currentAngle = 0f;
+        if(_rotationAxis == RotationAxis.XAxis )
+        {
+            currentAngle = Target.transform.localRotation.eulerAngles.x % 360f; // Assuming X-axis
+        }
+        else if (_rotationAxis == RotationAxis.YAxis)
+        {
+            currentAngle = Target.transform.localRotation.eulerAngles.y % 360f; // Y-axis
+        }
+        else if (_rotationAxis == RotationAxis.ZAxis)
+        {
+            currentAngle = Target.transform.localRotation.eulerAngles.z % 360f; // Z-axis
+        }
 
-        if (Mathf.Abs(currentAngle - targetAngle) < 0.01f)
+
+        float E = Mathf.Abs(currentAngle - targetAngle);
+        if (E < 0.01f)
         {
             WinCondition = true;
         }
@@ -73,6 +92,5 @@ public class Pivot : Prop
     public void Lock()
     {
         _isLocked = true;
-        CanRotate = false;
     }
 }
