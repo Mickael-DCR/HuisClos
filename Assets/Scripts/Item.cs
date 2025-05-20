@@ -7,4 +7,5 @@ public class Item : ScriptableObject
     public GameObject ItemPrefab3D;
     public GameObject ItemPrefabUI;
     public Sprite Icon;
+    public string Description;
 }

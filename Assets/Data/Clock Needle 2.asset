@@ -15,4 +15,5 @@ MonoBehaviour:
   ItemPrefabInspect: {fileID: 1338882296360250709, guid: 3a960c9e097563c458700064919919f2, type: 3}
   ItemPrefab3D: {fileID: 1338882296360250709, guid: 8d5b7d5ebdae0b044bbd26c2753290dd, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  Icon: {fileID: 21300000, guid: ed0f079c328a044439ee3622ae65d75d, type: 3}
+  Description: "Petite aiguille d\u2019horloge. "

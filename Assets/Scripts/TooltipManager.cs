@@ -14,6 +14,7 @@ public class TooltipManager : MonoBehaviour
     [SerializeField] private GameObject _tooltipUI;             // UI panel (standard UI panel)
     [SerializeField] private Transform _contentPanel;           // Parent for text options
     [SerializeField] private GameObject _optionPrefab;          // Prefab for each option (TMP_Text)
+    [SerializeField] private GameObject _optionPrefab2;         // Prefab for each option (TMP_Text)
     
     private TooltipTarget _currentTarget;
     private List<TMP_Text> _optionPool = new List<TMP_Text>();  // Object pool for option text
@@ -80,13 +81,14 @@ public class TooltipManager : MonoBehaviour
     private void InitializeOptionPool()
     {
         _optionPool.Clear();
+        
+        var optionInstance = Instantiate(_optionPrefab, _contentPanel);
+        var optionInstance2 = Instantiate(_optionPrefab2, _contentPanel);
+        optionInstance.SetActive(false);
+        optionInstance2.SetActive(false);
+        _optionPool.Add(optionInstance.GetComponentInChildren<TMP_Text>());
+        _optionPool.Add(optionInstance2.GetComponentInChildren<TMP_Text>());
     
-        for (int i = 0; i < 2; i++)  // Only two options
-        {
-            var optionInstance = Instantiate(_optionPrefab, _contentPanel);
-            optionInstance.SetActive(false);
-            _optionPool.Add(optionInstance.GetComponentInChildren<TMP_Text>());
-        }
     }
 
     private void UpdateTooltipUI()
@@ -110,6 +112,7 @@ public class TooltipManager : MonoBehaviour
         if (_currentTarget.Options.Count > 1 && _currentTarget.OptionsName.Count > 1)
         {
             _optionPool[1].text = _currentTarget.OptionsName[1];
+            
             _optionPool[1].transform.parent.gameObject.SetActive(true); // Enable the parent (Image)
         }
 
@@ -142,7 +145,6 @@ public class TooltipManager : MonoBehaviour
         {
             if (index < _currentTarget.Options.Count)
             {
-                Debug.Log($"TooltipManager: Sending message - {_currentTarget.Options[index]}");
                 hit.collider.SendMessage(_currentTarget.Options[index]);
             }
         }

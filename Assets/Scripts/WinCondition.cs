@@ -38,8 +38,11 @@ public class WinCondition : MonoBehaviour
     {
         foreach (var pivot in Pivots)
         {
-            pivot.EmissiveTarget.EnableEmissive();
-            pivot.EmissiveTarget.ChangeEmissiveIntensity();
+            if(pivot.IsEmissive)
+            {
+                pivot.EmissiveTarget.EnableEmissive();
+                pivot.EmissiveTarget.ChangeEmissiveIntensity();
+            }
             pivot.Lock();
         }
     }
