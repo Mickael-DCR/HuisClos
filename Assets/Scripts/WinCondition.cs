@@ -6,8 +6,14 @@ public class WinCondition : MonoBehaviour
 {
     public enum CheckMode { Automatic, Manual }
     public CheckMode Mode = CheckMode.Automatic; // Choose mode in the inspector
-
+    public enum CheckType { Pivot, Receiver  }
+    public CheckType Type = CheckType.Pivot; // Choose type in the inspector
+    
     public List<Pivot> Pivots;
+    public List<ItemsReceptor> ItemsReceptors;
+    
+    [SerializeField] private PropMovement _propToMove;
+    public bool PropHasMoved = false;
 
     private void Update()
     {
@@ -20,17 +26,43 @@ public class WinCondition : MonoBehaviour
     // Called automatically in automatic mode, or manually in manual mode
     public void CheckWinConditions()
     {
-        int numberOfConditions = Pivots.Count;
-        int numberOfTrue = 0;
-        
-        foreach (var pivot in Pivots)
+        if(Type == CheckType.Pivot)
         {
-            if (pivot.WinCondition) numberOfTrue++;
-        }
+            int numberOfConditions = Pivots.Count;
+            int numberOfTrue = 0;
 
-        if (numberOfTrue == numberOfConditions)
+            foreach (var pivot in Pivots)
+            {
+                if (pivot.WinCondition) numberOfTrue++;
+            }
+
+            if (numberOfTrue == numberOfConditions)
+            {
+                LockPivots();
+                if (!PropHasMoved)
+                {
+                    PropHasMoved = true;
+                    _propToMove.Open();
+                }
+            }
+        }
+        else if (Type == CheckType.Receiver)
         {
-            LockPivots();
+            int numberOfConditions = ItemsReceptors.Count;
+            int numberOfTrue = 0;
+
+            foreach (var receptor in ItemsReceptors)
+            {
+                if(receptor.RewardActive) numberOfTrue++;
+            }
+            if(numberOfTrue == numberOfConditions)
+            {
+                if (!PropHasMoved)
+                {
+                    PropHasMoved = true;
+                    _propToMove.Open();
+                }
+            }
         }
     }
 

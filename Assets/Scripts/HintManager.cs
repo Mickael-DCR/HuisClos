@@ -18,6 +18,7 @@ public class HintManager : MonoBehaviour
     [SerializeField] private List<string> _puzzle1Hints;     // List of hints for Puzzle 1
     [SerializeField] private List<string> _puzzle2Hints;     // List of hints for Puzzle 2
     [SerializeField] private List<string> _puzzle3Hints;     // List of hints for Puzzle 3
+    [SerializeField] private List<string> _puzzle4Hints;     // List of hints for Puzzle 4
 
     [SerializeField] private EmissiveChanger _emissiveToChange;
     private Dictionary<string, List<string>> _hintDictionary;
@@ -38,7 +39,8 @@ public class HintManager : MonoBehaviour
         {
             { "Puzzle1", _puzzle1Hints },
             { "Puzzle2", _puzzle2Hints },
-            { "Puzzle3", _puzzle3Hints }
+            { "Puzzle3", _puzzle3Hints },
+            { "Puzzle4", _puzzle4Hints }
         };
 
         // Start the hint generation process
@@ -92,10 +94,6 @@ public class HintManager : MonoBehaviour
         {
             _currentPuzzle = puzzleName;
             _currentHintIndex = 0; // Reset the hint index
-        }
-        else
-        {
-            Debug.LogWarning($"Puzzle '{puzzleName}' not found in the hint list.");
         }
     }
 

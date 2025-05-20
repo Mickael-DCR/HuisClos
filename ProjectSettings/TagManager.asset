@@ -11,6 +11,10 @@ TagManager:
   - Needle1
   - Needle2
   - Needle
+  - Undefined
+  - Book1
+  - Book2
+  - Book3
   layers:
   - Default
   - TransparentFX

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e8bc307564b3dc4a8e38d462173cb69, type: 3}
-  m_Name: Book 1
+  m_Name: Book 2
   m_EditorClassIdentifier: 
-  ItemPrefabInspect: {fileID: 6377574327082744074, guid: c7534a8f7d9e9a34e90f8e290645a0cb, type: 3}
-  ItemPrefab3D: {fileID: 6377574327082744074, guid: a9e18a8853e5b2040b4213359c2ca861, type: 3}
+  ItemPrefabInspect: {fileID: 6377574327082744074, guid: 6251c463897cccd4484cbfefc42ae693, type: 3}
+  ItemPrefab3D: {fileID: 6377574327082744074, guid: 302398fbb02e2694f9545989030bf621, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 21300000, guid: c4e010b5093d05247a2bff31b237c04c, type: 3}
+  Icon: {fileID: 21300000, guid: 4b36dcbd808f1b145b48a20954858515, type: 3}
   Description: Un livre.

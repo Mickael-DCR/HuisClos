@@ -21,7 +21,7 @@ public class Telescope : Prop
             InventoryManager.Instance.RemoveItem(itemInHand);
             Destroy(objectInHand.gameObject);
             UIManager.Instance.TelescopeMissingPiece.SetActive(true);
-            Instantiate(_reward,_spawnPoint);
+           // Instantiate(_reward,_spawnPoint);
             _rewardActive = true;
         }
     }

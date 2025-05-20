@@ -8,7 +8,7 @@ public class ItemsReceptor : Prop
     [SerializeField] private Transform[] _parents;  // Multiple parents for multiple items
     [SerializeField] private GameObject[] _prefabs; // Multiple prefabs for multiple items
     [SerializeField] private Collider _collider;    // Collider to disable (if needed)
-    private bool[] _areItemsPlaced;                 // prevents from placing the same item twice
+    public bool[] _areItemsPlaced;                 // prevents from placing the same item twice
     
 
     public bool RewardActive;
@@ -52,6 +52,7 @@ public class ItemsReceptor : Prop
     
     private void PickUp()
     {
+        if (!_areItemsPlaced[0]) return;
         for (int i = 0; i < _solverTags.Length; i++)
         {
             var itemToAdd = _parents[i].GetChild(0).GetComponent<Collectible>().Item;
