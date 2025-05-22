@@ -1,0 +1,277 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &661737117791514828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7849456573594153256}
+  - component: {fileID: 2489480265316322449}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7849456573594153256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661737117791514828}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.85202384, z: -0, w: 0.5235031}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.31941018, y: 0.31941, z: 0.31941018}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5365696364420512333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2489480265316322449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661737117791514828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4a21e7c9276624186bed83a95608e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Crosshair: {fileID: 0}
+  TelescopeWindow: {fileID: 0}
+  InspectWindow: {fileID: 0}
+  TelescopeMissingPiece: {fileID: 0}
+  IsInUI: 0
+--- !u!1 &1408435932520562732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8632726900790571980}
+  - component: {fileID: 142686647354623244}
+  m_Layer: 0
+  m_Name: Inventory Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8632726900790571980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408435932520562732}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.61282825, y: -0.6728685, z: -4.135606}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5365696364420512333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142686647354623244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408435932520562732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecbbf52ac80f4e458179c955336f317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryWindow: {fileID: 0}
+  inventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  HandSlot: {fileID: 0}
+  _candle: {fileID: 11400000, guid: 9d1ddd2566ecbe94a893318b71519add, type: 2}
+--- !u!1 &4039075412552019438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3632362695397456010}
+  - component: {fileID: 1098594939853713490}
+  m_Layer: 0
+  m_Name: Hint Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3632362695397456010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039075412552019438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5365696364420512333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1098594939853713490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039075412552019438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a4960d7f5b01d47bece56299b5ed09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hintTextUI: {fileID: 0}
+  _hintPanel: {fileID: 0}
+  _displayDuration: 5
+  _intervalBetweenHints: 10
+  _puzzle1Hints:
+  - "Deux aiguilles sans cadran ne sont que des fl\xE8ches sans cible ... et si le
+    temps projet\xE9 d\xE9tenais la cl\xE9 ?"
+  - "Ce projecteur n'est pas complet. Trois morceaux attendent d'\xEAtre rassembl\xE9s
+    ... Ouvre les yeux : parfois la poussi\xE8re cache des v\xE9rit\xE9s."
+  - "cherche les morceaux du disque derri\xE8re la plante, dans un seau pr\xE8s de
+    la chemin\xE9e, et dans un tiroir du bureau. assemble les dans le projecteur,
+    allume-le, observe l'heure projet\xE9e et reproduis-la sur l'horologe."
+  _puzzle2Hints:
+  - "Les \xE9toiles ne brillent qu'aux yeux de ceux qui prennent le temps de les
+    regarder ..."
+  - "Un simple papier peut transformer ce que l'on voit ... Ce t\xE9lescope montre
+    plus qu'une vue du ciel."
+  - "regarde dans le t\xE9lescope, place y le papier trouv\xE9 sous le bureau. Tu
+    verras une constellation \xE0 reproduire sur le mur \xE0 cadran. Pour cela trouve
+    le cadran manquant dans la valise \xE0 cot\xE9 de la biblioth\xE8que en l'ouvrant
+    ave la cl\xE9 pos\xE9 sur le t\xE9lescope."
+  _puzzle3Hints:
+  - "Tous les secrets ne craignent pas le feu ... certains ne se r\xE9v\xE8lent que
+    lorsqu'ils fondent."
+  - Le brassero attend plus que du bois. Trouve l'objet fait pour bruler, et regarde
+    ce qu'il cache en son coeur.
+  - "R\xE9cup\xE8re les buches dans la chemin\xE9e. L'objet en cire est dans le meuble
+    \xE0 droite de l'horloge. Fais le fondre dans le brasero, une cl\xE9 appara\xEEtra.
+    Elle ouvre un coffre contenant le dernier livre."
+  _puzzle4Hints:
+  - "La connaissance bien rang\xE9e ouvre parfois plus de portes que la force brute
+    ..."
+  - "Trois livres, trois \xE9nigmes. Rassemble-les, puis regarde ce que la biblioth\xE8que
+    dissimule."
+  - "Place les trois livres dans la biblioth\xE8que. Un m\xE9canisme s'enclenchera
+    et la sortie s'ouvrira."
+  _emissiveToChange: {fileID: 0}
+  CanUse: 0
+--- !u!1 &4678273228037738249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5365696364420512333}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5365696364420512333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678273228037738249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61282825, y: 1.6728685, z: 4.135606}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7849456573594153256}
+  - {fileID: 8632726900790571980}
+  - {fileID: 6189152429026725122}
+  - {fileID: 3632362695397456010}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7696113893746004617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6189152429026725122}
+  - component: {fileID: 2450042583998852076}
+  m_Layer: 0
+  m_Name: Tooltip Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6189152429026725122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696113893746004617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5365696364420512333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2450042583998852076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696113893746004617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a152af1a377e64896ceed37beb41cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  _tooltipUI: {fileID: 0}
+  _contentPanel: {fileID: 0}
+  _optionPrefab: {fileID: 5330250001759569016, guid: 9fbb0b8dae783c54a8173594b260090f, type: 3}
+  _optionPrefab2: {fileID: 5330250001759569016, guid: 85bb2b10dab13a249940b3b006ef8d01, type: 3}

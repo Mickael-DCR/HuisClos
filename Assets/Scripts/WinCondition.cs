@@ -4,28 +4,87 @@ using UnityEngine.Serialization;
 
 public class WinCondition : MonoBehaviour
 {
-    public List<Pivot> Pivots;
+    public enum CheckMode { Automatic, Manual }
+    public CheckMode Mode = CheckMode.Automatic; // Choose mode in the inspector
+    public enum CheckType { Pivot, Receiver  }
+    public CheckType Type = CheckType.Pivot; // Choose type in the inspector
     
-    private void Interact()
-    {
-        var numberOfConditions = Pivots.Count;
-        var numberOfTrue = 0;
-        foreach (var pivot in Pivots)
-        {
-            if (pivot.WinCondition) numberOfTrue++;
-            
-        }
+    public List<Pivot> Pivots;
+    public List<ItemsReceptor> ItemsReceptors;
+    
+    [SerializeField] private PropMovement _propToMove;
+    public bool PropHasMoved = false;
 
-        if (numberOfTrue == numberOfConditions)
+    private void Update()
+    {
+        if (Mode == CheckMode.Automatic)
         {
-            // light up the pivots
+            CheckWinConditions();
+        }
+    }
+
+    // Called automatically in automatic mode, or manually in manual mode
+    public void CheckWinConditions()
+    {
+        if(Type == CheckType.Pivot)
+        {
+            int numberOfConditions = Pivots.Count;
+            int numberOfTrue = 0;
+
             foreach (var pivot in Pivots)
             {
-                pivot.EmissiveTarget.EnableEmissive();
-                pivot.EmissiveTarget.ChangeEmissiveIntensity(); 
-                pivot.CanRotate = false;
+                if (pivot.WinCondition) numberOfTrue++;
             }
-            
+
+            if (numberOfTrue == numberOfConditions)
+            {
+                LockPivots();
+                if (!PropHasMoved)
+                {
+                    PropHasMoved = true;
+                    _propToMove.Open();
+                }
+            }
+        }
+        else if (Type == CheckType.Receiver)
+        {
+            int numberOfConditions = ItemsReceptors.Count;
+            int numberOfTrue = 0;
+
+            foreach (var receptor in ItemsReceptors)
+            {
+                if(receptor.RewardActive) numberOfTrue++;
+            }
+            if(numberOfTrue == numberOfConditions)
+            {
+                if (!PropHasMoved)
+                {
+                    PropHasMoved = true;
+                    _propToMove.Open();
+                }
+            }
+        }
+    }
+
+    private void LockPivots()
+    {
+        foreach (var pivot in Pivots)
+        {
+            if(pivot.IsEmissive)
+            {
+                pivot.EmissiveTarget.EnableEmissive();
+                pivot.EmissiveTarget.ChangeEmissiveIntensity();
+            }
+            pivot.Lock();
+        }
+    }
+
+    // New: Method to manually trigger the check (useful for Manual mode)
+    public void Interact()
+    {
+        if (Mode == CheckMode.Manual)
+        {
+            CheckWinConditions();
         }
     }
 }

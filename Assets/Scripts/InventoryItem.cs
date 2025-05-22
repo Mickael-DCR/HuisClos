@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Item Item;
     [SerializeField] private Image _icon;
@@ -41,5 +43,16 @@ public class InventoryItem : MonoBehaviour
             Destroy(_inspector.InspectSlot.GetChild(0).gameObject);
         }
         Instantiate(Item.ItemPrefabInspect, _inspector.InspectSlot);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+        ItemTooltipUI.Instance.ShowTooltip(Item);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+       // ItemTooltipUI.Instance.HideTooltip();
     }
 }

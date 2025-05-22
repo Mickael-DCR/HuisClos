@@ -27,10 +27,14 @@ public class PropMovement : MonoBehaviour
         _initialRotation = transform.rotation;
     }
 
+    public void Open()
+    {
+        Interact();
+    }
     public void Interact()
     {
-        //if (_isInteracting) return;
-
+        if (_isInteracting) return;
+        
         _isInteracting = true;
         _isOpen = !_isOpen;
 
@@ -39,6 +43,7 @@ public class PropMovement : MonoBehaviour
         else if (_interactionType == InteractionType.Rotate)
             StartCoroutine(RotateCoroutine());
     }
+    
 
     private System.Collections.IEnumerator MoveCoroutine()
     {
@@ -63,4 +68,5 @@ public class PropMovement : MonoBehaviour
         transform.rotation = targetRotation;
         _isInteracting = false;
     }
+
 }

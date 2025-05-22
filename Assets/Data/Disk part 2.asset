@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8bc307564b3dc4a8e38d462173cb69, type: 3}
   m_Name: Disk part 2
   m_EditorClassIdentifier: 
-  ItemPrefabInspect: {fileID: 1338882296360250709, guid: 049096463627f974fb20c8be69eca37a, type: 3}
+  ItemPrefabInspect: {fileID: 1338882296360250709, guid: 56cb97164ab857c47b7cdc4b59a2cc1c, type: 3}
   ItemPrefab3D: {fileID: 1338882296360250709, guid: ec96eb904313da541bc3d8882954ef7f, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 21300000, guid: 9c9f7c5e19ddc704298b7d04ed61229d, type: 3}
+  Icon: {fileID: 21300000, guid: 11ed522e8938cf348a194d3fad1bb918, type: 3}
+  Description: "Fragments d\u2019un disque \xE0 assembler dans un projecteur. Permet
+    de r\xE9v\xE9ler une ombre sur un mur."

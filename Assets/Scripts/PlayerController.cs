@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
         }
     }
     private static InputSystem_Actions _inputSystemActions;
-    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction, _openInventoryAction, _closeInventoryAction, _tooltipAction, _equipCandleAction, _openNotebookAction;
+    private InputAction _movementAction, _crouchAction, _lookAction, _interactAction,
+        _openInventoryAction, _closeInventoryAction, _tooltipAction, _equipCandleAction,
+    _openNotebookAction, _altInteractionAction;
     private Vector2 _moveDirection, _lookDirection;
     
     [Header ("Player Movement")]

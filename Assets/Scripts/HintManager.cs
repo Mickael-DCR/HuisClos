@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class HintManager : MonoBehaviour
 {
@@ -17,11 +18,14 @@ public class HintManager : MonoBehaviour
     [SerializeField] private List<string> _puzzle1Hints;     // List of hints for Puzzle 1
     [SerializeField] private List<string> _puzzle2Hints;     // List of hints for Puzzle 2
     [SerializeField] private List<string> _puzzle3Hints;     // List of hints for Puzzle 3
+    [SerializeField] private List<string> _puzzle4Hints;     // List of hints for Puzzle 4
 
+    [SerializeField] private EmissiveChanger _emissiveToChange;
     private Dictionary<string, List<string>> _hintDictionary;
     private string _currentPuzzle = "Puzzle1";               // Default puzzle
     private int _currentHintIndex = 0;
     private Coroutine _hintCoroutine;
+    public bool CanUse;
 
     private void Awake()
     {
@@ -35,28 +39,35 @@ public class HintManager : MonoBehaviour
         {
             { "Puzzle1", _puzzle1Hints },
             { "Puzzle2", _puzzle2Hints },
-            { "Puzzle3", _puzzle3Hints }
+            { "Puzzle3", _puzzle3Hints },
+            { "Puzzle4", _puzzle4Hints }
         };
 
         // Start the hint generation process
-        _hintCoroutine = StartCoroutine(HintRoutine());
+        _hintCoroutine = StartHintRoutine();
     }
 
+    public Coroutine StartHintRoutine()
+    {
+        return StartCoroutine(HintRoutine());
+    }
     private IEnumerator HintRoutine()
     {
-        while (true)
+        if(!CanUse)
         {
-            // Wait for the interval before showing the hint
+            _emissiveToChange.DisableEmissive();
             yield return new WaitForSeconds(_intervalBetweenHints);
-            ShowHint();
+            _emissiveToChange.EnableEmissive();
+            CanUse = true;
         }
     }
 
-    private void ShowHint()
+    public void ShowHint()
     {
         // Check if the current puzzle has a list of hints
         if (_hintDictionary.ContainsKey(_currentPuzzle) && _hintDictionary[_currentPuzzle].Count > 0)
         {
+            CanUse = false;
             _hintPanel.SetActive(true);
             // Display the corresponding hint
             _hintTextUI.text = _hintDictionary[_currentPuzzle][_currentHintIndex];
@@ -84,13 +95,9 @@ public class HintManager : MonoBehaviour
             _currentPuzzle = puzzleName;
             _currentHintIndex = 0; // Reset the hint index
         }
-        else
-        {
-            Debug.LogWarning($"Puzzle '{puzzleName}' not found in the hint list.");
-        }
     }
 
-    // Method to stop hints (if needed)
+    
     public void StopHints()
     {
         if (_hintCoroutine != null)

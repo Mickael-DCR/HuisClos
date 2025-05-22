@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6271494773026519129}
   - component: {fileID: 6651053793816590935}
   - component: {fileID: 6625009107677994425}
+  - component: {fileID: 6639957939695536816}
   m_Layer: 0
   m_Name: Needle1
   m_TagString: Untagged
@@ -55,7 +56,7 @@ MonoBehaviour:
   WinCondition: 0
   FirstTimeSpawned: 0
   CanRotate: 1
-  _selfLocking: 0
+  _selfLocking: 1
 --- !u!65 &6625009107677994425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77,6 +78,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0046910476, y: 0.37661543, z: 0.0706427}
   m_Center: {x: -0.000000019092113, y: 0.15293662, z: 0}
+--- !u!114 &6639957939695536816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769918193751905074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181010fe465e0234fa5f9cf3c869e6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Options:
+  - Interact
+  OptionsName: []
 --- !u!1 &8275091861444890220
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - PlaceItem
+  OptionsName: []
 --- !u!135 &8886347595148639861
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -183,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4100feb66ca3f8241a250f24b309d4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mode: 0
   Pivots:
   - {fileID: 6651053793816590935}
   - {fileID: 2001303343553563123}
@@ -213,13 +231,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8535987874884175396}
   serializedVersion: 2
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -0.359, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.368, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4297180215107739230}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2001303343553563123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,11 +256,11 @@ MonoBehaviour:
   Target: {fileID: 8535987874884175396}
   AxeRotation: {x: 1, y: 0, z: 0}
   RotationAngle: 60
-  AngleTarget: 0
+  AngleTarget: 180
   WinCondition: 0
   FirstTimeSpawned: 0
   CanRotate: 1
-  _selfLocking: 0
+  _selfLocking: 1
 --- !u!114 &322037781714821166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!65 &6072551363313160800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -417,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Interact
+  OptionsName: []
 --- !u!114 &372174559468953212
 MonoBehaviour:
   m_ObjectHideFlags: 0

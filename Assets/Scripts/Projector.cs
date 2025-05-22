@@ -22,29 +22,18 @@ public class Projector : Prop
 
     private void Update()
     {
-        if (!_lighting.activeInHierarchy && _complete && _candleReceiver.childCount > 0)
+        if (_complete && _candleReceiver.childCount > 0)
         {
             _lighting.SetActive(true);
+        }
+        else
+        {
+            _lighting.SetActive(false);
         }
     }
 
     public override void PlaceItem()
     {
-        if (!_resolved)
-        {
-            var playerHand = InventoryManager.Instance.HandSlot;
-            Transform objectInHand = null;
-            if (playerHand.childCount > 0)
-            {
-                objectInHand = playerHand.GetChild(0);
-            }
-
-            if (objectInHand != null && objectInHand.gameObject.CompareTag("Candle"))
-            {
-                _resolved = true;
-            }
-        }
-
         base.PlaceItem();
         if (_resolved && !_complete)
         {
@@ -56,6 +45,8 @@ public class Projector : Prop
                 _complete = true;
                 _projectorLight.cookie = _cookie;
             }
+
+            InventoryManager.Instance.RemoveItem(item.GetComponent<Collectible>().Item);
             Destroy(playerHand.GetChild(0).gameObject);
             _resolved = false;
         }

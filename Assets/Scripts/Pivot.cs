@@ -7,11 +7,14 @@ public class Pivot : Prop
 {
     public EmissiveChanger EmissiveTarget;
     public bool IsEmissive;
-    // Objet à tourner 
-    public GameObject Target;
 
-    // axe (Vector 3)
-    public Vector3 AxeRotation = Vector3.up;
+    // Object to rotate 
+    public GameObject Target;
+    
+    // Rotation Axis (Vector3)
+    private enum RotationAxis { XAxis, YAxis, ZAxis };
+    [SerializeField] private RotationAxis _rotationAxis;
+    public Vector3 RotationAxisVector;
     public float RotationAngle = 60f;
     public float AngleTarget = 120f;
 
@@ -19,6 +22,7 @@ public class Pivot : Prop
     public bool FirstTimeSpawned;
     public bool CanRotate = true;
     [SerializeField] private bool _selfLocking;
+    private bool _isLocked = false; // Lock flag
 
     private void Update()
     {
@@ -33,32 +37,48 @@ public class Pivot : Prop
     {
         EmissiveTarget.DisableEmissive();
     }
+
     public override bool Interact()
     {
-        if(CanRotate)
-        {
-            //Calcul de la rotation 
-            Quaternion currentRotation = Target.transform.localRotation;
-            Quaternion targetRotation = currentRotation * Quaternion.Euler(AxeRotation * RotationAngle);
-
-            Target.transform.localRotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationAngle);
-        }
+        if (_isLocked) return false; // Prevents interaction if locked
         
+        // Calculate rotation
+        Target.transform.Rotate(RotationAxisVector, RotationAngle);
         
+        // Check if the object is at the target angle
         RotationCheck();
-        CanRotate = !(WinCondition && _selfLocking );
         return true;
     }
 
     private void RotationCheck()
     {
-        if( Mathf.Abs(Target.transform.localRotation.eulerAngles.x- AngleTarget) < 0.01f )
+        // Get the current rotation in local space
+        Quaternion currentRotation = Target.transform.localRotation;
+
+        // Calculate the target rotation based on the specified axis
+        Quaternion targetRotation = Quaternion.identity;
+        switch (_rotationAxis)
         {
-            WinCondition = true;
+            case RotationAxis.XAxis:
+                targetRotation = Quaternion.Euler(AngleTarget, 0f, 0f);
+                break;
+            case RotationAxis.YAxis:
+                targetRotation = Quaternion.Euler(0f, AngleTarget, 0f);
+                break;
+            case RotationAxis.ZAxis:
+                targetRotation = Quaternion.Euler(0f, 0f, AngleTarget);
+                break;
         }
-        else
-        {
-            WinCondition = false;
-        }
+
+        // Calculate the angle difference
+        float angleDifference = Quaternion.Angle(currentRotation, targetRotation);
+
+        // If the angle difference is small enough, we consider it a match
+        WinCondition = angleDifference < 0.5f;
+    }
+
+    public void Lock()
+    {
+        _isLocked = true;
     }
 }

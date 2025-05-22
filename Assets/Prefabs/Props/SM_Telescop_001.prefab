@@ -41,15 +41,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0494518
+      value: -4.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9012556
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.792269
+      value: -9.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalRotation.y
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -102,7 +102,7 @@ PrefabInstance:
       addedObject: {fileID: 7372702388000586659}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3128022573356247760}
+      addedObject: {fileID: 8097715232298909204}
   m_SourcePrefab: {fileID: 100100000, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
 --- !u!1 &1347170894458147092 stripped
 GameObject:
@@ -140,8 +140,11 @@ MonoBehaviour:
   Options:
   - Interact
   - PlaceItem
---- !u!65 &3128022573356247760
-BoxCollider:
+  OptionsName:
+  - Interagir
+  - Placer
+--- !u!64 &8097715232298909204
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,9 +161,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.175111, y: 2.868033, z: 4.847776}
-  m_Center: {x: 0, y: 1.1247759, z: -0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1451826855301024458, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
 --- !u!4 &1871751862590114734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9e7b10dcdf84d04487a2b5f4cf6aeeb, type: 3}
