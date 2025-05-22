@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.25
+  m_AmbientIntensity: 0.3
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0.0996446, b: 0.77254903, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 9c4a1d89d3b0df244aab64092424c034, type: 2}
@@ -4167,6 +4167,10 @@ PrefabInstance:
     - target: {fileID: 1189086260724067239, guid: b1d4df0e97b879a4988f22879d98c453, type: 3}
       propertyPath: m_Name
       value: Pause Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189086260724067239, guid: b1d4df0e97b879a4988f22879d98c453, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1683245111804811418, guid: b1d4df0e97b879a4988f22879d98c453, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
