@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class ItemTooltipUI : MonoBehaviour
 {
     public static ItemTooltipUI Instance;
 
-    [SerializeField] private GameObject tooltipPanel;
-    [SerializeField] private Image iconImage;
-    [SerializeField] private TMP_Text descriptionText;
+    [SerializeField] private GameObject _tooltipPanel;
+    [SerializeField] private Image _iconImage;
+    [SerializeField] private TMP_Text _descriptionText;
+    [SerializeField] private Item _itemPlaceholder;
+    private Item _currentItemDisplayed;
 
     private void Awake()
     {
@@ -21,12 +24,22 @@ public class ItemTooltipUI : MonoBehaviour
 
     public void ShowTooltip(Item item)
     {
-        iconImage.sprite = item.Icon;
-        descriptionText.text = item.Description;
+        _iconImage.sprite = item.Icon;
+        _descriptionText.text = item.Description;
+        _currentItemDisplayed = item;
     }
 
-    public void HideTooltip()
+    public void ShowBaseTooltip()
     {
-        tooltipPanel.SetActive(false);
+        _iconImage.sprite = _itemPlaceholder.Icon;
+        _descriptionText.text = _itemPlaceholder.Description;
+    }
+
+    public void HideTooltip(Item item) // Called when an item is removed from inventory but was displayed in tooltip
+    {
+        if (InventoryManager.Instance.FindItem(item) == _currentItemDisplayed)
+        {
+            ShowBaseTooltip();
+        }
     }
 }
