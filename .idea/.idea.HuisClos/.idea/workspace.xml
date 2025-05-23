@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7ba9420a-43cb-4fb6-bc5f-317e1348562c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HuisClos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HuisClos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InventoryItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InventoryItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Horloge.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Horloge.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Scene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Scene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SM_Scene_001.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SM_Scene_001.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Brasero.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Brasero.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Chest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Chest.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/S_Scripting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/S_Scripting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemTooltipUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemTooltipUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinCondition.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +132,7 @@
       <workItem from="1746789924689" duration="8138000" />
       <workItem from="1747378904534" duration="9039000" />
       <workItem from="1747729791472" duration="9632000" />
-      <workItem from="1747987013690" duration="11383000" />
+      <workItem from="1747987013690" duration="13573000" />
     </task>
     <servers />
   </component>

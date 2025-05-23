@@ -14,7 +14,7 @@ public class WinCondition : MonoBehaviour
     
     [SerializeField] private PropMovement _propToMove;
     public bool PropHasMoved = false;
-
+    
     private void Update()
     {
         if (Mode == CheckMode.Automatic)
