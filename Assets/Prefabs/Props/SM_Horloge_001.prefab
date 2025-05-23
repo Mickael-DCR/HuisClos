@@ -50,7 +50,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 0}
   IsEmissive: 0
   Target: {fileID: 769918193751905074}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 120
   WinCondition: 0
@@ -151,6 +152,8 @@ MonoBehaviour:
   _prefabs:
   - {fileID: 1338882296360250709, guid: 6b4d95f491d427847a6a7fce5420f826, type: 3}
   - {fileID: 1338882296360250709, guid: 345920ffeb87f14459ca0b76c4e69f49, type: 3}
+  _collider: {fileID: 0}
+  _areItemsPlaced: 
   RewardActive: 0
 --- !u!114 &5814275036413716401
 MonoBehaviour:
@@ -201,9 +204,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 0
+  Type: 0
   Pivots:
   - {fileID: 6651053793816590935}
   - {fileID: 2001303343553563123}
+  ItemsReceptors: []
+  _propToMove: {fileID: 0}
+  PropHasMoved: 0
 --- !u!1 &8535987874884175396
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +261,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 0}
   IsEmissive: 0
   Target: {fileID: 8535987874884175396}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 180
   WinCondition: 0
