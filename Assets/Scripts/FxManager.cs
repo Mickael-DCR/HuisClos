@@ -29,29 +29,7 @@ public class FxManager : MonoBehaviour
             VisualFx.Add(i, VisualEffects[i]);
         }
     }
-    /*
-    public void Fireworks()
-        {
-
-        if (FireworksFeedback != null) 
-        {
-            FireworksFeedback.Stop();
-            FireworksFeedback.Reinit();
-            FireworksFeedback.Play();
-        }
-       
-    }
-
-    public void Fireworks_2()
-    {
-        if (FireworksFeedback_2 != null)
-        {
-            FireworksFeedback_2.Stop();
-            FireworksFeedback_2.Reinit();
-            FireworksFeedback_2.Play();
-        }
-    }
-    */
+    
     public void PlayFx(int index)
     {
         VisualEffects[index].Play();

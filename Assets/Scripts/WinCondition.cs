@@ -80,7 +80,6 @@ public class WinCondition : MonoBehaviour
             }
             pivot.Lock();
             SoundManager.instance.PlayGearWin();
-            //FxManager.Instance.Fireworks();
         }
     }
 
