@@ -60,6 +60,10 @@ public class HintManager : MonoBehaviour
             _emissiveToChange.EnableEmissive();
             CanUse = true;
         }
+        else
+        {
+            yield return null;
+        }
     }
 
     public void ShowHint()

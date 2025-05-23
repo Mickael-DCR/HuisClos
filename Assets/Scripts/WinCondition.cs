@@ -15,8 +15,6 @@ public class WinCondition : MonoBehaviour
     
     [SerializeField] private PropMovement _propToMove;
     public bool PropHasMoved = false;
-
-   
    
     private void Update()
     {
@@ -82,7 +80,6 @@ public class WinCondition : MonoBehaviour
             }
             pivot.Lock();
             SoundManager.instance.PlayGearWin();
-            //FxManager.Instance.Fireworks();
         }
     }
 

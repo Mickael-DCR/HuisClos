@@ -8,17 +8,17 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header ("Input")] 
-    public static InputSystem_Actions InputSystemActions
+    [Header("Input")] 
+    public static InputSystem_Actions InputSystemActions => _inputSystemActions;
+    private static InputSystem_Actions _inputSystemActions;
+
+    public static void InitializeInput()
     {
-        get
+        if (_inputSystemActions == null)
         {
-            if (_inputSystemActions == null)
-                _inputSystemActions = new InputSystem_Actions();
-            return _inputSystemActions;
+            _inputSystemActions = new InputSystem_Actions();
         }
     }
-    private static InputSystem_Actions _inputSystemActions;
     private InputAction _movementAction, _crouchAction, _lookAction, _interactAction,
         _openInventoryAction, _closeInventoryAction, _tooltipAction, _equipCandleAction,
     _openNotebookAction, _altInteractionAction;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
-        _inputSystemActions = new InputSystem_Actions();
+        InitializeInput();
         _playerRB = GetComponent<Rigidbody>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
         _originalCameraLocalPosition = _cameraTransform.localPosition;
@@ -101,8 +101,11 @@ public class PlayerController : MonoBehaviour
         _interactAction.Disable();
         _openInventoryAction.Disable();
         _tooltipAction.Disable();
+        _equipCandleAction.Disable();
+        _openNotebookAction.Disable();
     }
 
+    
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

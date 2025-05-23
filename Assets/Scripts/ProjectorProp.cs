@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Projector : Prop
+public class ProjectorProp : ItemsReceptor
 {
     [SerializeField] private Light _projectorLight;
     [SerializeField] private GameObject _lighting;
@@ -37,17 +37,11 @@ public class Projector : Prop
         base.PlaceItem();
         if (_resolved && !_complete)
         {
-            var playerHand = InventoryManager.Instance.HandSlot;
-            var item = playerHand.GetChild(0).GetComponent<Disk>();
-            Disks[item.ID] = true;
-            if (Disks[0] && Disks[1] && Disks[2])
+            if (RewardActive)
             {
-                _complete = true;
                 _projectorLight.cookie = _cookie;
+                _complete = true;
             }
-
-            InventoryManager.Instance.RemoveItem(item.GetComponent<Collectible>().Item);
-            Destroy(playerHand.GetChild(0).gameObject);
             _resolved = false;
         }
     }

@@ -107,7 +107,8 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot != null && itemInSlot.Item == itemToRemove)
             {
                 if(_swapItem==itemInSlot.Item)_swapItem = null;
-                 Destroy(itemInSlot.gameObject);
+                ItemTooltipUI.Instance.HideTooltip(itemInSlot.Item); // if item is displayed in tooltip, display the exemple
+                Destroy(itemInSlot.gameObject);
             }
         }
     }
