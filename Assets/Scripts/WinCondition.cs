@@ -76,6 +76,8 @@ public class WinCondition : MonoBehaviour
                 pivot.EmissiveTarget.ChangeEmissiveIntensity();
             }
             pivot.Lock();
+            SoundManager.instance.PlayGearWin();
+            FxManager.Instance.Fireworks();
         }
     }
 

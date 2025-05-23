@@ -26,8 +26,6 @@ public class ItemsReceptor : Prop
             var playerHand = InventoryManager.Instance.HandSlot;
             if (playerHand.childCount == 0) return;
 
-            SoundManager.instance.PlayDrop();
-
             Transform objectInHand = playerHand.GetChild(0);
             Item itemToRemove = objectInHand.GetComponent<Collectible>().Item;
             // Check if this item matches any required tags
@@ -54,14 +52,15 @@ public class ItemsReceptor : Prop
     
     private void PickUp()
     {
+        ;
         if (!_areItemsPlaced[0]) return;
         for (int i = 0; i < _solverTags.Length; i++)
         {
-            SoundManager.instance.PlayTake();
 
             var itemToAdd = _parents[i].GetChild(0).GetComponent<Collectible>().Item;
             if(itemToAdd != null)
             {
+
                 InventoryManager.Instance.AddItem(itemToAdd, _parents[i].GetChild(0).gameObject);
                 _areItemsPlaced[i] = false;
                 RewardActive = false;

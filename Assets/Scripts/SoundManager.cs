@@ -14,9 +14,23 @@ public class SoundManager : MonoBehaviour
         Src.PlayOneShot(clip);
     }
 
-    public void PlayGear() => Src.PlayOneShot(GearClip);
-    public void PlayGearWin() => Src.PlayOneShot(WinGearClip);
-    public void PlayTake() => Src.PlayOneShot(ObjectTake);
-    public void PlayDrop() => Src.PlayOneShot(ObjectDrop);
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    public void PlayGear() => PlaySFX(GearClip);
+    public void PlayGearWin() => PlaySFX(WinGearClip);
+    public void PlayTake() => PlaySFX(ObjectTake);
+    public void PlayDrop() => PlaySFX(ObjectDrop);
+
+    
 }

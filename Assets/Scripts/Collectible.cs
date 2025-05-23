@@ -8,6 +8,7 @@ public class Collectible : MonoBehaviour
 
     public bool PickUp()
     {
+        SoundManager.instance.PlayTake();
         return InventoryManager.Instance.AddItem(Item, gameObject);
     }
 }
