@@ -8,9 +8,9 @@ public class PauseMenu : MonoBehaviour
 
     private InputSystem_Actions _inputAction;
 
-    void Awake()
+    void Start()
     {
-        _inputAction = new InputSystem_Actions();
+        _inputAction = PlayerController.InputSystemActions;
         _inputAction.UI.Pause.performed += ctx => TogglePause();
     }
 

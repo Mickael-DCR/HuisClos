@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4580324520564652684}
   m_Layer: 0
   m_Name: Hand Disk 1
-  m_TagString: Disk
+  m_TagString: Disk1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
