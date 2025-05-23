@@ -15,6 +15,7 @@ public class PropMovement : MonoBehaviour
     [SerializeField] private Vector3 _rotationAxis = Vector3.up; // Axis of rotation
     [SerializeField] private float _rotationAngle = 90f;
     [SerializeField] private float _rotationSpeed = 100f;
+    [SerializeField] private int _propToFxIndex = 0;
 
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
@@ -30,6 +31,7 @@ public class PropMovement : MonoBehaviour
     public void Open()
     {
         Interact();
+        FxManager.Instance.PlayFx(_propToFxIndex);
     }
     public void Interact()
     {

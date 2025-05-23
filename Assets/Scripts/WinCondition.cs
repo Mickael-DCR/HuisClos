@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.VFX;
 
 public class WinCondition : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class WinCondition : MonoBehaviour
     [SerializeField] private PropMovement _propToMove;
     public bool PropHasMoved = false;
 
+    [SerializeField] private int _propToFxIndex = 0;
+   
     private void Update()
     {
         if (Mode == CheckMode.Automatic)
@@ -38,9 +41,10 @@ public class WinCondition : MonoBehaviour
 
             if (numberOfTrue == numberOfConditions)
             {
-                LockPivots();
+                
                 if (!PropHasMoved)
                 {
+                    LockPivots();
                     PropHasMoved = true;
                     _propToMove.Open();
                 }
@@ -61,6 +65,7 @@ public class WinCondition : MonoBehaviour
                 {
                     PropHasMoved = true;
                     _propToMove.Open();
+
                 }
             }
         }
@@ -77,7 +82,7 @@ public class WinCondition : MonoBehaviour
             }
             pivot.Lock();
             SoundManager.instance.PlayGearWin();
-            FxManager.Instance.Fireworks();
+            //FxManager.Instance.Fireworks();
         }
     }
 
