@@ -15,8 +15,6 @@ public class WinCondition : MonoBehaviour
     
     [SerializeField] private PropMovement _propToMove;
     public bool PropHasMoved = false;
-
-    [SerializeField] private int _propToFxIndex = 0;
    
     private void Update()
     {
