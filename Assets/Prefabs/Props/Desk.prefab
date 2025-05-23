@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2179657617454964278}
   - component: {fileID: 1033315490384104886}
   - component: {fileID: 6486518628531636747}
-  - component: {fileID: 7846223884695187034}
+  - component: {fileID: 7275039110735384569}
   m_Layer: 0
   m_Name: tiroir8
   m_TagString: Untagged
@@ -107,6 +107,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &6486518628531636747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +124,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &7846223884695187034
-BoxCollider:
+--- !u!64 &7275039110735384569
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,9 +142,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6968287714596037770, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &2516736812054134797
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +159,7 @@ GameObject:
   - component: {fileID: 2242852219096571708}
   - component: {fileID: 6335794216551993689}
   - component: {fileID: 6989957171044952416}
-  - component: {fileID: 152755857222221607}
+  - component: {fileID: 7185664980830175618}
   m_Layer: 0
   m_Name: tiroir3
   m_TagString: Untagged
@@ -251,6 +253,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &6989957171044952416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,8 +270,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &152755857222221607
-BoxCollider:
+--- !u!64 &7185664980830175618
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -285,9 +288,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3218428445736986197, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &2838525602003028450
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +305,7 @@ GameObject:
   - component: {fileID: 8576563063528107897}
   - component: {fileID: 673436006761486087}
   - component: {fileID: 3363375080712754843}
-  - component: {fileID: 2985595451036159227}
+  - component: {fileID: 6722392284698583760}
   m_Layer: 0
   m_Name: tiroir5
   m_TagString: Untagged
@@ -395,6 +399,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &3363375080712754843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,8 +416,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &2985595451036159227
-BoxCollider:
+--- !u!64 &6722392284698583760
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -429,9 +434,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1653818632081536948, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &4122415438183330265
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +451,7 @@ GameObject:
   - component: {fileID: 2952188272622518006}
   - component: {fileID: 1688179021076198789}
   - component: {fileID: 9128036122268374992}
-  - component: {fileID: 6900812303317656858}
+  - component: {fileID: 4400344147396539164}
   m_Layer: 0
   m_Name: tiroir1
   m_TagString: Untagged
@@ -539,6 +545,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &9128036122268374992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,8 +562,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &6900812303317656858
-BoxCollider:
+--- !u!64 &4400344147396539164
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -573,9 +580,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2227394067952536007, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &4657084439006796611
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +736,7 @@ GameObject:
   - component: {fileID: 4080629453703877257}
   - component: {fileID: 1142786858493960196}
   - component: {fileID: 6944853218617312747}
-  - component: {fileID: 2888693194737021537}
+  - component: {fileID: 5129332626071516121}
   m_Layer: 0
   m_Name: tiroir2
   m_TagString: Untagged
@@ -823,6 +831,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &6944853218617312747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,8 +848,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &2888693194737021537
-BoxCollider:
+--- !u!64 &5129332626071516121
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -857,9 +866,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8538699256444605148, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &5205516243030990563
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +883,7 @@ GameObject:
   - component: {fileID: 5550778066462129702}
   - component: {fileID: 8440247172023945937}
   - component: {fileID: 2874903261484339100}
-  - component: {fileID: 3132487624600677977}
+  - component: {fileID: 6200918587781545511}
   m_Layer: 0
   m_Name: tiroir6
   m_TagString: Untagged
@@ -967,6 +977,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &2874903261484339100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,8 +994,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &3132487624600677977
-BoxCollider:
+--- !u!64 &6200918587781545511
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1001,9 +1012,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7575823716779262143, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &6189299455863088159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1029,7 @@ GameObject:
   - component: {fileID: 2712028388313771855}
   - component: {fileID: 2914385560736030923}
   - component: {fileID: 5429003493138833947}
-  - component: {fileID: 1432890753607477379}
+  - component: {fileID: 141503690160362903}
   m_Layer: 0
   m_Name: tiroir7
   m_TagString: Untagged
@@ -1111,6 +1123,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &5429003493138833947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,8 +1140,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &1432890753607477379
-BoxCollider:
+--- !u!64 &141503690160362903
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1145,9 +1158,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 655758549298992864, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1 &6931051774473946935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1207,7 @@ GameObject:
   - component: {fileID: 7440695340518179606}
   - component: {fileID: 8939784081518615376}
   - component: {fileID: 2408445717304104598}
-  - component: {fileID: 8008896258761119577}
+  - component: {fileID: 3327692548619941402}
   m_Layer: 0
   m_Name: tiroir4
   m_TagString: Untagged
@@ -1287,6 +1301,7 @@ MonoBehaviour:
   _rotationAxis: {x: 0, y: 1, z: 0}
   _rotationAngle: 90
   _rotationSpeed: 100
+  _propToFxIndex: 0
 --- !u!114 &2408445717304104598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,8 +1318,8 @@ MonoBehaviour:
   - Interact
   OptionsName:
   - Ouvrir
---- !u!65 &8008896258761119577
-BoxCollider:
+--- !u!64 &3327692548619941402
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1321,9 +1336,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.27360007, z: 1.0118914}
-  m_Center: {x: 0.39, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3972905316351221836, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
 --- !u!1001 &3240608495641257607
 PrefabInstance:
   m_ObjectHideFlags: 0
