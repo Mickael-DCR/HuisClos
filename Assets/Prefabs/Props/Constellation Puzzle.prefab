@@ -89,7 +89,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 0}
   IsEmissive: 1
   Target: {fileID: 5608665780588566757}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
@@ -197,7 +198,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d083614f7c376943b6adf0357cb1775, type: 2}
+  - {fileID: 2100000, guid: fb79350db27578945b318390800fcac4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -431,12 +432,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 1
+  Type: 0
   Pivots:
   - {fileID: 6890658541603254566}
   - {fileID: 2426461673955621423}
   - {fileID: 8632036630266906808}
   - {fileID: 2248594468529242328}
   - {fileID: 8316279741019957334}
+  ItemsReceptors: []
+  _propToMove: {fileID: 0}
+  PropHasMoved: 0
 --- !u!114 &2853467185290926693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +569,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 5330538939021943636}
   IsEmissive: 1
   Target: {fileID: 3205246324345069587}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
@@ -723,7 +729,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 4382496830566043224}
   IsEmissive: 1
   Target: {fileID: 3058682342352857047}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
@@ -877,7 +884,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 252967807602520390}
   IsEmissive: 1
   Target: {fileID: 2858814277032543802}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
@@ -1036,7 +1044,8 @@ MonoBehaviour:
   EmissiveTarget: {fileID: 1838789814426428036}
   IsEmissive: 1
   Target: {fileID: 4834175405428325013}
-  AxeRotation: {x: 1, y: 0, z: 0}
+  _rotationAxis: 0
+  RotationAxisVector: {x: 0, y: 0, z: 0}
   RotationAngle: 60
   AngleTarget: 0
   WinCondition: 0
