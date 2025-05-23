@@ -44,7 +44,9 @@ public class Pivot : Prop
         
         // Calculate rotation
         Target.transform.Rotate(RotationAxisVector, RotationAngle);
-        
+
+        SoundManager.instance.PlayGear();
+
         // Check if the object is at the target angle
         RotationCheck();
         return true;

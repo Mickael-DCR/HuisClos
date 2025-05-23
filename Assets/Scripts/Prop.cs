@@ -14,6 +14,7 @@ public class Prop : MonoBehaviour
     {
         if (_resolved) return;
 
+        
         var playerHand = InventoryManager.Instance.HandSlot;
         if (playerHand.childCount == 0)
         {
@@ -28,6 +29,7 @@ public class Prop : MonoBehaviour
         {
             if (objectInHand.CompareTag(tag))
             {
+                SoundManager.instance.PlayDrop();
                 _resolved = true;
                 Debug.Log("Correct item detected.");
                 return;
