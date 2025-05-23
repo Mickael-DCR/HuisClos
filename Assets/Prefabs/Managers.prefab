@@ -109,6 +109,53 @@ MonoBehaviour:
   - {fileID: 0}
   HandSlot: {fileID: 0}
   _candle: {fileID: 11400000, guid: 9d1ddd2566ecbe94a893318b71519add, type: 2}
+--- !u!1 &1428717099998617923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9129087897882141252}
+  - component: {fileID: 3557484911601773948}
+  m_Layer: 0
+  m_Name: FX Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9129087897882141252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428717099998617923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5365696364420512333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3557484911601773948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428717099998617923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15291f5143e685547a4c096af05807a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisualEffects:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4039075412552019438
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,16 +203,8 @@ MonoBehaviour:
   _hintTextUI: {fileID: 0}
   _hintPanel: {fileID: 0}
   _displayDuration: 5
-  _intervalBetweenHints: 10
+  _intervalBetweenHints: 30
   _puzzle1Hints:
-  - "Deux aiguilles sans cadran ne sont que des fl\xE8ches sans cible ... et si le
-    temps projet\xE9 d\xE9tenais la cl\xE9 ?"
-  - "Ce projecteur n'est pas complet. Trois morceaux attendent d'\xEAtre rassembl\xE9s
-    ... Ouvre les yeux : parfois la poussi\xE8re cache des v\xE9rit\xE9s."
-  - "cherche les morceaux du disque derri\xE8re la plante, dans un seau pr\xE8s de
-    la chemin\xE9e, et dans un tiroir du bureau. assemble les dans le projecteur,
-    allume-le, observe l'heure projet\xE9e et reproduis-la sur l'horologe."
-  _puzzle2Hints:
   - "Les \xE9toiles ne brillent qu'aux yeux de ceux qui prennent le temps de les
     regarder ..."
   - "Un simple papier peut transformer ce que l'on voit ... Ce t\xE9lescope montre
@@ -174,6 +213,14 @@ MonoBehaviour:
     verras une constellation \xE0 reproduire sur le mur \xE0 cadran. Pour cela trouve
     le cadran manquant dans la valise \xE0 cot\xE9 de la biblioth\xE8que en l'ouvrant
     ave la cl\xE9 pos\xE9 sur le t\xE9lescope."
+  _puzzle2Hints:
+  - "Deux aiguilles sans cadran ne sont que des fl\xE8ches sans cible ... et si le
+    temps projet\xE9 d\xE9tenais la cl\xE9 ?"
+  - "Ce projecteur n'est pas complet. Trois morceaux attendent d'\xEAtre rassembl\xE9s
+    ... Ouvre les yeux : parfois la poussi\xE8re cache des v\xE9rit\xE9s."
+  - "cherche les morceaux du disque derri\xE8re la plante, dans un seau pr\xE8s de
+    la chemin\xE9e, et dans un tiroir du bureau. assemble les dans le projecteur,
+    allume-le, observe l'heure projet\xE9e et reproduis-la sur l'horologe."
   _puzzle3Hints:
   - "Tous les secrets ne craignent pas le feu ... certains ne se r\xE9v\xE8lent que
     lorsqu'ils fondent."
@@ -224,6 +271,8 @@ Transform:
   - {fileID: 8632726900790571980}
   - {fileID: 6189152429026725122}
   - {fileID: 3632362695397456010}
+  - {fileID: 9129087897882141252}
+  - {fileID: 384431747303861942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7696113893746004617
@@ -275,3 +324,65 @@ MonoBehaviour:
   _contentPanel: {fileID: 0}
   _optionPrefab: {fileID: 5330250001759569016, guid: 9fbb0b8dae783c54a8173594b260090f, type: 3}
   _optionPrefab2: {fileID: 5330250001759569016, guid: 85bb2b10dab13a249940b3b006ef8d01, type: 3}
+--- !u!1001 &8074724830165180580
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5365696364420512333}
+    m_Modifications:
+    - target: {fileID: 4885536448000953222, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.502453
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.56515193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.9536552
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+--- !u!4 &384431747303861942 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8456328332645518866, guid: 22c63818afae80d4db92cbeed7e813f0, type: 3}
+  m_PrefabInstance: {fileID: 8074724830165180580}
+  m_PrefabAsset: {fileID: 0}

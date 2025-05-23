@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InventoryItem : MonoBehaviour, IPointerEnterHandler
 {
     public Item Item;
     [SerializeField] private Image _icon;
@@ -49,10 +49,5 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
         ItemTooltipUI.Instance.ShowTooltip(Item);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-       // ItemTooltipUI.Instance.HideTooltip();
     }
 }

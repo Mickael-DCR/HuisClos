@@ -9,7 +9,9 @@ public class HintPhone : Prop
             HintManager.Instance.ShowHint();
             HintManager.Instance.CanUse = false;
             HintManager.Instance.StartHintRoutine();
+            SoundManager.instance.PlayGear();
             return true;
+            
         }
         return false;
     }

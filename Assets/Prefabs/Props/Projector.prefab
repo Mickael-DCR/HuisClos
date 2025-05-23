@@ -121,6 +121,99 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1144088285396134510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6754315790739586681}
+  m_Layer: 0
+  m_Name: Disk 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6754315790739586681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144088285396134510}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0096, y: 0.366, z: 0.381}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 552319211234821394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2496760231898708141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1020248779785280708}
+  m_Layer: 0
+  m_Name: Disk 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1020248779785280708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496760231898708141}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0069999695, y: 0.36700004, z: 0.16900003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 552319211234821394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3140710864541277775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9025097644080256041}
+  m_Layer: 0
+  m_Name: Disk 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9025097644080256041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140710864541277775}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.003399849, y: 0.36700004, z: 0.266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 552319211234821394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5832992624338244450
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +249,9 @@ Transform:
   - {fileID: 4559046851374316117}
   - {fileID: 4180688338956792936}
   - {fileID: 5541662503386840066}
+  - {fileID: 1020248779785280708}
+  - {fileID: 9025097644080256041}
+  - {fileID: 6754315790739586681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7895299962509664020
@@ -208,7 +304,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _solverTags:
-  - Disk
+  - Disk1
+  - Disk2
+  - Disk3
+  _parents:
+  - {fileID: 1020248779785280708}
+  - {fileID: 9025097644080256041}
+  - {fileID: 6754315790739586681}
+  _prefabs:
+  - {fileID: 1338882296360250709, guid: 2eb857052dfa6064889982e4d4dfea92, type: 3}
+  - {fileID: 1338882296360250709, guid: ec96eb904313da541bc3d8882954ef7f, type: 3}
+  - {fileID: 1338882296360250709, guid: cf30ceaf4735f6e46890b49d7bbfb0fe, type: 3}
+  _collider: {fileID: 7895299962509664020}
+  _areItemsPlaced: 
+  RewardActive: 0
   _projectorLight: {fileID: 2289034503194948835}
   _lighting: {fileID: 1079034229282623962}
   _candleReceiver: {fileID: 4180688338956792936}
@@ -266,6 +375,8 @@ MonoBehaviour:
   - {fileID: 4180688338956792936}
   _prefabs:
   - {fileID: 7048335755621763646, guid: 127fd2e774879b549bc65f62fdb2de70, type: 3}
+  _collider: {fileID: 0}
+  _areItemsPlaced: 
   RewardActive: 0
 --- !u!65 &4360726227183307498
 BoxCollider:
