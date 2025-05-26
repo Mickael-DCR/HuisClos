@@ -1,49 +1,66 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class HintManager : MonoBehaviour
 {
     public static HintManager Instance;
-    [Header("Configuration")]
-    [SerializeField] private TMP_Text _hintTextUI;               // TMP Text to display hints
-    [SerializeField] private GameObject _hintPanel;              // Background for text visibility
-    [SerializeField] private float _displayDuration = 5f;        // Duration the hint is displayed (in seconds)
-    [SerializeField] private float _intervalBetweenHints = 120f; // Interval between hints (in seconds)
 
-    [Header("Hint Lists (Contextual)")]
-    [SerializeField] private List<string> _puzzle1Hints;     // List of hints for Puzzle 1
-    [SerializeField] private List<string> _puzzle2Hints;     // List of hints for Puzzle 2
-    [SerializeField] private List<string> _puzzle3Hints;     // List of hints for Puzzle 3
-    [SerializeField] private List<string> _puzzle4Hints;     // List of hints for Puzzle 4
+    [Header("UI References")]
+    [SerializeField] private TMP_Text _hintTextUI;
+    [SerializeField] private GameObject _hintPanel;
+    [SerializeField] private GameObject _hintSelectorPanel;
+    [SerializeField] private Button _puzzle1Button;
+    [SerializeField] private Button _puzzle2Button;
+    [SerializeField] private Button _puzzle3Button;
+    [SerializeField] private Button _puzzle4Button;
 
+    [Header("Data")]
+    [SerializeField] private List<PuzzleHintData> _allPuzzleHints;
+
+    [Header("Timing")]
+    [SerializeField] private float _displayDuration = 5f;
+    [SerializeField] private float _intervalBetweenHints = 120f;
+
+    [Header("Dependencies")]
     [SerializeField] private EmissiveChanger _emissiveToChange;
-    private Dictionary<string, List<string>> _hintDictionary;
-    private string _currentPuzzle = "Puzzle1";               // Default puzzle
-    private int _currentHintIndex = 0;
+
+    private Dictionary<string, PuzzleHintData> _hintData;
+    private Dictionary<string, int> _stepByPuzzle;
+    private Dictionary<string, int> _hintIndexByPuzzle;
     private Coroutine _hintCoroutine;
+
     public bool CanUse;
 
     private void Awake()
     {
-        if (Instance == null)Instance = this;
+        if (Instance == null) Instance = this;
     }
 
     private void Start()
     {
-        // Initializing the dictionary of hints by context
-        _hintDictionary = new Dictionary<string, List<string>>
-        {
-            { "Puzzle1", _puzzle1Hints },
-            { "Puzzle2", _puzzle2Hints },
-            { "Puzzle3", _puzzle3Hints },
-            { "Puzzle4", _puzzle4Hints }
-        };
+        // Init puzzle data
+        _hintData = new Dictionary<string, PuzzleHintData>();
+        _stepByPuzzle = new Dictionary<string, int>();
+        _hintIndexByPuzzle = new Dictionary<string, int>();
 
-        // Start the hint generation process
+        foreach (var puzzle in _allPuzzleHints)
+        {
+            if (puzzle == null) continue;
+            _hintData[puzzle.puzzleName] = puzzle;
+            _stepByPuzzle[puzzle.puzzleName] = 0;
+            _hintIndexByPuzzle[puzzle.puzzleName] = 0;
+        }
+
+        // Button listeners
+        _puzzle1Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle1"));
+        _puzzle2Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle2"));
+        _puzzle3Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle3"));
+        _puzzle4Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle4"));
+
+        // Start cooldown coroutine
         _hintCoroutine = StartHintRoutine();
     }
 
@@ -51,9 +68,10 @@ public class HintManager : MonoBehaviour
     {
         return StartCoroutine(HintRoutine());
     }
+
     private IEnumerator HintRoutine()
     {
-        if(!CanUse)
+        if (!CanUse)
         {
             _emissiveToChange.DisableEmissive();
             yield return new WaitForSeconds(_intervalBetweenHints);
@@ -66,23 +84,42 @@ public class HintManager : MonoBehaviour
         }
     }
 
-    public void ShowHint()
+    public void ShowHintSelectionUI()
     {
-        // Check if the current puzzle has a list of hints
-        if (_hintDictionary.ContainsKey(_currentPuzzle) && _hintDictionary[_currentPuzzle].Count > 0)
-        {
-            CanUse = false;
-            _hintPanel.SetActive(true);
-            // Display the corresponding hint
-            _hintTextUI.text = _hintDictionary[_currentPuzzle][_currentHintIndex];
-            _hintTextUI.gameObject.SetActive(true);
+        _hintSelectorPanel.SetActive(true);
+    }
 
-            // Advance the index for the next hint
-            _currentHintIndex = (_currentHintIndex + 1) % _hintDictionary[_currentPuzzle].Count;
+    private void OnPuzzleSelected(string puzzleName)
+    {
+        _hintSelectorPanel.SetActive(false);
+        ShowHintForPuzzle(puzzleName);
+        CanUse = false;
+        StartHintRoutine();
+    }
 
-            // Hide the hint after the specified duration
-            Invoke(nameof(HideHint), _displayDuration);
-        }
+    public void ShowHintForPuzzle(string puzzleName)
+    {
+        if (!_hintData.ContainsKey(puzzleName)) return;
+
+        var puzzle = _hintData[puzzleName];
+        int stepIndex = _stepByPuzzle[puzzleName];
+
+        if (stepIndex >= puzzle.steps.Count) return;
+
+        var stepHints = puzzle.steps[stepIndex].hints;
+        if (stepHints == null || stepHints.Count == 0) return;
+
+        int hintIndex = _hintIndexByPuzzle[puzzleName];
+        string hint = stepHints[hintIndex];
+
+        _hintTextUI.text = hint;
+        _hintTextUI.gameObject.SetActive(true);
+        _hintPanel.SetActive(true);
+
+        _hintIndexByPuzzle[puzzleName] = (hintIndex + 1) % stepHints.Count;
+
+        CancelInvoke(nameof(HideHint));
+        Invoke(nameof(HideHint), _displayDuration);
     }
 
     private void HideHint()
@@ -91,23 +128,42 @@ public class HintManager : MonoBehaviour
         _hintTextUI.gameObject.SetActive(false);
     }
 
-    // Method to change context (puzzle)
-    public void SetCurrentPuzzle(string puzzleName)
+    public void SetCurrentStep(string puzzleName, int step)
     {
-        if (_hintDictionary.ContainsKey(puzzleName))
+        if (!_hintData.ContainsKey(puzzleName)) return;
+
+        int clampedStep = Mathf.Clamp(step, 0, _hintData[puzzleName].steps.Count - 1);
+        _stepByPuzzle[puzzleName] = clampedStep;
+        _hintIndexByPuzzle[puzzleName] = 0;
+    }
+    
+    public int GetCurrentStep(string puzzleName)
+    {
+        if (_stepByPuzzle.ContainsKey(puzzleName))
         {
-            _currentPuzzle = puzzleName;
-            _currentHintIndex = 0; // Reset the hint index
+            return _stepByPuzzle[puzzleName];
         }
+
+        return 0;
     }
 
-    
-    public void StopHints()
+    public void AdvanceStep(string puzzleName)
     {
-        if (_hintCoroutine != null)
+        if (!_hintData.ContainsKey(puzzleName)) return;
+
+        int current = _stepByPuzzle[puzzleName];
+        int max = _hintData[puzzleName].steps.Count - 1;
+
+        _stepByPuzzle[puzzleName] = Mathf.Min(current + 1, max);
+        _hintIndexByPuzzle[puzzleName] = 0;
+    }
+
+    public void ResetHints(string puzzleName)
+    {
+        if (_stepByPuzzle.ContainsKey(puzzleName))
         {
-            StopCoroutine(_hintCoroutine);
+            _stepByPuzzle[puzzleName] = 0;
+            _hintIndexByPuzzle[puzzleName] = 0;
         }
-        _hintTextUI.gameObject.SetActive(false);
     }
 }

@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ItemsReceptor : Prop
+public class ItemsReceiver : Prop
 {
     [Header("Placement Settings")]
     [SerializeField] private Transform[] _parents;  // Multiple parents for multiple items
