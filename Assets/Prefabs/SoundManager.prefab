@@ -48,4 +48,4 @@ MonoBehaviour:
   GearClip: {fileID: 8300000, guid: dad6d5b0127de7b41929ff05305cd678, type: 3}
   WinGearClip: {fileID: 8300000, guid: 31eb2ca688f15a34bb9a5b72b452e781, type: 3}
   ObjectTake: {fileID: 8300000, guid: d3dd5c0a3ab1b4f46a60f742e6c0fa46, type: 3}
-  ObjectDrop: {fileID: 8300000, guid: de0e6986bf517ee4298cd4f8ccd6c1aa, type: 3}
+  ObjectDrop: {fileID: 8300000, guid: be6dbcf767cfd72449e682b91eac4b0c, type: 3}
