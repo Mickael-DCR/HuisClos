@@ -11,7 +11,7 @@ public class WinCondition : MonoBehaviour
     public CheckType Type = CheckType.Pivot; // Choose type in the inspector
     
     public List<Pivot> Pivots;
-    public List<ItemsReceptor> ItemsReceptors;
+    public List<ItemsReceiver> ItemsReceptors;
     
     [SerializeField] private PropMovement _propToMove;
     public bool PropHasMoved = false;

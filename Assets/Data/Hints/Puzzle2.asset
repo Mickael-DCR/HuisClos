@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31945a02682cc4c4383a3e16154ecead, type: 3}
+  m_Name: Puzzle2
+  m_EditorClassIdentifier: 
+  puzzleName: Horloge
+  steps:
+  - hints:
+    - "Parfois, les enveloppes les plus importantes ne sont pas sur un bureau, mais
+      tout pr\xE8s d'un instrument d'observation."
+    - "l'armoire \xE0 cot\xE9 du t\xE9lescope abrite bien plus que du rangement."
+    - "regarde dans l'armoire \xE0 gauche du t\xE9lescope. Tu y trouveras une enveloppe."
+  - hints:
+    - "Il faut parfois ouvrir le temps pour en d\xE9couvrir les secrets."
+    - "La porte de l'horloge n'est pas qu'un d\xE9cor ..."
+    - Ouvre la porte de la grande horloge.
+  - hints:
+    - "Le temps est \xE0 manipuler avec soin. Que disent les aiguilles quand on les
+      \xE9coute ?"
+    - "Place les deux aiguilles sur le cadran de l\u2019horloge, puis essaie de les
+      faire tourner."
+    - "Ins\xE8re les aiguilles sur le cadran de l\u2019horloge et fais-les tourner
+      pour tester diff\xE9rentes heures."
+  - hints:
+    - "L\u2019ombre ne peut \xEAtre projet\xE9e sans une lentille compl\xE8te. Trois
+      fragments dispers\xE9s\u2026"
+    - "Cherche bien : l\u2019un est cach\xE9 par la nature, un autre dans l\u2019humidit\xE9,
+      le dernier dans le d\xE9sordre du travail."
+    - "Le morceau 1 est derri\xE8re une plante. Le morceau 2 est dans un seau pr\xE8s
+      de la chemin\xE9e. Le morceau 3 est dans un tiroir du bureau."
+  - hints:
+    - "Quand tous les fragments sont en place, la lumi\xE8re peut enfin r\xE9v\xE9ler
+      ce qui est cach\xE9."
+    - "Assemble les 3 morceaux dans le projecteur, mais sans lumi\xE8re tu n\u2019auras
+      pas le savoir."
+    - "Place les 3 morceaux dans le projecteur, puis mets la bougie \xE0 l\u2019endroit
+      pr\xE9vu pour projeter une image sur le mur."
+  - hints:
+    - "Le pass\xE9 se refl\xE8te sur le mur\u2026 le pr\xE9sent doit en prendre la
+      forme."
+    - "L\u2019ombre montre une heure, mais ce n\u2019est pas la qu\u2019on la regarde."
+    - "Observe les positions des aiguilles projet\xE9es sur le mur, puis reproduis
+      cette heure en tournant les aiguilles sur le cadran de l\u2019horloge."

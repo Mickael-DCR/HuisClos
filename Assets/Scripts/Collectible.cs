@@ -8,6 +8,7 @@ public class Collectible : MonoBehaviour
 
     public bool PickUp()
     {
+        GetComponent<PuzzleStepUpdater>()?.UpdateStep();
         SoundManager.instance.PlayTake();
         return InventoryManager.Instance.AddItem(Item, gameObject);
     }

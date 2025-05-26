@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ProjectorProp : ItemsReceptor
+public class ProjectorProp : ItemsReceiver
 {
     [SerializeField] private Light _projectorLight;
     [SerializeField] private GameObject _lighting;

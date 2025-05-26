@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 5339180741360423757}
   _emissiveIntensity: 1
-  _emissiveColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissiveColor: {r: 0.9056604, g: 0.7504406, b: 0, a: 1}
 --- !u!1 &9186743419857299453
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3e1a3910c629f5f42ac12efcb299e208, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2c1142601c427d545a0ab82f6b69c176, type: 2}
+      objectReference: {fileID: 2100000, guid: ad0cf451a5fedf24f8fb2996986fe85d, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 3e1a3910c629f5f42ac12efcb299e208, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1541214011702926920, guid: 02d9dec79f6301546b70275c435826e4, type: 3}
     - target: {fileID: 919132149155446097, guid: 3e1a3910c629f5f42ac12efcb299e208, type: 3}
       propertyPath: m_Name
       value: SM_phone_001

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31945a02682cc4c4383a3e16154ecead, type: 3}
+  m_Name: Puzzle1
+  m_EditorClassIdentifier: 
+  puzzleName: Telescope
+  steps:
+  - hints:
+    - "Le ciel garde parfois des secrets \xE0 ceux qui osent le regarder."
+    - "Le t\xE9lescope \xE0 droite de l\u2019entr\xE9e est plus qu\u2019un simple
+      d\xE9cor. As-tu observ\xE9 ce qu\u2019il montre ?"
+    - "Regarde dans le t\xE9lescope pr\xE8s de l\u2019entr\xE9e. Une premi\xE8re
+      constellation y est visible."
+  - hints:
+    - "Un d\xE9tail sous tes pieds pourrait tout changer."
+    - "Il y a un papier important\u2026 sous l\u2019un des bureaux."
+    - "Va sous le bureau. Tu y trouveras un papier avec un motif de constellation
+      \xE0 placer dans le t\xE9lescope."
+  - hints:
+    - "Un filtre modifie toujours ce qu\u2019on croit conna\xEEtre."
+    - "Essaie de regarder \xE0 travers le t\xE9lescope en y pla\xE7ant le papier."
+    - "Place le papier devant la lentille du t\xE9lescope. Une nouvelle constellation
+      appara\xEEtra."
+  - hints:
+    - "Ce que tu vois l\xE0-haut doit aussi exister ici-bas."
+    - "La constellation vue doit \xEAtre reproduite quelque part dans la pi\xE8ce\u2026
+      peut-\xEAtre sur un mur ?"
+    - "Va au mur \xE0 cadrans. Tu dois tourner les \xE9l\xE9ments pour reconstituer
+      la constellation vue dans le t\xE9lescope."
+  - hints:
+    - "Le m\xE9canisme est incomplet. Il manque une pi\xE8ce."
+    - "Un cadre manque, il \xE0 surement voulu l'emporter loin de l\xE0."
+    - "Va sur la biblioth\xE8que \xE0 gauche de la sortie. Dans une valise verrouill\xE9e,
+      tu trouveras le cadran manquant."
+  - hints:
+    - "L\u2019ordre des \xE9toiles est une danse bien r\xE9gl\xE9e."
+    - "Fais correspondre les motifs observ\xE9s dans le t\xE9lescope avec ceux des
+      cadrans."
+    - "Tourne chaque cadran jusqu\u2019\xE0 ce que la constellation vue dans le t\xE9lescope
+      soit parfaitement reproduite."

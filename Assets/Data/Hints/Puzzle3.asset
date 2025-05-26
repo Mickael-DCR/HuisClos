@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31945a02682cc4c4383a3e16154ecead, type: 3}
+  m_Name: Puzzle3
+  m_EditorClassIdentifier: 
+  puzzleName: Brasero
+  steps:
+  - hints:
+    - "Ce qui r\xE9chauffe est souvent l\xE0 o\xF9 le feu a d\xE9j\xE0 v\xE9cu."
+    - "La chemin\xE9e semble abandonn\xE9e\u2026 mais peut-\xEAtre pas compl\xE8tement
+      vide."
+    - "Regarde dans la chemin\xE9e. Les b\xFBches n\xE9cessaires s\u2019y trouvent."
+  - hints:
+    - Un brasero sans bois est une bouche sans voix.
+    - "Place les b\xFBches r\xE9cup\xE9r\xE9es dans le brasero, au centre de la pi\xE8ce."
+    - "Va au brasero et d\xE9pose les b\xFBches r\xE9cup\xE9r\xE9es dans la chemin\xE9e
+      \xE0 l\u2019int\xE9rieur."
+  - hints:
+    - "Ce qui cache un secret n\u2019est pas toujours m\xE9tallique\u2026 parfois,
+      la cire suffit."
+    - "Cherche un objet \xE9trange dans un meuble ferm\xE9, \xE0 droite de l\u2019horloge."
+    - "L\u2019objet en cire est dans le meuble ferm\xE9 par un cadenas, \xE0 droite
+      de l\u2019horloge."
+  - hints:
+    - "Ce qui semble banal peut cacher un d\xE9tail... et un chiffre."
+    - "Inspecte les objets dans la pi\xE8ce. Certains contiennent un chiffre dissimul\xE9."
+    - "Trouve plusieurs objets dans la pi\xE8ce avec un chiffre cach\xE9 dessus.
+      Assemble-les dans le bon ordre pour d\xE9verrouiller le cadenas."
+  - hints:
+    - "Certains secrets ne se d\xE9voilent que dans la chaleur du feu."
+    - "Pose l\u2019objet sur le brasero. M\xEAme la plus petite flamme peut cr\xE9er
+      un grand feu."
+    - "D\xE9pose l\u2019objet en cire sur le brasero et utilise la bougie pour le
+      faire fondre."
