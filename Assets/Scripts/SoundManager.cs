@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource Src;
 
     [Header("Audio clips")]
-    public AudioClip GearClip, WinGearClip, ObjectTake, ObjectDrop;
+    public AudioClip GearClip, WinGearClip, ObjectTake, ObjectDrop, WhenNothingClick, UIClick;
 
     public void PlaySFX(AudioClip clip)
     {
@@ -30,6 +30,8 @@ public class SoundManager : MonoBehaviour
     public void PlayGearWin() => PlaySFX(WinGearClip);
     public void PlayTake() => PlaySFX(ObjectTake);
     public void PlayDrop() => PlaySFX(ObjectDrop);
+    public void PlayWhenNothing() => PlaySFX(WhenNothingClick);
+    public void PlayUI() => PlaySFX(UIClick); 
 
     
 }

@@ -914,17 +914,6 @@
                 },
                 {
                     "name": "",
-                    "id": "31dce9cc-ef9d-4c0b-ae65-93c72ad24760",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5919e716-7849-45c4-89b1-15c4605da860",
                     "path": "<Keyboard>/escape",
                     "interactions": "",

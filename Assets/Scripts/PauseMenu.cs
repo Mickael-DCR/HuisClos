@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = isPaused ? 0.0f : 1.0f;
 
         UIManager.Instance.ToggleCursor();
+        
     }
 
     public void ExitGame()

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8456328332645518866}
-  - component: {fileID: 525842592925621849}
+  - component: {fileID: 4370129581236683072}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &525842592925621849
+--- !u!114 &4370129581236683072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,5 +47,7 @@ MonoBehaviour:
   Src: {fileID: 0}
   GearClip: {fileID: 8300000, guid: dad6d5b0127de7b41929ff05305cd678, type: 3}
   WinGearClip: {fileID: 8300000, guid: 31eb2ca688f15a34bb9a5b72b452e781, type: 3}
-  ObjectTake: {fileID: 8300000, guid: d3dd5c0a3ab1b4f46a60f742e6c0fa46, type: 3}
+  ObjectTake: {fileID: 8300000, guid: 7e13a57812d7c5543b443d92f61a55ba, type: 3}
   ObjectDrop: {fileID: 8300000, guid: be6dbcf767cfd72449e682b91eac4b0c, type: 3}
+  WhenNothingClick: {fileID: 8300000, guid: 923c43858707c1749a4f0024dd31edf8, type: 3}
+  UIClick: {fileID: 8300000, guid: 35a5574e76b2c174c8ca66e3b246971c, type: 3}
