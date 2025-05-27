@@ -1625,6 +1625,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4849286434358315890, guid: 5bd724081c181d849bf3e830ee97a505, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849286434358315890, guid: 5bd724081c181d849bf3e830ee97a505, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ef41b6afbb6bbf4478d9b372f6cb5585, type: 2}
+    - target: {fileID: 4849286434358315890, guid: 5bd724081c181d849bf3e830ee97a505, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ef41b6afbb6bbf4478d9b372f6cb5585, type: 2}
     - target: {fileID: 6931051774473946935, guid: 5bd724081c181d849bf3e830ee97a505, type: 3}
       propertyPath: m_Name
       value: Desk
