@@ -15,7 +15,6 @@ public class HintManager : MonoBehaviour
     [SerializeField] private Button _puzzle1Button;
     [SerializeField] private Button _puzzle2Button;
     [SerializeField] private Button _puzzle3Button;
-    [SerializeField] private Button _puzzle4Button;
 
     [Header("Data")]
     [SerializeField] private List<PuzzleHintData> _allPuzzleHints;
@@ -58,7 +57,6 @@ public class HintManager : MonoBehaviour
         _puzzle1Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle1"));
         _puzzle2Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle2"));
         _puzzle3Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle3"));
-        _puzzle4Button.onClick.AddListener(() => OnPuzzleSelected("Puzzle4"));
 
         // Start cooldown coroutine
         _hintCoroutine = StartHintRoutine();

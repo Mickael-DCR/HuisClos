@@ -6,7 +6,8 @@ public class PropMovement : MonoBehaviour
     public enum InteractionType { Move, Rotate }
     [SerializeField] private InteractionType _interactionType = InteractionType.Move;
 
-    
+    [SerializeField] private bool _needsKey;
+    [SerializeField] private string _keyTag;
     [Header("Movement Settings")]
     [SerializeField] private Vector3 _moveOffset = new Vector3(0, 0, 1); // How far to move
     [SerializeField] private float _moveSpeed = 2f;
@@ -38,7 +39,10 @@ public class PropMovement : MonoBehaviour
     public void Interact()
     {
         if (_isInteracting) return;
-        
+        if (_needsKey)
+        {
+            
+        }
         _isInteracting = true;
         _isOpen = !_isOpen;
 

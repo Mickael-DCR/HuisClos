@@ -31,7 +31,6 @@ public class Prop : MonoBehaviour
             {
                 SoundManager.instance.PlayDrop();
                 _resolved = true;
-                Debug.Log("Correct item detected.");
                 return;
             }
         }

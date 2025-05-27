@@ -15,11 +15,7 @@ public class ItemTooltipUI : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-
+        if (Instance == null) Instance = this;
     }
 
     public void ShowTooltip(Item item)
