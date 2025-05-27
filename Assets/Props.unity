@@ -5066,6 +5066,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Book_001 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2929640277652407947, guid: 7f0359995b0fdd74bb812197d5188a69, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2631e270088316b4591b602e5b8fc675, type: 2}
+    - target: {fileID: 2929640277652407947, guid: 7f0359995b0fdd74bb812197d5188a69, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 988b92982b30f37409c78e2465e55db6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
