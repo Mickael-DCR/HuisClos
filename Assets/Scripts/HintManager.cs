@@ -50,7 +50,6 @@ public class HintManager : MonoBehaviour
         {
             if (puzzle == null) continue;
             _hintData[puzzle.puzzleName] = puzzle;
-            Debug.Log(puzzle);
             _stepByPuzzle[puzzle.puzzleName] = 0;
             _hintIndexByPuzzle[puzzle.puzzleName] = 0;
         }
@@ -94,6 +93,7 @@ public class HintManager : MonoBehaviour
         HintSelectorPanel.SetActive(false);
         ShowHintForPuzzle(puzzleName);
         CanUse = false;
+        StartHintRoutine();
     }
 
     public void ShowHintForPuzzle(string puzzleName)

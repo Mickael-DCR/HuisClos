@@ -13,8 +13,10 @@ public class HintPhone : Prop
             
             PlayerController.InputSystemActions.Player.Disable();
             PlayerController.InputSystemActions.UI.Enable();
+            
             return true;
         }
+        SoundManager.instance.PlayWhenNothing();
         return false;
     }
 }

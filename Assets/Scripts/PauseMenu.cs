@@ -16,17 +16,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         
-        PlayerController.InputSystemActions.UI.Pause.performed += ctx => TogglePause();
-    }
-
-    void OnEnable()
-    {
-        PlayerController.InputSystemActions.UI.Enable();
-    }
-
-    void OnDisable()
-    {
-        PlayerController.InputSystemActions.UI.Disable();
+        PlayerController.InputSystemActions.Player.Pause.performed += ctx => TogglePause();
     }
 
     public void TogglePause()

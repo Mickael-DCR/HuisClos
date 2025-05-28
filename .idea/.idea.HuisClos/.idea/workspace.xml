@@ -23,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Candle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Disk.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Prop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneFader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@e2c83221d2dc/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@e2c83221d2dc/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@e2c83221d2dc/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
@@ -124,7 +125,7 @@
       <workItem from="1747729791472" duration="9632000" />
       <workItem from="1747987013690" duration="15441000" />
       <workItem from="1748271528287" duration="7916000" />
-      <workItem from="1748345073956" duration="20052000" />
+      <workItem from="1748345073956" duration="24797000" />
     </task>
     <servers />
   </component>
@@ -176,10 +177,10 @@
           <line>139</line>
           <properties documentPath="G:\Unity\HuisClos\Assets\Scripts\HintManager.cs" containingFunctionPresentation="Method 'SetCurrentStep'">
             <startOffsets>
-              <option value="4159" />
+              <option value="4156" />
             </startOffsets>
             <endOffsets>
-              <option value="4194" />
+              <option value="4191" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />

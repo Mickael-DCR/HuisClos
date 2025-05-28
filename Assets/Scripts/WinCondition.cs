@@ -67,6 +67,7 @@ public class WinCondition : MonoBehaviour
                 }
             }
         }
+        if(Mode == CheckMode.Manual && !PropHasMoved) SoundManager.instance.PlayWhenNothing();
     }
 
     private void LockPivots()
