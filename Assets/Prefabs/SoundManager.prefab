@@ -49,5 +49,5 @@ MonoBehaviour:
   WinGearClip: {fileID: 8300000, guid: 31eb2ca688f15a34bb9a5b72b452e781, type: 3}
   ObjectTake: {fileID: 8300000, guid: 7e13a57812d7c5543b443d92f61a55ba, type: 3}
   ObjectDrop: {fileID: 8300000, guid: be6dbcf767cfd72449e682b91eac4b0c, type: 3}
-  WhenNothingClick: {fileID: 8300000, guid: 923c43858707c1749a4f0024dd31edf8, type: 3}
+  WhenNothingClick: {fileID: 8300000, guid: 05bba1158263a6e44acf47c0ccf4cd99, type: 3}
   UIClick: {fileID: 8300000, guid: 35a5574e76b2c174c8ca66e3b246971c, type: 3}
