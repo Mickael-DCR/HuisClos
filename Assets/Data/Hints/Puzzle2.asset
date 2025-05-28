@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31945a02682cc4c4383a3e16154ecead, type: 3}
   m_Name: Puzzle2
   m_EditorClassIdentifier: 
-  puzzleName: Horloge
+  puzzleName: Puzzle2
   steps:
   - hints:
     - "Parfois, les enveloppes les plus importantes ne sont pas sur un bureau, mais
@@ -50,3 +50,5 @@ MonoBehaviour:
     - "L\u2019ombre montre une heure, mais ce n\u2019est pas la qu\u2019on la regarde."
     - "Observe les positions des aiguilles projet\xE9es sur le mur, puis reproduis
       cette heure en tournant les aiguilles sur le cadran de l\u2019horloge."
+  - hints:
+    - "Cette \xE9nigme est termin\xE9e."

@@ -41,7 +41,14 @@ public class PropMovement : MonoBehaviour
         if (_isInteracting) return;
         if (_needsKey)
         {
+            var playerHand = InventoryManager.Instance.HandSlot;
+            if (playerHand.childCount == 0) return;
+
+            Transform objectInHand = playerHand.GetChild(0);
+            Item itemToRemove = objectInHand.GetComponent<Collectible>().Item;
             
+            InventoryManager.Instance.RemoveItem(itemToRemove);
+            return;
         }
         _isInteracting = true;
         _isOpen = !_isOpen;

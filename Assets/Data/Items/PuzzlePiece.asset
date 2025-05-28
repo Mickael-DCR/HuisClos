@@ -16,4 +16,4 @@ MonoBehaviour:
   ItemPrefab3D: {fileID: 6603998912585118790, guid: 90dcdf47eb03da74ab2f144724bf8468, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
   Icon: {fileID: 21300000, guid: 36e1b1bd7b9d3864382ec85082a049af, type: 3}
-  Description: 
+  Description: "Un \xE9trange m\xE9canisme... "

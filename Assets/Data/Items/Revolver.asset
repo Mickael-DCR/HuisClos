@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8bc307564b3dc4a8e38d462173cb69, type: 3}
+  m_Name: Revolver
+  m_EditorClassIdentifier: 
+  ItemPrefabInspect: {fileID: 37336814323987444, guid: 78046103651abdd48892a329ffb997db, type: 3}
+  ItemPrefab3D: {fileID: 37336814323987444, guid: fc800a8e90d8b0c498bc7f5cfbf12a1d, type: 3}
+  ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
+  Icon: {fileID: 0}
+  Description: "Un revolver bien entretenu. Il est s\xFBrement encore assez efficace
+    pour tuer le temps."

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7988587573816757585}
   - component: {fileID: 2839827584170653251}
   - component: {fileID: -5844187523867071267}
+  - component: {fileID: 8736287362044703882}
   m_Layer: 0
   m_Name: Collectible Needle
   m_TagString: Untagged
@@ -141,3 +142,22 @@ MonoBehaviour:
   - PickUp
   OptionsName:
   - Ramasser
+--- !u!114 &8736287362044703882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338882296360250709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d44db3b27fdd4b458fb14b301311368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _puzzleName: Puzzle2
+  _stepToSet: 2
+  _onlyAdvance: 1
+  _updateOnPickUp: 0
+  _updateOnInteract: 0
+  _updateOnPlaceItem: 0
+  _hasUpdated: 0

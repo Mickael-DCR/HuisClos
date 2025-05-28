@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31945a02682cc4c4383a3e16154ecead, type: 3}
   m_Name: Puzzle1
   m_EditorClassIdentifier: 
-  puzzleName: Telescope
+  puzzleName: Puzzle1
   steps:
   - hints:
     - "Le ciel garde parfois des secrets \xE0 ceux qui osent le regarder."
@@ -37,13 +37,23 @@ MonoBehaviour:
     - "Va au mur \xE0 cadrans. Tu dois tourner les \xE9l\xE9ments pour reconstituer
       la constellation vue dans le t\xE9lescope."
   - hints:
+    - "Souvent, la cl\xE9 est plus proche qu\u2019on ne l\u2019imagine."
+    - 'Il faut parfois regarder autour de son objectif. '
+    - "La cl\xE9 du cadenas est pos\xE9e sur le t\xE9lescope."
+  - hints:
     - "Le m\xE9canisme est incomplet. Il manque une pi\xE8ce."
     - "Un cadre manque, il \xE0 surement voulu l'emporter loin de l\xE0."
     - "Va sur la biblioth\xE8que \xE0 gauche de la sortie. Dans une valise verrouill\xE9e,
       tu trouveras le cadran manquant."
+  - hints:
+    - "Compl\xE8te le cercle. L\u2019image ne peut se former sans l\u2019ensemble."
+    - "Utilise le cadran trouv\xE9 pour combler le vide sur le mur."
+    - "Place le cadran r\xE9cup\xE9r\xE9 dans l\u2019espace vide du mur \xE0 constellation."
   - hints:
     - "L\u2019ordre des \xE9toiles est une danse bien r\xE9gl\xE9e."
     - "Fais correspondre les motifs observ\xE9s dans le t\xE9lescope avec ceux des
       cadrans."
     - "Tourne chaque cadran jusqu\u2019\xE0 ce que la constellation vue dans le t\xE9lescope
       soit parfaitement reproduite."
+  - hints:
+    - "Cette \xE9nigme est termin\xE9e."

@@ -11,7 +11,7 @@ public class ProjectorProp : ItemsReceiver
     [SerializeField] private Texture _cookie;
     private bool _firstDisk, _secondDisk, _thirdDisk, _complete;
     public List<bool> Disks = new List<bool>();
-    
+    private bool _isActive;
     
     private void Start()
     {
@@ -22,11 +22,12 @@ public class ProjectorProp : ItemsReceiver
 
     private void Update()
     {
-        if (_complete && _candleReceiver.childCount > 0)
+        if (!_isActive && _complete && _candleReceiver.childCount > 0)
         {
             _lighting.SetActive(true);
+            HintManager.Instance.SetCurrentStep("Puzzle2",5);
         }
-        else
+        else if (_isActive && _candleReceiver.childCount == 0)
         {
             _lighting.SetActive(false);
         }
@@ -39,6 +40,7 @@ public class ProjectorProp : ItemsReceiver
         {
             if (RewardActive)
             {
+                HintManager.Instance.SetCurrentStep("Puzzle2",4);
                 _projectorLight.cookie = _cookie;
                 _complete = true;
             }

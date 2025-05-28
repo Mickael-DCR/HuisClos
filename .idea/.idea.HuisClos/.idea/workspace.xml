@@ -28,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@22ebcc83720a/Editor/UGUI/UI/CanvasScalerEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@22ebcc83720a/Runtime/UGUI/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@22ebcc83720a/Runtime/UGUI/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@22ebcc83720a/Runtime/UGUI/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@ae8ef65e1045/Editor/Inspector/VisualEffectEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -80,10 +81,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14760">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="33304">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="14760" />
+      <option name="pid" value="33304" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -121,7 +122,7 @@
       <workItem from="1747729791472" duration="9632000" />
       <workItem from="1747987013690" duration="15441000" />
       <workItem from="1748271528287" duration="7916000" />
-      <workItem from="1748345073956" duration="4228000" />
+      <workItem from="1748345073956" duration="14636000" />
     </task>
     <servers />
   </component>
@@ -169,17 +170,17 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs</url>
-          <line>109</line>
-          <properties documentPath="G:\Unity\HuisClos\Assets\Scripts\InventoryManager.cs" containingFunctionPresentation="Method 'RemoveItem'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/HintManager.cs</url>
+          <line>139</line>
+          <properties documentPath="G:\Unity\HuisClos\Assets\Scripts\HintManager.cs" containingFunctionPresentation="Method 'SetCurrentStep'">
             <startOffsets>
-              <option value="3398" />
+              <option value="4159" />
             </startOffsets>
             <endOffsets>
-              <option value="3450" />
+              <option value="4194" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

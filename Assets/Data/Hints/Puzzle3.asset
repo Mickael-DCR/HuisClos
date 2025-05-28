@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31945a02682cc4c4383a3e16154ecead, type: 3}
   m_Name: Puzzle3
   m_EditorClassIdentifier: 
-  puzzleName: Brasero
+  puzzleName: Puzzle3
   steps:
   - hints:
     - "Ce qui r\xE9chauffe est souvent l\xE0 o\xF9 le feu a d\xE9j\xE0 v\xE9cu."

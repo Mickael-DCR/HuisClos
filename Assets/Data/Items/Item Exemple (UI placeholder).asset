@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemPrefabInspect: {fileID: 0}
   ItemPrefab3D: {fileID: 0}
-  ItemPrefabUI: {fileID: 0}
+  ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
   Icon: {fileID: 21300000, guid: 36d2fb2fddc9c874f875d9549127b2ae, type: 3}
   Description: Survolez un objet pour en apprendre plus !

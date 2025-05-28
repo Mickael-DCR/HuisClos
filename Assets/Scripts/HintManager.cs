@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HintManager : MonoBehaviour
@@ -11,7 +12,7 @@ public class HintManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TMP_Text _hintTextUI;
     [SerializeField] private GameObject _hintPanel;
-    [SerializeField] private GameObject _hintSelectorPanel;
+    public GameObject HintSelectorPanel;
     [SerializeField] private Button _puzzle1Button;
     [SerializeField] private Button _puzzle2Button;
     [SerializeField] private Button _puzzle3Button;
@@ -49,6 +50,7 @@ public class HintManager : MonoBehaviour
         {
             if (puzzle == null) continue;
             _hintData[puzzle.puzzleName] = puzzle;
+            Debug.Log(puzzle);
             _stepByPuzzle[puzzle.puzzleName] = 0;
             _hintIndexByPuzzle[puzzle.puzzleName] = 0;
         }
@@ -84,19 +86,22 @@ public class HintManager : MonoBehaviour
 
     public void ShowHintSelectionUI()
     {
-        _hintSelectorPanel.SetActive(true);
+        HintSelectorPanel.SetActive(true);
     }
 
     private void OnPuzzleSelected(string puzzleName)
     {
-        _hintSelectorPanel.SetActive(false);
+        HintSelectorPanel.SetActive(false);
         ShowHintForPuzzle(puzzleName);
         CanUse = false;
-        StartHintRoutine();
     }
 
     public void ShowHintForPuzzle(string puzzleName)
     {
+        UIManager.Instance.ToggleCursor();
+            
+        PlayerController.InputSystemActions.Player.Enable();
+        PlayerController.InputSystemActions.UI.Disable();
         if (!_hintData.ContainsKey(puzzleName)) return;
 
         var puzzle = _hintData[puzzleName];

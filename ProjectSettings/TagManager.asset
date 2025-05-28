@@ -17,6 +17,8 @@ TagManager:
   - Disk1
   - Disk2
   - Disk3
+  - Disk
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Collectible
+  - 
   - Inspect Layer
   - Prop
   - 
