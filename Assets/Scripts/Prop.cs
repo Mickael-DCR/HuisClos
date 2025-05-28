@@ -35,6 +35,6 @@ public class Prop : MonoBehaviour
             }
         }
 
-        Debug.Log("No matching item found.");
+        SoundManager.instance.PlayWhenNothing();
     }
 }
