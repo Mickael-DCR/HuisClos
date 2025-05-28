@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemPrefabInspect: {fileID: 1163296848449334338, guid: d095e0b1bc1de2043960a604de088b1b, type: 3}
   ItemPrefab3D: {fileID: 1163296848449334338, guid: ac00bddde4f729b428ff0b0051ee9ce0, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: e4bd9efda1cb5854e93a7e7a03311354, type: 3}
   Description: "Une th\xE9i\xE8re."

@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/S_S.unity
     guid: a59afd3776cc830498518f869a613b15
   - enabled: 1
@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/S_Scripting.unity
     guid: 1fd0c2fac10927b43acce8ff70e46c28
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/S_AwenTropBo.unity
     guid: c2e9e7e9ba002c543846ed7c2de7e2d0
   m_configObjects:

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -39,18 +40,33 @@ public class PropMovement : MonoBehaviour
     public void Interact()
     {
         if (_isInteracting) return;
+        _isInteracting = true;
+        
+        
         if (_needsKey)
         {
             var playerHand = InventoryManager.Instance.HandSlot;
-            if (playerHand.childCount == 0) return;
+            if (playerHand.childCount == 0)
+            {
+                SoundManager.instance.PlayWhenNothing();
+                _isInteracting = false;
+                return;
+            }
 
             Transform objectInHand = playerHand.GetChild(0);
             Item itemToRemove = objectInHand.GetComponent<Collectible>().Item;
-            
-            InventoryManager.Instance.RemoveItem(itemToRemove);
-            return;
+            if (objectInHand.CompareTag(_keyTag))
+            {
+                InventoryManager.Instance.RemoveItem(itemToRemove);
+                Destroy(objectInHand.gameObject);
+            }
+            else
+            {
+                SoundManager.instance.PlayWhenNothing();
+                _isInteracting = false;
+                return;
+            }
         }
-        _isInteracting = true;
         _isOpen = !_isOpen;
 
         if (_interactionType == InteractionType.Move)

@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemPrefabInspect: {fileID: 7094522895598284898, guid: 6d9ab9085dd63824dbeeb31fb1ea1f35, type: 3}
   ItemPrefab3D: {fileID: 7094522895598284898, guid: 8a0c2959b61d31b419d0766e456cf90f, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 63e442472733c014c9e49ce7374e4855, type: 3}
   Description: Un chapeau bien singulier. Il semble pourtant familier...

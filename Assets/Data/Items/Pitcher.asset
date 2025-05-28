@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemPrefabInspect: {fileID: 2152997921472353047, guid: 0d4f038cbe03f4c4f8b98168c553cc7b, type: 3}
   ItemPrefab3D: {fileID: 2152997921472353047, guid: ab09710c2426a51479401f6ad5f4cebb, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 67f65e96086bbdd4fb7bd92257ee3474, type: 3}
   Description: Un vieux pichet.

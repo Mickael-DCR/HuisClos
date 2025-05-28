@@ -78,7 +78,8 @@ Transform:
   m_LocalPosition: {x: -0.61282825, y: -0.6728685, z: -4.135606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2059492014973472009}
   m_Father: {fileID: 5365696364420512333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &142686647354623244
@@ -217,40 +218,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hintTextUI: {fileID: 0}
   _hintPanel: {fileID: 0}
-  _displayDuration: 5
-  _intervalBetweenHints: 30
-  _puzzle1Hints:
-  - "Les \xE9toiles ne brillent qu'aux yeux de ceux qui prennent le temps de les
-    regarder ..."
-  - "Un simple papier peut transformer ce que l'on voit ... Ce t\xE9lescope montre
-    plus qu'une vue du ciel."
-  - "regarde dans le t\xE9lescope, place y le papier trouv\xE9 sous le bureau. Tu
-    verras une constellation \xE0 reproduire sur le mur \xE0 cadran. Pour cela trouve
-    le cadran manquant dans la valise \xE0 cot\xE9 de la biblioth\xE8que en l'ouvrant
-    ave la cl\xE9 pos\xE9 sur le t\xE9lescope."
-  _puzzle2Hints:
-  - "Deux aiguilles sans cadran ne sont que des fl\xE8ches sans cible ... et si le
-    temps projet\xE9 d\xE9tenais la cl\xE9 ?"
-  - "Ce projecteur n'est pas complet. Trois morceaux attendent d'\xEAtre rassembl\xE9s
-    ... Ouvre les yeux : parfois la poussi\xE8re cache des v\xE9rit\xE9s."
-  - "cherche les morceaux du disque derri\xE8re la plante, dans un seau pr\xE8s de
-    la chemin\xE9e, et dans un tiroir du bureau. assemble les dans le projecteur,
-    allume-le, observe l'heure projet\xE9e et reproduis-la sur l'horologe."
-  _puzzle3Hints:
-  - "Tous les secrets ne craignent pas le feu ... certains ne se r\xE9v\xE8lent que
-    lorsqu'ils fondent."
-  - Le brassero attend plus que du bois. Trouve l'objet fait pour bruler, et regarde
-    ce qu'il cache en son coeur.
-  - "R\xE9cup\xE8re les buches dans la chemin\xE9e. L'objet en cire est dans le meuble
-    \xE0 droite de l'horloge. Fais le fondre dans le brasero, une cl\xE9 appara\xEEtra.
-    Elle ouvre un coffre contenant le dernier livre."
-  _puzzle4Hints:
-  - "La connaissance bien rang\xE9e ouvre parfois plus de portes que la force brute
-    ..."
-  - "Trois livres, trois \xE9nigmes. Rassemble-les, puis regarde ce que la biblioth\xE8que
-    dissimule."
-  - "Place les trois livres dans la biblioth\xE8que. Un m\xE9canisme s'enclenchera
-    et la sortie s'ouvrira."
+  HintSelectorPanel: {fileID: 0}
+  _puzzle1Button: {fileID: 0}
+  _puzzle2Button: {fileID: 0}
+  _puzzle3Button: {fileID: 0}
+  _allPuzzleHints:
+  - {fileID: 11400000, guid: a4d80ea751032bd4f8eda9ed4483927f, type: 2}
+  - {fileID: 11400000, guid: 8c023176494a669478e22753e43f042c, type: 2}
+  _displayDuration: 8
+  _intervalBetweenHints: 5
   _emissiveToChange: {fileID: 0}
   CanUse: 0
 --- !u!1 &4678273228037738249
@@ -339,6 +315,54 @@ MonoBehaviour:
   _contentPanel: {fileID: 0}
   _optionPrefab: {fileID: 5330250001759569016, guid: 9fbb0b8dae783c54a8173594b260090f, type: 3}
   _optionPrefab2: {fileID: 5330250001759569016, guid: 85bb2b10dab13a249940b3b006ef8d01, type: 3}
+--- !u!1 &8852487061832484921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059492014973472009}
+  - component: {fileID: 6529572536465829194}
+  m_Layer: 0
+  m_Name: Inventory ToolTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2059492014973472009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852487061832484921}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.61282825, y: 0.6728685, z: 4.135606}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8632726900790571980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6529572536465829194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852487061832484921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96908ba4001432e4f8c41545918197a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tooltipPanel: {fileID: 0}
+  _iconImage: {fileID: 0}
+  _descriptionText: {fileID: 0}
+  _itemPlaceholder: {fileID: 11400000, guid: d46c2cc0828bd0b4da727422a77af1eb, type: 2}
 --- !u!1001 &8074724830165180580
 PrefabInstance:
   m_ObjectHideFlags: 0

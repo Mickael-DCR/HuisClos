@@ -18,6 +18,7 @@ public class ProjectorProp : ItemsReceiver
         Disks.Add(_firstDisk);
         Disks.Add(_secondDisk);
         Disks.Add(_thirdDisk);
+        _lighting.SetActive(false);
     }
 
     private void Update()
@@ -27,7 +28,7 @@ public class ProjectorProp : ItemsReceiver
             _lighting.SetActive(true);
             HintManager.Instance.SetCurrentStep("Puzzle2",5);
         }
-        else if (_isActive && _candleReceiver.childCount == 0)
+        else
         {
             _lighting.SetActive(false);
         }

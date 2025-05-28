@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemPrefabInspect: {fileID: 37336814323987444, guid: 78046103651abdd48892a329ffb997db, type: 3}
   ItemPrefab3D: {fileID: 37336814323987444, guid: fc800a8e90d8b0c498bc7f5cfbf12a1d, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 620a17820f7b98d4089201bd4c5dd563, type: 3}
   Description: "Un revolver bien entretenu. Il est s\xFBrement encore assez efficace
     pour tuer le temps."

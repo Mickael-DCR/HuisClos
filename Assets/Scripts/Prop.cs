@@ -18,7 +18,7 @@ public class Prop : MonoBehaviour
         var playerHand = InventoryManager.Instance.HandSlot;
         if (playerHand.childCount == 0)
         {
-            Debug.Log("No items in hand.");
+            SoundManager.instance.PlayWhenNothing();
             return;
         }
 

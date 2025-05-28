@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemPrefabInspect: {fileID: 5892111882228499838, guid: a4d9ebeb9418e274fb658716d955f5e2, type: 3}
   ItemPrefab3D: {fileID: 5892111882228499838, guid: 34f1c030e1c2ff8408c2b0c6a6dc36e6, type: 3}
   ItemPrefabUI: {fileID: 5833908741043517121, guid: 8c1c5b9512a213a4f9982ca78b94a8ca, type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 735ca761b11ac4f418648aaeb824f9f9, type: 3}
   Description: "Une montre \xE0 gousset. "

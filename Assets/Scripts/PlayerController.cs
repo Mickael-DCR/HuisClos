@@ -229,6 +229,11 @@ public class PlayerController : MonoBehaviour
 
     private void CloseInventoryWindow(InputAction.CallbackContext context)
     {
+        if (PauseMenu.Instance.PauseWindow.activeInHierarchy)
+        {
+            PauseMenu.Instance.PauseWindow.SetActive(false);
+            return;
+        }
         if (UIManager.Instance.TelescopeWindow.activeInHierarchy)
         {
             UIManager.Instance.ToggleTelescope(false);

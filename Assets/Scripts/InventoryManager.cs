@@ -83,6 +83,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                ItemTooltipUI.Instance.ShowTooltip(item);
                 Destroy(objectToDestroy);
                 return true; // item added
             }
